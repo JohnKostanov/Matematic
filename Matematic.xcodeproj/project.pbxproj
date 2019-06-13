@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5224AFFE22B2A915000CD5BE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5224AFFD22B2A915000CD5BE /* .gitignore */; };
 		52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D122AC38ED00334F22 /* AppDelegate.swift */; };
 		52E7D8D422AC38ED00334F22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D322AC38ED00334F22 /* ViewController.swift */; };
 		52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D522AC38ED00334F22 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5224AFFD22B2A915000CD5BE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		52E7D8CE22AC38ED00334F22 /* Matematic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matematic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E7D8D122AC38ED00334F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E7D8D322AC38ED00334F22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 		52E7D8C522AC38ED00334F22 = {
 			isa = PBXGroup;
 			children = (
+				5224AFFD22B2A915000CD5BE /* .gitignore */,
 				52E7D8D022AC38ED00334F22 /* Matematic */,
 				52E7D8CF22AC38ED00334F22 /* Products */,
 			);
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5224AFFE22B2A915000CD5BE /* .gitignore in Resources */,
 				52E7D8DC22AC38EE00334F22 /* LaunchScreen.storyboard in Resources */,
 				52E7D8D922AC38EE00334F22 /* Assets.xcassets in Resources */,
 				52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */,
