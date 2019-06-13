@@ -36,7 +36,7 @@ class ViewController: UIViewController {
        if summaNumbers == respuestaNumber {
         
     
-            let alertControler = UIAlertController(title: "Ваш ответ правильный!", message: "Побробуйте снова ваши силы!", preferredStyle: UIAlertController.Style.alert)
+            let alertControler = UIAlertController(title: "Ваш ответ правильный!", message: "Продолжайте в том же духе! Побробуйте снова ваши силы! ", preferredStyle: UIAlertController.Style.alert)
             alertControler.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alertControler, animated: true, completion: nil)
         
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
            
             
         } else {
-            let alertControler = UIAlertController(title: "Ваш ответ не верен!", message: "Побробуйте еще разочек!", preferredStyle: UIAlertController.Style.alert)
+            let alertControler = UIAlertController(title: "Ваш ответ не верен!", message: "Побробуйте еще разочек! У вас все получится!", preferredStyle: UIAlertController.Style.alert)
             alertControler.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alertControler, animated: true, completion: nil)
 
