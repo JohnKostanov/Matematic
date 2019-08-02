@@ -36,8 +36,11 @@ class QuestionViewController: UIViewController {
         
     }
     func updateUI() {
-        questionLabel.text = question[questionIndex].questionType + " " + String(question[questionIndex].numberFirst) + " " + "+" + " " + String(question[questionIndex].numberSecond)
-        answerLabel.text = "Правильный ответ: " + question[questionIndex].currentAnswer
+        let numberFirst = question[questionIndex].numberFirst
+        let numberSecond = question[questionIndex].numberSecond
+        let currentAnswer = numberFirst + numberSecond
+        questionLabel.text = question[questionIndex].questionType + " " + String(numberFirst) + " " + "+" + " " + String(numberSecond)
+        answerLabel.text = "Правильный ответ: " + String(currentAnswer)
         nextQuestion()
     }
 

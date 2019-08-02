@@ -10,28 +10,43 @@ import Foundation
 
 struct Question {
     var questionType: String
-    var numberFirst: Int
-    var numberSecond: Int
+    var numberFirst: Int {
+        get {
+            let random = Int(arc4random_uniform(10))
+            return random
+        }
+    }
+    var numberSecond: Int {
+        get {
+            let random = Int(arc4random_uniform(10))
+            return random
+        }
+    }
+    
     var numberThird: Int
     var operatorType: OperatorType
     
 }
 
-extension Question {
-    var currentAnswer: String {
-        return "\(numberFirst + numberSecond)"
-    }
     
-}
+
+    
+    
+
 
 extension Question {
     static var all: [Question] {
         return [
-        Question(questionType: "Сложите", numberFirst: 2, numberSecond: 2, numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите", numberFirst: 3, numberSecond: 5, numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите", numberFirst: 4, numberSecond: 7, numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите", numberFirst: 6, numberSecond: 9, numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите", numberFirst: 8, numberSecond: 9, numberThird: 0, operatorType: .summa)
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
+        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa)
         ]
     }
 }
