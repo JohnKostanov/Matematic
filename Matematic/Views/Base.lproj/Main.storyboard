@@ -343,7 +343,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-lj-QbW">
-                                <rect key="frame" x="40" y="218.5" width="334" height="459"/>
+                                <rect key="frame" x="40" y="208.5" width="334" height="479"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BPr-gP-M9D">
                                         <rect key="frame" x="92" y="0.0" width="150" height="2"/>
@@ -354,14 +354,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eta-0W-ISw">
+                                        <rect key="frame" x="167" y="75.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ответ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnx-c5-oUC">
-                                        <rect key="frame" x="127" y="75.5" width="80.5" height="33.5"/>
+                                        <rect key="frame" x="127" y="95.5" width="80.5" height="33.5"/>
                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="9pW-gx-eBr">
-                                        <rect key="frame" x="54" y="129" width="226" height="50"/>
+                                        <rect key="frame" x="54" y="149" width="226" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJs-Vf-IWg">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -372,6 +378,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="7"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="cuv-98-FmJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYR-fL-a4B">
                                                 <rect key="frame" x="88" y="0.0" width="50" height="50"/>
@@ -382,6 +391,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="8"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="2dT-GB-k3s"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7He-jq-er0">
                                                 <rect key="frame" x="176" y="0.0" width="50" height="50"/>
@@ -392,11 +404,14 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="9"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="wP5-ME-f8Z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="D6J-Qd-m3J">
-                                        <rect key="frame" x="54" y="199" width="226" height="50"/>
+                                        <rect key="frame" x="54" y="219" width="226" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-od-rsa">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -407,6 +422,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="4"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="Cbv-rk-JLz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-Iy-r2f">
                                                 <rect key="frame" x="88" y="0.0" width="50" height="50"/>
@@ -417,6 +435,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="5"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="89x-wF-cAf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-Ec-WaT">
                                                 <rect key="frame" x="176" y="0.0" width="50" height="50"/>
@@ -427,11 +448,14 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="6"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="NTn-GC-MaS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="1C6-hJ-1c4">
-                                        <rect key="frame" x="54" y="269" width="226" height="50"/>
+                                        <rect key="frame" x="54" y="289" width="226" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwD-ia-NoH">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -442,6 +466,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="1"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="JWb-qR-NNg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9A-wS-raU">
                                                 <rect key="frame" x="88" y="0.0" width="50" height="50"/>
@@ -452,6 +479,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="2"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="h2i-og-nVk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-It-Udn">
                                                 <rect key="frame" x="176" y="0.0" width="50" height="50"/>
@@ -462,11 +492,14 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="3"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="Nyz-3m-rWC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="tW6-zW-0oN">
-                                        <rect key="frame" x="54" y="339" width="226" height="50"/>
+                                        <rect key="frame" x="54" y="359" width="226" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rc3-Df-jti">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -477,6 +510,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="0"/>
+                                                <connections>
+                                                    <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="FC2-6f-zk2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfH-Ff-H78">
                                                 <rect key="frame" x="88" y="0.0" width="50" height="50"/>
@@ -501,7 +537,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfg-rJ-vVQ">
-                                        <rect key="frame" x="97" y="409" width="140" height="50"/>
+                                        <rect key="frame" x="97" y="429" width="140" height="50"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="OHj-aO-3dD"/>
@@ -509,6 +545,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
                                         <state key="normal" title="ПРОВЕРИТЬ"/>
+                                        <connections>
+                                            <action selector="examinationButtonPressed:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="ar4-Lt-zNA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -532,6 +571,7 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="vnx-c5-oUC" id="iMb-dM-mbR"/>
+                        <outlet property="numbersInputLabel" destination="Eta-0W-ISw" id="6qc-hx-HOe"/>
                         <outlet property="questionLabel" destination="H4b-XL-fzj" id="vUI-2W-9AK"/>
                         <outlet property="summaBasicStackView" destination="A0J-lj-QbW" id="NpS-Ic-ole"/>
                         <outletCollection property="numbersButtons" destination="Rc3-Df-jti" collectionClass="NSMutableArray" id="lP4-8N-Qgs"/>
