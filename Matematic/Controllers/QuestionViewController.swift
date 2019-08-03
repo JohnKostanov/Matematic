@@ -15,6 +15,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
     
+    @IBOutlet var numbersButtons: [UIButton]!
+    
+    
     //MARK: - Properties
     var questionIndex = 0
     var question: [Question]!
