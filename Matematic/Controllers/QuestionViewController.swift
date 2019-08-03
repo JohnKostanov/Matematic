@@ -23,18 +23,17 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         question = Question.all
+        updateUI()
     }
     
-
-  
     @IBAction func buttonAction(_ sender: UIButton) {
        updateUI()
     }
     
     func nextQuestion() {
         questionIndex += 1
-        
     }
+    
     func updateUI() {
         let numberFirst = question[questionIndex].numberFirst
         let numberSecond = question[questionIndex].numberSecond

@@ -12,13 +12,13 @@ struct Question {
     var questionType: String
     var numberFirst: Int {
         get {
-            let random = Int(arc4random_uniform(10))
+            let random = Int(arc4random_uniform(10) + 1)
             return random
         }
     }
     var numberSecond: Int {
         get {
-            let random = Int(arc4random_uniform(10))
+            let random = Int(arc4random_uniform(10) + 1)
             return random
         }
     }

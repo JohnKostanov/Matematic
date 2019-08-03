@@ -12,10 +12,20 @@ class MainViewController: UIViewController {
     
     @IBOutlet var summaBasicButton: UIButton! {
         didSet {
-            summaBasicButton.layer.cornerRadius = 10
+            summaBasicButton.layer.cornerRadius = 25
         }
     }
     @IBOutlet var summaBasicStackView: UIStackView!
+    @IBOutlet var viewBasic: UIView! {
+        didSet {
+            viewBasic.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet var summaBasicButtonPressed: UIButton! {
+        didSet {
+            summaBasicButtonPressed.layer.cornerRadius = 10
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
