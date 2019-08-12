@@ -60,9 +60,15 @@ class QuestionViewController: UIViewController {
     
     @IBAction func examinationButtonPressed(_ sender: UIButton) {
         if numbersInputLabel.text == answerLabel.text {
-            numbersInputLabel.text = "Ответ верный"
+            let alertController = UIAlertController(title: "Правильно", message: "Продолжить", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertController, animated: true)
+            
         } else {
-             numbersInputLabel.text = "Не правильно"
+            let alertController = UIAlertController(title: "Не правильно", message: "Продолжить", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertController, animated: true)
+            
         }
     }
     
