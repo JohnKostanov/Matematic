@@ -14,12 +14,13 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var numbersInputLabel: UILabel!
-    @IBOutlet var answerLabel: UILabel!
+ 
     
     @IBOutlet var numbersButtons: [UIButton]!
     
     
     //MARK: - Properties
+    var answer: String = ""
     var questionIndex = 0
     var question: [Question]!
     
@@ -38,33 +39,38 @@ class QuestionViewController: UIViewController {
     
     func updateUI() {
         questionLabel.text = question[questionIndex].questionText
-        answerLabel.text = question[questionIndex].answer
+        answer = String(question[questionIndex].answer)
   
         nextQuestion()
     }
     
-    @IBAction func buttonAction(_ sender: UIButton) {
-        updateUI()
-        numbersInputLabel.text! = ""
-    }
     
     @IBAction func numbersAnswer(_ sender: UIButton) {
         guard let numbersText = sender.titleLabel?.text else { return }
-//        guard var answerLabel = answerLabel.text else { return }
-//        numbersInputLabel.text! = ""
         numbersInputLabel.text! += numbersText
         print(numbersText)
     }
     
+    @IBAction func deleteTextAction(_ sender: UIButton) {
+        numbersInputLabel.text = ""
+    }
+    
     @IBAction func examinationButtonPressed(_ sender: UIButton) {
-        if numbersInputLabel.text == answerLabel.text {
-            let alertController = UIAlertController(title: "Правильно", message: "Продолжить", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        if numbersInputLabel.text == answer {
+            let alertController = UIAlertController(title: "Верно", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
+                self.updateUI()
+                self.numbersInputLabel.text! = ""
+            }))
             self.present(alertController, animated: true, completion: nil)
+          
             
         } else {
-            let alertController = UIAlertController(title: "Не правильно", message: "Продолжить", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
+                self.updateUI()
+                self.numbersInputLabel.text! = ""
+            }))
             self.present(alertController, animated: true)
             
         }
