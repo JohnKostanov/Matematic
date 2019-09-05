@@ -9,44 +9,36 @@
 import Foundation
 
 struct Question {
-    var questionType: String
-    var numberFirst: Int {
+    var numberFirst: Int
+    var numberSecond: Int
+    var questionText: String {
         get {
-            let random = Int(arc4random_uniform(10) + 1)
-            return random
+            return "\(numberFirst) + \(numberSecond)"
         }
     }
-    var numberSecond: Int {
+    var answer: String  {
         get {
-            let random = Int(arc4random_uniform(10) + 1)
-            return random
+            return "\(numberFirst + numberSecond)"
         }
     }
-    
-    var numberThird: Int
-    var operatorType: OperatorType
+
     
 }
-
-    
-
-    
-    
-
 
 extension Question {
     static var all: [Question] {
         return [
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa),
-        Question(questionType: "Сложите",  numberThird: 0, operatorType: .summa)
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
+            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1))
+        
         ]
     }
 }

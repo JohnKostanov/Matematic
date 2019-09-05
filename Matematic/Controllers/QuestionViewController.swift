@@ -37,11 +37,9 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI() {
-        let numberFirst = question[questionIndex].numberFirst
-        let numberSecond = question[questionIndex].numberSecond
-        let currentAnswer = numberFirst + numberSecond
-        questionLabel.text = question[questionIndex].questionType + " " + String(numberFirst) + " " + "+" + " " + String(numberSecond)
-        answerLabel.text = String(currentAnswer)
+        questionLabel.text = question[questionIndex].questionText
+        answerLabel.text = question[questionIndex].answer
+  
         nextQuestion()
     }
     
@@ -62,7 +60,7 @@ class QuestionViewController: UIViewController {
         if numbersInputLabel.text == answerLabel.text {
             let alertController = UIAlertController(title: "Правильно", message: "Продолжить", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alertController, animated: true)
+            self.present(alertController, animated: true, completion: nil)
             
         } else {
             let alertController = UIAlertController(title: "Не правильно", message: "Продолжить", preferredStyle: .alert)

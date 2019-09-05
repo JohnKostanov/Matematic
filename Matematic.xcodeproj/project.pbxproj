@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		524EA4DE22D2B31800393B4D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EA4DD22D2B31800393B4D /* QuestionViewController.swift */; };
 		526EE0D222F44B8E00E4C53D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EE0D122F44B8E00E4C53D /* Question.swift */; };
-		526EE0D422F44DFC00E4C53D /* OperatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EE0D322F44DFC00E4C53D /* OperatorType.swift */; };
 		52751DD322D0E23B0056A27A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52751DD222D0E23B0056A27A /* MainViewController.swift */; };
 		52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D122AC38ED00334F22 /* AppDelegate.swift */; };
 		52E7D8D422AC38ED00334F22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D322AC38ED00334F22 /* ViewController.swift */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		524EA4DD22D2B31800393B4D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		526EE0D122F44B8E00E4C53D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		526EE0D322F44DFC00E4C53D /* OperatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorType.swift; sourceTree = "<group>"; };
 		52751DD222D0E23B0056A27A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		52E7D8CE22AC38ED00334F22 /* Matematic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matematic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E7D8D122AC38ED00334F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				526EE0D122F44B8E00E4C53D /* Question.swift */,
-				526EE0D322F44DFC00E4C53D /* OperatorType.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				526EE0D222F44B8E00E4C53D /* Question.swift in Sources */,
-				526EE0D422F44DFC00E4C53D /* OperatorType.swift in Sources */,
 				52751DD322D0E23B0056A27A /* MainViewController.swift in Sources */,
 				52E7D8D422AC38ED00334F22 /* ViewController.swift in Sources */,
 				524EA4DE22D2B31800393B4D /* QuestionViewController.swift in Sources */,
