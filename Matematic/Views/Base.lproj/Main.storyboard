@@ -328,7 +328,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="-"/>
                                                 <connections>
-                                                    <action selector="addNegativeNumbrs:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="D4w-fU-Kd0"/>
+                                                    <action selector="addNegativeNumbers:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="D4w-fU-Kd0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-qc-n4z">
