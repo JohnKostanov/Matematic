@@ -23,6 +23,8 @@ class QuestionViewController: UIViewController {
     var answer: String = ""
     var questionIndex = 0
     var question: [Question]!
+    var substractionQuestion: [SubtractionQuestion]!
+    var isQuestionSumma = true
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -36,8 +38,13 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI() {
-        questionLabel.text = question[questionIndex].questionText
-        answer = String(question[questionIndex].answer)
+        if  isQuestionSumma {
+            questionLabel.text = question[questionIndex].questionText
+            answer = String(question[questionIndex].answer)
+        } else {
+            questionLabel.text = substractionQuestion[questionIndex].questionText
+            answer = String(substractionQuestion[questionIndex].answer)
+        }
   
         nextQuestion()
     }

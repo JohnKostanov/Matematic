@@ -90,6 +90,9 @@
                                                 <color key="backgroundColor" red="1" green="0.4941176471" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="Начать"/>
+                                                <connections>
+                                                    <segue destination="fyJ-yF-uHm" kind="show" identifier="SubstractionBasicSegue" id="qZ1-mm-w9e"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.39105857030000002" green="0.1077146046" blue="0.94762641189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -404,4 +407,7 @@
             <point key="canvasLocation" x="1341" y="175"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qZ1-mm-w9e"/>
+    </inferredMetricsTieBreakers>
 </document>
