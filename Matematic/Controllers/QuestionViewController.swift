@@ -20,6 +20,8 @@ class QuestionViewController: UIViewController {
     
     
     //MARK: - Properties
+    let summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
+    
     var answer: String = ""
     var questionIndex = 0
     var question: [Question]!
@@ -27,11 +29,11 @@ class QuestionViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        question = Question.all
+        summaQuestion.setSummaBasicType(summaBasic: SummaBasicTwo())
+        question = summaQuestion.performSummaBasic()
+        
         updateUI()
     }
-    
-    
     
     func nextQuestion() {
         questionIndex += 1

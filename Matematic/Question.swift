@@ -21,24 +21,4 @@ struct Question {
             return "\(numberFirst + numberSecond)"
         }
     }
-
-    
-}
-
-extension Question {
-    static var all: [Question] {
-        return [
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1))
-        
-        ]
-    }
 }
