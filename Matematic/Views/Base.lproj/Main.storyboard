@@ -43,7 +43,7 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="Начать"/>
                                                 <connections>
-                                                    <segue destination="fyJ-yF-uHm" kind="show" id="SBV-4Q-UAS"/>
+                                                    <segue destination="fyJ-yF-uHm" kind="show" identifier="SummaBasicSegue" id="SBV-4Q-UAS"/>
                                                 </connections>
                                             </button>
                                         </subviews>

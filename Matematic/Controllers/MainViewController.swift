@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet var summaBasicButton: UIButton! {
         didSet {
             summaBasicButton.layer.cornerRadius = 25
@@ -27,14 +28,23 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - Properties
+    let summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
+    
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         summaBasicStackView.isHidden = true
-
     }
     
-
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "SummaBasicSegue" else { return }
+        let destination = segue.destination as! QuestionViewController
+        destination.question = summaQuestion.performSummaBasic()
+    }
+    
+    // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
         summaBasicStackView.isHidden = false
     }

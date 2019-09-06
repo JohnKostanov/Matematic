@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet var summaBasicStackView: UIStackView!
     
     @IBOutlet var questionLabel: UILabel!
@@ -19,22 +20,20 @@ class QuestionViewController: UIViewController {
     @IBOutlet var numbersButtons: [UIButton]!
     
     
-    //MARK: - Properties
+    // MARK: - Properties
     let summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
     
     var answer: String = ""
     var questionIndex = 0
     var question: [Question]!
     
- 
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        summaQuestion.setSummaBasicType(summaBasic: SummaBasicTwo())
-        question = summaQuestion.performSummaBasic()
-        
         updateUI()
     }
     
+    // MARK: - Custom Methods
     func nextQuestion() {
         questionIndex += 1
     }
@@ -46,7 +45,7 @@ class QuestionViewController: UIViewController {
         nextQuestion()
     }
     
-    
+    // MARK: - Actions
     @IBAction func numbersAnswer(_ sender: UIButton) {
         guard let numbersText = sender.titleLabel?.text else { return }
         numbersInputLabel.text! += numbersText
