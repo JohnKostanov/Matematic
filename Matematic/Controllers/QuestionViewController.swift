@@ -12,11 +12,8 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet var summaBasicStackView: UIStackView!
-    
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var numbersInputLabel: UILabel!
- 
-    
     @IBOutlet var numbersButtons: [UIButton]!
     
     

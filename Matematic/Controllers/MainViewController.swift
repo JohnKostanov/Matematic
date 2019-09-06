@@ -17,16 +17,36 @@ class MainViewController: UIViewController {
         }
     }
     @IBOutlet var summaBasicStackView: UIStackView!
-    @IBOutlet var viewBasic: UIView! {
+    @IBOutlet var summaBasicView: UIView! {
         didSet {
-            viewBasic.layer.cornerRadius = 10
+            summaBasicView.layer.cornerRadius = 10
         }
     }
-    @IBOutlet var summaBasicButtonPressed: UIButton! {
+    @IBOutlet var summaBasicButtonStart: UIButton! {
         didSet {
-            summaBasicButtonPressed.layer.cornerRadius = 10
+            summaBasicButtonStart.layer.cornerRadius = 10
         }
     }
+    
+    @IBOutlet var subtractionBasicButton: UIButton! {
+        didSet {
+            subtractionBasicButton.layer.cornerRadius = 25
+        }
+    }
+    @IBOutlet var substractionBasicStackView: UIStackView!
+    @IBOutlet var substractionBasicView: UIView! {
+        didSet {
+            substractionBasicView.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet var substractionBasicButtonStart: UIButton! {
+        didSet {
+            substractionBasicButtonStart.layer.cornerRadius = 10
+        }
+    }
+    
+    
+    
     
     // MARK: - Properties
     let summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
@@ -35,6 +55,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         summaBasicStackView.isHidden = true
+        substractionBasicStackView.isHidden = true
     }
     
     // MARK: - Navigation
@@ -49,4 +70,7 @@ class MainViewController: UIViewController {
         summaBasicStackView.isHidden = false
     }
     
+    @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
+        substractionBasicStackView.isHidden = false
+    }
 }
