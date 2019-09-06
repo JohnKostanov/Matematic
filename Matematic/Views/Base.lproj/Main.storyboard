@@ -326,7 +326,10 @@
                                                     <constraint firstAttribute="height" constant="50" id="u4V-AZ-2mf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title=","/>
+                                                <state key="normal" title="-"/>
+                                                <connections>
+                                                    <action selector="addNegativeNumbrs:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="D4w-fU-Kd0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-qc-n4z">
                                                 <rect key="frame" x="176" y="0.0" width="50" height="50"/>

@@ -53,12 +53,16 @@ class QuestionViewController: UIViewController {
     @IBAction func numbersAnswer(_ sender: UIButton) {
         guard let numbersText = sender.titleLabel?.text else { return }
         numbersInputLabel.text! += numbersText
-        print(numbersText)
     }
     
     @IBAction func deleteTextAction(_ sender: UIButton) {
         numbersInputLabel.text = ""
     }
+    
+    @IBAction func addNegativeNumbrs(_ sender: UIButton) {
+        numbersInputLabel.text = sender.titleLabel?.text
+    }
+    
     
     @IBAction func examinationButtonPressed(_ sender: UIButton) {
         if numbersInputLabel.text == answer {
