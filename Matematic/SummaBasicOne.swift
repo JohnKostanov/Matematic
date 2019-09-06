@@ -9,19 +9,19 @@
 import Foundation
 
 class SummaBasicOne: SummaBasic {
+    var randomBasicOne = NumberRandomFactory.produceRandomInt(type: .ten)
     var all: [Question] {
         return [
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 1), numberSecond: Int(arc4random_uniform(10) + 1))
-            
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt())
         ]
     }
     
