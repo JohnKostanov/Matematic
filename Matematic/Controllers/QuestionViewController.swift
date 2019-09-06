@@ -59,7 +59,7 @@ class QuestionViewController: UIViewController {
         numbersInputLabel.text = ""
     }
     
-    @IBAction func addNegativeNumbrs(_ sender: UIButton) {
+    @IBAction func addNegativeNumbers(_ sender: UIButton) {
         numbersInputLabel.text = sender.titleLabel?.text
     }
     
