@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SummaBasicOne: SummaBasic {
+class SummaBasicOne: Questions {
     var randomBasicOne = NumberRandomFactory.produceRandomInt(type: .ten)
     var all: [Question] {
         return [

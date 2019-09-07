@@ -1,11 +1,11 @@
 //
-//  SummaBasic.swift
+//  Questions.swift
 //  Matematic
 //
 //  Created by  Джон Костанов on 05/09/2019.
 //  Copyright © 2019 John Kostanov. All rights reserved.
 //
 
-protocol SummaBasic {
+protocol Questions {
     var all: [Question] { get }
 }

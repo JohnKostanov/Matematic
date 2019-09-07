@@ -10,17 +10,17 @@ import Foundation
 
 
 class SummaQuestion {
-    private var summaBasic: SummaBasic!
+    private var summaBasic: Questions!
     
     func performSummaBasic() -> [Question] {
         return summaBasic!.all
     }
     
-    func setSummaBasicType(summaBasic: SummaBasic) {
+    func setSummaBasicType(summaBasic: Questions) {
         self.summaBasic = summaBasic
     }
     
-    init(summaBasic: SummaBasic) {
+    init(summaBasic: Questions) {
         self.summaBasic = summaBasic
     }
 }

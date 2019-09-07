@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SummaBasicTwo: SummaBasic {
+class SummaBasicTwo: Questions {
     var all: [Question] {
         return [
             Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
