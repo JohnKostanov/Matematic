@@ -477,7 +477,7 @@
                                         <rect key="frame" x="0.0" y="180" width="334" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Получено алмазов:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-wG-vtp">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="268.5" height="50"/>
                                                 <color key="backgroundColor" red="1" green="0.4941176471" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="pnE-fI-9dS"/>
@@ -486,8 +486,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aea-34-QpQ">
-                                                <rect key="frame" x="284" y="0.0" width="50" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 💎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aea-34-QpQ">
+                                                <rect key="frame" x="268.5" y="0.0" width="65.5" height="50"/>
                                                 <color key="backgroundColor" red="1" green="0.4941176471" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Fx6-MX-VX2"/>
@@ -524,6 +524,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ddP-6A-4Ua"/>
                     </view>
+                    <connections>
+                        <outlet property="correctAnswerLabel" destination="hc7-80-6a5" id="eRX-Uu-u4F"/>
+                        <outlet property="experienceGainedLabel" destination="BBC-Af-NRt" id="X0O-PK-1SS"/>
+                        <outlet property="receivedDiamondLabel" destination="Aea-34-QpQ" id="OiO-Ky-01a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd6-i7-3Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TiF-fQ-Yop" userLabel="Exit" sceneMemberID="exit"/>

@@ -24,9 +24,9 @@ class QuestionViewController: UIViewController {
     var answer: String = ""
     var questionIndex = 0
     var questions: [Question]!
-    var isQuestionSumma = true
-    
     var questionType = QuestionType.summa
+    
+    var correctAnswer = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -90,16 +90,18 @@ class QuestionViewController: UIViewController {
     
     @IBAction func examinationButtonPressed(_ sender: UIButton) {
         if numbersInputLabel.text == answer {
-            let alertController = UIAlertController(title: "Верно", message: nil, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Верно", message: nil, preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
                 self.updateUI()
                 self.numbersInputLabel.text! = ""
             }))
             self.present(alertController, animated: true, completion: nil)
+            
+            correctAnswer += 1
           
             
         } else {
-            let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
                 self.updateUI()
                 self.numbersInputLabel.text! = ""
@@ -107,6 +109,14 @@ class QuestionViewController: UIViewController {
             self.present(alertController, animated: true)
             
         }
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ResultSegue" else { return }
+        let destination = segue.destination as! ResultViewController
+        destination.correctAnswer = correctAnswer
+        
     }
     
 }
