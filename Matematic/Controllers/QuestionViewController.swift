@@ -19,12 +19,15 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Properties
     let summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
+    let substraction = SubtractionBasicQuestion(subtractionBasic: SubtractionBasicOne())
     
     var answer: String = ""
     var questionIndex = 0
     var question: [Question]!
     var substractionQuestion: [SubtractionQuestion]!
     var isQuestionSumma = true
+    
+    var questionType = QuestionType.summa
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -38,10 +41,14 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI() {
-        if  isQuestionSumma {
+        
+        switch questionType {
+        case .summa:
+            question = summaQuestion.performSummaBasic()
             questionLabel.text = question[questionIndex].questionText
             answer = String(question[questionIndex].answer)
-        } else {
+        case .substraction:
+            substractionQuestion = substraction.performSummaBasic()
             questionLabel.text = substractionQuestion[questionIndex].questionText
             answer = String(substractionQuestion[questionIndex].answer)
         }

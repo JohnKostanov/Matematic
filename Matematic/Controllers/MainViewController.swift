@@ -49,8 +49,7 @@ class MainViewController: UIViewController {
     
     
     // MARK: - Properties
-    let summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
-    let substractionQuestion = SubtractionBasicQuestion(subtractionBasic: SubtractionBasicOne())
+    
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -63,11 +62,10 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SummaBasicSegue" {
             let destinationSummaBasic = segue.destination as! QuestionViewController
-            destinationSummaBasic.question = summaQuestion.performSummaBasic()
+            destinationSummaBasic.questionType = QuestionType.summa
         } else if segue.identifier == "SubstractionBasicSegue" {
             let destinationSubractionBasic = segue.destination as! QuestionViewController
-            destinationSubractionBasic.isQuestionSumma = false
-            destinationSubractionBasic.substractionQuestion = substractionQuestion.performSummaBasic()
+            destinationSubractionBasic.questionType = QuestionType.substraction
         }
     }
     
