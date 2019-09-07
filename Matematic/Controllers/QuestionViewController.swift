@@ -18,13 +18,11 @@ class QuestionViewController: UIViewController {
     
     
     // MARK: - Properties
-    var summaQuestion = SummaQuestion(summaBasic: SummaBasicOne())
-    let substraction = SubtractionBasicQuestion(subtractionBasic: SubtractionBasicOne())
+    var createQuestion = CreateQuestion(summaBasic: SummaBasicOne())
     
     var answer: String = ""
     var questionIndex = 0
-    var question: [Question]!
-    var substractionQuestion: [SubtractionQuestion]!
+    var questions: [Question]!
     var isQuestionSumma = true
     
     var questionType = QuestionType.summa
@@ -44,18 +42,14 @@ class QuestionViewController: UIViewController {
         
         switch questionType {
         case .summa:
-            question = summaQuestion.performSummaBasic()
-            questionLabel.text = question[questionIndex].questionText
-            answer = String(question[questionIndex].answer)
-        case .substraction: //проверка
-            summaQuestion.setSummaBasicType(summaBasic: SummaBasicTwo())
-            question = summaQuestion.performSummaBasic()
-            
-            questionLabel.text = question[questionIndex].questionText
-            answer = String(question[questionIndex].answer)
-        
-//            questionLabel.text = substractionQuestion[questionIndex].questionText
-//            answer = String(substractionQuestion[questionIndex].answer)
+            questions = createQuestion.performQuestions()
+            questionLabel.text = questions[questionIndex].questionText
+            answer = String(questions[questionIndex].answer)
+        case .substraction: 
+            createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicOne())
+            questions = createQuestion.performQuestions()
+            questionLabel.text = questions[questionIndex].questionText
+            answer = String(questions[questionIndex].answer)
         }
   
         nextQuestion()

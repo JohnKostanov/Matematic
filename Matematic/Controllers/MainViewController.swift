@@ -61,11 +61,11 @@ class MainViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SummaBasicSegue" {
-            let destinationSummaBasic = segue.destination as! QuestionViewController
-            destinationSummaBasic.questionType = QuestionType.summa
+            let destination = segue.destination as! QuestionViewController
+            destination.questionType = QuestionType.summa
         } else if segue.identifier == "SubstractionBasicSegue" {
-            let destinationSubractionBasic = segue.destination as! QuestionViewController
-            destinationSubractionBasic.questionType = QuestionType.substraction
+            let destination = segue.destination as! QuestionViewController
+            destination.questionType = QuestionType.substraction
         }
     }
     
