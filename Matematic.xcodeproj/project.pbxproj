@@ -13,6 +13,7 @@
 		52751DD322D0E23B0056A27A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52751DD222D0E23B0056A27A /* MainViewController.swift */; };
 		52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */; };
 		52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB12323C7DD000648A4 /* QuestionType.swift */; };
+		52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB323241A91000648A4 /* ResultViewController.swift */; };
 		52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D122AC38ED00334F22 /* AppDelegate.swift */; };
 		52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D522AC38ED00334F22 /* Main.storyboard */; };
 		52E7D8D922AC38EE00334F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D822AC38EE00334F22 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		52751DD222D0E23B0056A27A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicOne.swift; sourceTree = "<group>"; };
 		52D2FFB12323C7DD000648A4 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
+		52D2FFB323241A91000648A4 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		52E7D8CE22AC38ED00334F22 /* Matematic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matematic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E7D8D122AC38ED00334F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E7D8D622AC38ED00334F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				52751DD222D0E23B0056A27A /* MainViewController.swift */,
 				524EA4DD22D2B31800393B4D /* QuestionViewController.swift */,
+				52D2FFB323241A91000648A4 /* ResultViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				520353B02323245B00E18E4E /* NumberRandomFactory.swift in Sources */,
 				52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */,
 				52F7B34F2321CD1700AF070B /* SummaBasicOne.swift in Sources */,
+				52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

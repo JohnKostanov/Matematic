@@ -19,7 +19,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var progressView: UIProgressView!
     
     // MARK: - Properties
-    var createQuestion = CreateQuestion(summaBasic: SummaBasicOne())
+    var createQuestion = CreateQuestion(questionBasic: SummaBasicOne())
     
     var answer: String = ""
     var questionIndex = 0
@@ -31,12 +31,17 @@ class QuestionViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        questions = createQuestion.performQuestions()
         updateUI()
     }
     
     // MARK: - Custom Methods
     func nextQuestion() {
-        questionIndex += 1
+        if questionIndex < questions.count {
+           questionIndex += 1
+        } else {
+            performSegue(withIdentifier: "ResultSegue", sender: nil)
+        }
     }
     
     func updateProgress() {
@@ -47,12 +52,16 @@ class QuestionViewController: UIViewController {
     
     func updateUI() {
         
+        guard questionIndex < questions.count else {
+            nextQuestion()
+            return
+        }
+        
         switch questionType {
         case .summa:
-            questions = createQuestion.performQuestions()
             questionLabel.text = questions[questionIndex].questionText
             answer = String(questions[questionIndex].answer)
-        case .substraction: 
+        case .substraction:
             createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicOne())
             questions = createQuestion.performQuestions()
             questionLabel.text = questions[questionIndex].questionText

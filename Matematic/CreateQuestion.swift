@@ -20,7 +20,7 @@ class CreateQuestion {
         self.questionBasic = questionBasicType
     }
     
-    init(summaBasic: QuestionProtocol) {
-        self.questionBasic = summaBasic
+    init(questionBasic: QuestionProtocol) {
+        self.questionBasic = questionBasic
     }
 }

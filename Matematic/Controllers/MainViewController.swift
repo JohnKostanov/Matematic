@@ -69,6 +69,10 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        
+    }
+    
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
         summaBasicStackView.isHidden = false
