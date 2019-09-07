@@ -152,11 +152,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-lj-QbW">
                                 <rect key="frame" x="40" y="98" width="334" height="754"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BPr-gP-M9D">
-                                        <rect key="frame" x="92" y="0.0" width="150" height="2"/>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BPr-gP-M9D">
+                                        <rect key="frame" x="20" y="0.0" width="294" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="wQe-zF-MUM"/>
+                                        </constraints>
+                                        <color key="progressTintColor" red="0.051884430129999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="trackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-XL-fzj">
-                                        <rect key="frame" x="116" y="22" width="102.5" height="332"/>
+                                        <rect key="frame" x="116" y="30" width="102.5" height="324"/>
                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -360,6 +365,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BPr-gP-M9D" secondAttribute="trailing" constant="20" id="8dD-ge-cLF"/>
+                                    <constraint firstItem="BPr-gP-M9D" firstAttribute="leading" secondItem="A0J-lj-QbW" secondAttribute="leading" constant="20" id="g6S-sr-93L"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -373,6 +382,7 @@
                     </view>
                     <connections>
                         <outlet property="numbersInputLabel" destination="Eta-0W-ISw" id="6qc-hx-HOe"/>
+                        <outlet property="progressView" destination="BPr-gP-M9D" id="fhG-YJ-BZa"/>
                         <outlet property="questionLabel" destination="H4b-XL-fzj" id="QUr-uh-qQa"/>
                         <outlet property="summaBasicStackView" destination="A0J-lj-QbW" id="NpS-Ic-ole"/>
                         <outletCollection property="numbersButtons" destination="Rc3-Df-jti" collectionClass="NSMutableArray" id="lP4-8N-Qgs"/>

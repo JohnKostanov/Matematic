@@ -16,6 +16,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var numbersInputLabel: UILabel!
     @IBOutlet var numbersButtons: [UIButton]!
     
+    @IBOutlet var progressView: UIProgressView!
     
     // MARK: - Properties
     var createQuestion = CreateQuestion(summaBasic: SummaBasicOne())
@@ -38,6 +39,12 @@ class QuestionViewController: UIViewController {
         questionIndex += 1
     }
     
+    func updateProgress() {
+        navigationItem.title = "Вопрос № \(questionIndex + 1) из \(questions.count)"
+        let progress = Float(questionIndex) / Float(questions.count)
+        progressView.setProgress(progress, animated: true)
+    }
+    
     func updateUI() {
         
         switch questionType {
@@ -51,6 +58,8 @@ class QuestionViewController: UIViewController {
             questionLabel.text = questions[questionIndex].questionText
             answer = String(questions[questionIndex].answer)
         }
+        
+        updateProgress()
   
         nextQuestion()
     }
