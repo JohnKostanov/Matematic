@@ -15,6 +15,7 @@
 		52B03A6D2322A52C00EECEDD /* SubtractionQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A6C2322A52C00EECEDD /* SubtractionQuestion.swift */; };
 		52B03A6F2322A60100EECEDD /* SubtractionBasicQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A6E2322A60100EECEDD /* SubtractionBasicQuestion.swift */; };
 		52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */; };
+		52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB12323C7DD000648A4 /* QuestionType.swift */; };
 		52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D122AC38ED00334F22 /* AppDelegate.swift */; };
 		52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D522AC38ED00334F22 /* Main.storyboard */; };
 		52E7D8D922AC38EE00334F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D822AC38EE00334F22 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		52B03A6C2322A52C00EECEDD /* SubtractionQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionQuestion.swift; sourceTree = "<group>"; };
 		52B03A6E2322A60100EECEDD /* SubtractionBasicQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicQuestion.swift; sourceTree = "<group>"; };
 		52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicOne.swift; sourceTree = "<group>"; };
+		52D2FFB12323C7DD000648A4 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 		52E7D8CE22AC38ED00334F22 /* Matematic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matematic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E7D8D122AC38ED00334F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E7D8D622AC38ED00334F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				520353AF2323245B00E18E4E /* NumberRandomFactory.swift */,
+				526EE0D122F44B8E00E4C53D /* Question.swift */,
+				52D2FFB12323C7DD000648A4 /* QuestionType.swift */,
 				52B03A6B2322A4BA00EECEDD /* SubtractionBasicModel */,
 				52B03A6A2322A48E00EECEDD /* SummaBasicModel */,
 			);
@@ -98,7 +102,6 @@
 		52B03A6A2322A48E00EECEDD /* SummaBasicModel */ = {
 			isa = PBXGroup;
 			children = (
-				526EE0D122F44B8E00E4C53D /* Question.swift */,
 				52F7B3522321DB0700AF070B /* SummaQuestion.swift */,
 				52F7B34E2321CD1700AF070B /* SummaBasicOne.swift */,
 				52F7B3502321CD2900AF070B /* SummaBasicTwo.swift */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F7B34B2321BBF700AF070B /* SummaBasic.swift in Sources */,
+				52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */,
 				52F7B3532321DB0700AF070B /* SummaQuestion.swift in Sources */,
 				526EE0D222F44B8E00E4C53D /* Question.swift in Sources */,
 				52F7B3512321CD2900AF070B /* SummaBasicTwo.swift in Sources */,

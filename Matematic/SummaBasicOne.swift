@@ -12,16 +12,16 @@ class SummaBasicOne: SummaBasic {
     var randomBasicOne = NumberRandomFactory.produceRandomInt(type: .ten)
     var all: [Question] {
         return [
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt()),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt())
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
+            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa)
         ]
     }
     

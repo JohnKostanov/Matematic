@@ -11,16 +11,16 @@ import Foundation
 class SummaBasicTwo: SummaBasic {
     var all: [Question] {
         return [
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11)),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11))
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
+            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa)
             
         ]
         

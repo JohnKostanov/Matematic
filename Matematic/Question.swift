@@ -11,14 +11,25 @@ import Foundation
 struct Question {
     var numberFirst: Int
     var numberSecond: Int
+    var questionType: QuestionType
+}
+
+extension Question {
     var questionText: String {
-        get {
+        switch questionType {
+        case .summa:
             return "\(numberFirst) + \(numberSecond)"
+        case .substraction:
+            return "\(numberFirst) - \(numberSecond)"
         }
     }
-    var answer: String  {
-        get {
+    
+    var answer: String {
+        switch questionType {
+        case .summa:
             return "\(numberFirst + numberSecond)"
+        case .substraction:
+            return "\(numberFirst - numberSecond)"
         }
     }
 }
