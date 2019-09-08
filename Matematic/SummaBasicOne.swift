@@ -9,19 +9,24 @@
 import Foundation
 
 class SummaBasicOne: QuestionProtocol {
-    var randomBasicOne = NumberRandomFactory.produceRandomInt(type: .ten)
+    
+    var randomBasic: Int {
+        let random = NumberRandomFactory.produceRandomInt(type: .ten)
+        return random.generateRandomInt()
+    }
+    
     var all: [Question] {
         return [
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa),
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .summa)
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa)
         ]
     }
     

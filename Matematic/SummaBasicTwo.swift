@@ -8,21 +8,14 @@
 
 import Foundation
 
-class SummaBasicTwo: QuestionProtocol {
-    var all: [Question] {
-        return [
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa),
-            Question(numberFirst: Int(arc4random_uniform(10) + 11), numberSecond: Int(arc4random_uniform(10) + 11), questionType: .summa)
-            
-        ]
+class SummaBasicTwo: SummaBasicOne {
+    
+    override var randomBasic: Int {
+        return super.randomBasic + 10
+    }
+    
+    override var all: [Question] {
+        return super.all
         
     }
 }

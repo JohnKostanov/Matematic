@@ -8,20 +8,20 @@
 
 import Foundation
 
-class SubtractionBasicOne: QuestionProtocol {
-    var randomBasicOne = NumberRandomFactory.produceRandomInt(type: .ten)
-    var all: [Question] {
+class SubtractionBasicOne: SummaBasicOne {
+
+    override var all: [Question] {
         return [
-            Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction),
-             Question(numberFirst: randomBasicOne.generateRandomInt(), numberSecond: randomBasicOne.generateRandomInt(), questionType: .substraction)
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
+            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction)
             
         ]
     }
