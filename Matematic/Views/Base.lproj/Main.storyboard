@@ -384,7 +384,7 @@
                         <outlet property="numbersInputLabel" destination="Eta-0W-ISw" id="6qc-hx-HOe"/>
                         <outlet property="progressView" destination="BPr-gP-M9D" id="fhG-YJ-BZa"/>
                         <outlet property="questionLabel" destination="H4b-XL-fzj" id="QUr-uh-qQa"/>
-                        <outlet property="summaBasicStackView" destination="A0J-lj-QbW" id="NpS-Ic-ole"/>
+                        <outlet property="questionStackView" destination="A0J-lj-QbW" id="NpS-Ic-ole"/>
                         <outletCollection property="numbersButtons" destination="Rc3-Df-jti" collectionClass="NSMutableArray" id="lP4-8N-Qgs"/>
                         <outletCollection property="numbersButtons" destination="MwD-ia-NoH" collectionClass="NSMutableArray" id="bQb-a9-61M"/>
                         <outletCollection property="numbersButtons" destination="M9A-wS-raU" collectionClass="NSMutableArray" id="8SK-8A-y5g"/>

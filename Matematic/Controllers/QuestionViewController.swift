@@ -11,7 +11,7 @@ import UIKit
 class QuestionViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet var summaBasicStackView: UIStackView!
+    @IBOutlet var questionStackView: UIStackView!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var numbersInputLabel: UILabel!
     @IBOutlet var numbersButtons: [UIButton]!
@@ -27,16 +27,13 @@ class QuestionViewController: UIViewController {
     var questionType = QuestionType.summa
     var questionLevel = QuestionLevel.easy
     
-    var summaBasicPoints: Int {
-        return correctAnswer * 2
-    }
     
     var correctAnswer = 0
+    var summaBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        correctAnswer = 0
         questions = createQuestion.performQuestions()
         updateUI()
     }
@@ -71,9 +68,17 @@ class QuestionViewController: UIViewController {
         
         switch questionType {
         case .summa:
+            switch summaBasicPoints {
+            case 0...30:
+                questionLevel = .easy
+            case 30...60:
+                questionLevel = .normal
+            default:
+                questionLevel = .highHard
+            }
+    
             switch questionLevel {
             case .easy:
-                guard summaBasicPoints < 30 else { fallthrough }
                 performTextQuestionAndAnswer()
             case .normal:
                 createQuestion.setQuestionBasicType(questionBasicType: SummaBasicTwo())
@@ -132,6 +137,8 @@ class QuestionViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
             
             correctAnswer += 1
+            summaBasicPoints += 4
+            print(summaBasicPoints)
           
             
         } else {

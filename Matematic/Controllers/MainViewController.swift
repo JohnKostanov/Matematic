@@ -54,6 +54,9 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         summaBasicStackView.isHidden = true
         substractionBasicStackView.isHidden = true
     }
@@ -70,7 +73,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
-        
+       
     }
     
     // MARK: - Actions
