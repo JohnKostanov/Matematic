@@ -8,20 +8,24 @@
 
 import Foundation
 
-class SummaBasicTwo: QuestionProtocol {
+class SummaBasicTwo: SummaBasicOne {
     
-    var all: [Question] {
+    override var randomInt: Int {
+        return super.randomInt + 10
+    }
+    
+    override var all: [Question] {
         return [
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal),
-            Question(questionType: .summa, questionLevel: .normal)
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy)
         ]
     }
 }

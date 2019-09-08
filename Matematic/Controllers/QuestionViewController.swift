@@ -25,13 +25,18 @@ class QuestionViewController: UIViewController {
     var createQuestion = CreateQuestion(questionBasic: SummaBasicOne())
     var questions: [Question]!
     var questionType = QuestionType.summa
-    var questionLevel = QuestionLevel.normal
+    var questionLevel = QuestionLevel.easy
+    
+    var summaBasicPoints: Int {
+        return correctAnswer * 2
+    }
     
     var correctAnswer = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        correctAnswer = 0
         questions = createQuestion.performQuestions()
         updateUI()
     }
@@ -68,6 +73,7 @@ class QuestionViewController: UIViewController {
         case .summa:
             switch questionLevel {
             case .easy:
+                guard summaBasicPoints < 30 else { fallthrough }
                 performTextQuestionAndAnswer()
             case .normal:
                 createQuestion.setQuestionBasicType(questionBasicType: SummaBasicTwo())

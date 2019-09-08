@@ -8,23 +8,25 @@
 
 import Foundation
 
-class SubtractionBasicTwo: QuestionProtocol {
+class SubtractionBasicTwo: SubtractionBasicOne {
     
-     var all: [Question] {
+    override var randomInt: Int {
+        return  super.randomInt + 10
+    }
+    
+    override var all: [Question] {
         return [
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal),
-            Question(questionType: .substraction, questionLevel: .normal)
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .substraction, questionLevel: .easy)
             
         ]
     }
-    
-    
 }

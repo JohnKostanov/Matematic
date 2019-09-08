@@ -9,19 +9,23 @@
 import Foundation
 
 class SummaBasicOne: QuestionProtocol {
+    
+    var randomInt: Int {
+        return  NumberRandomFactory.produceRandomInt(type: .ten).generateRandomInt()
+    }
 
     var all: [Question] {
         return [
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy),
-            Question(questionType: .summa, questionLevel: .easy)
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy)
         ]
     }
     
