@@ -9,24 +9,19 @@
 import Foundation
 
 class SummaBasicOne: QuestionProtocol {
-    
-    var randomBasic: Int {
-        let random = NumberRandomFactory.produceRandomInt(type: .ten)
-        return random.generateRandomInt()
-    }
-    
+
     var all: [Question] {
         return [
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .summa)
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy),
+            Question(questionType: .summa, questionLevel: .easy)
         ]
     }
     

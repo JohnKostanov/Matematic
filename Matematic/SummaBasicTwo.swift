@@ -8,14 +8,20 @@
 
 import Foundation
 
-class SummaBasicTwo: SummaBasicOne {
+class SummaBasicTwo: QuestionProtocol {
     
-    override var randomBasic: Int {
-        return super.randomBasic + 10
-    }
-    
-    override var all: [Question] {
-        return super.all
-        
+    var all: [Question] {
+        return [
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal),
+            Question(questionType: .summa, questionLevel: .normal)
+        ]
     }
 }

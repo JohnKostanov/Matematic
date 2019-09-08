@@ -8,20 +8,20 @@
 
 import Foundation
 
-class SubtractionBasicOne: SummaBasicOne {
+class SubtractionBasicOne: QuestionProtocol {
 
-    override var all: [Question] {
+    var all: [Question] {
         return [
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction),
-            Question(numberFirst: randomBasic, numberSecond: randomBasic, questionType: .substraction)
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy),
+            Question(questionType: .substraction, questionLevel: .easy)
             
         ]
     }

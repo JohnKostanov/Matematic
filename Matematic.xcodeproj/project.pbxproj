@@ -18,6 +18,8 @@
 		52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D522AC38ED00334F22 /* Main.storyboard */; };
 		52E7D8D922AC38EE00334F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D822AC38EE00334F22 /* Assets.xcassets */; };
 		52E7D8DC22AC38EE00334F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8DA22AC38EE00334F22 /* LaunchScreen.storyboard */; };
+		52ED962A232538B500713299 /* QuestionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED9629232538B500713299 /* QuestionLevel.swift */; };
+		52ED962C23255BFC00713299 /* SubtractionBasicTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED962B23255BFC00713299 /* SubtractionBasicTwo.swift */; };
 		52F7B34B2321BBF700AF070B /* QuestionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7B34A2321BBF700AF070B /* QuestionProtocol.swift */; };
 		52F7B34F2321CD1700AF070B /* SummaBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7B34E2321CD1700AF070B /* SummaBasicOne.swift */; };
 		52F7B3512321CD2900AF070B /* SummaBasicTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F7B3502321CD2900AF070B /* SummaBasicTwo.swift */; };
@@ -38,6 +40,8 @@
 		52E7D8D822AC38EE00334F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E7D8DB22AC38EE00334F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52E7D8DD22AC38EE00334F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52ED9629232538B500713299 /* QuestionLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLevel.swift; sourceTree = "<group>"; };
+		52ED962B23255BFC00713299 /* SubtractionBasicTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicTwo.swift; sourceTree = "<group>"; };
 		52F7B34A2321BBF700AF070B /* QuestionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProtocol.swift; sourceTree = "<group>"; };
 		52F7B34E2321CD1700AF070B /* SummaBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaBasicOne.swift; sourceTree = "<group>"; };
 		52F7B3502321CD2900AF070B /* SummaBasicTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaBasicTwo.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				520353AF2323245B00E18E4E /* NumberRandomFactory.swift */,
 				526EE0D122F44B8E00E4C53D /* Question.swift */,
 				52D2FFB12323C7DD000648A4 /* QuestionType.swift */,
+				52ED9629232538B500713299 /* QuestionLevel.swift */,
 				52B03A6A2322A48E00EECEDD /* CreateQuestion */,
 			);
 			name = Models;
@@ -102,6 +107,7 @@
 				52F7B34E2321CD1700AF070B /* SummaBasicOne.swift */,
 				52F7B3502321CD2900AF070B /* SummaBasicTwo.swift */,
 				52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */,
+				52ED962B23255BFC00713299 /* SubtractionBasicTwo.swift */,
 			);
 			name = CreateQuestion;
 			sourceTree = "<group>";
@@ -223,7 +229,9 @@
 				52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */,
 				520353B02323245B00E18E4E /* NumberRandomFactory.swift in Sources */,
 				52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */,
+				52ED962A232538B500713299 /* QuestionLevel.swift in Sources */,
 				52F7B34F2321CD1700AF070B /* SummaBasicOne.swift in Sources */,
+				52ED962C23255BFC00713299 /* SubtractionBasicTwo.swift in Sources */,
 				52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

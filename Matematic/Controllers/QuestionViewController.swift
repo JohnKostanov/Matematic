@@ -19,12 +19,13 @@ class QuestionViewController: UIViewController {
     @IBOutlet var progressView: UIProgressView!
     
     // MARK: - Properties
-    var createQuestion = CreateQuestion(questionBasic: SummaBasicOne())
     
     var answer: String = ""
     var questionIndex = 0
+    var createQuestion = CreateQuestion(questionBasic: SummaBasicOne())
     var questions: [Question]!
     var questionType = QuestionType.summa
+    var questionLevel = QuestionLevel.normal
     
     var correctAnswer = 0
     
@@ -50,6 +51,12 @@ class QuestionViewController: UIViewController {
         progressView.setProgress(progress, animated: true)
     }
     
+    func performTextQuestionAndAnswer() {
+        questions = createQuestion.performQuestions()
+        questionLabel.text = questions[questionIndex].questionText
+        answer = String(questions[questionIndex].answer)
+    }
+    
     func updateUI() {
         
         guard questionIndex < questions.count else {
@@ -59,13 +66,34 @@ class QuestionViewController: UIViewController {
         
         switch questionType {
         case .summa:
-            questionLabel.text = questions[questionIndex].questionText
-            answer = String(questions[questionIndex].answer)
+            switch questionLevel {
+            case .easy:
+                performTextQuestionAndAnswer()
+            case .normal:
+                createQuestion.setQuestionBasicType(questionBasicType: SummaBasicTwo())
+                performTextQuestionAndAnswer()
+            case .medium:
+                performTextQuestionAndAnswer()
+            case .hard:
+                performTextQuestionAndAnswer()
+            case .highHard:
+                performTextQuestionAndAnswer()
+            }
         case .substraction:
             createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicOne())
-            questions = createQuestion.performQuestions()
-            questionLabel.text = questions[questionIndex].questionText
-            answer = String(questions[questionIndex].answer)
+            switch questionLevel {
+            case .easy:
+                performTextQuestionAndAnswer()
+            case .normal:
+                createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicTwo())
+                performTextQuestionAndAnswer()
+            case .medium:
+                performTextQuestionAndAnswer()
+            case .hard:
+                performTextQuestionAndAnswer()
+            case .highHard:
+                performTextQuestionAndAnswer()
+            }
         }
         
         updateProgress()
