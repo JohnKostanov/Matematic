@@ -34,35 +34,58 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IjX-zw-Ful">
-                                <rect key="frame" x="40" y="276" width="100" height="50"/>
+                                <rect key="frame" x="20" y="278" width="374" height="184"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPC-sM-aRv">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="184"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNY-h2-vnR">
-                                                <rect key="frame" x="10" y="15" width="80" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.4941176471" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                <state key="normal" title="Начать"/>
-                                                <connections>
-                                                    <segue destination="fyJ-yF-uHm" kind="show" identifier="SummaBasicSegue" id="SBV-4Q-UAS"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fP3-Jy-OI2">
+                                                <rect key="frame" x="0.0" y="10" width="374" height="164"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Nn8-a0-NPf">
+                                                        <rect key="frame" x="20" y="0.0" width="334" height="72"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDx-ON-eHP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="334" height="35"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1E-RT-xsy">
+                                                                <rect key="frame" x="0.0" y="37" width="334" height="35"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNY-h2-vnR">
+                                                        <rect key="frame" x="40" y="92" width="294" height="72"/>
+                                                        <color key="backgroundColor" red="1" green="0.4941176471" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                        <state key="normal" title="Начать"/>
+                                                        <connections>
+                                                            <segue destination="fyJ-yF-uHm" kind="show" identifier="SummaBasicSegue" id="SBV-4Q-UAS"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="dNY-h2-vnR" secondAttribute="trailing" constant="40" id="2xU-5a-4rt"/>
+                                                    <constraint firstItem="dNY-h2-vnR" firstAttribute="leading" secondItem="fP3-Jy-OI2" secondAttribute="leading" constant="40" id="3He-7m-fon"/>
+                                                    <constraint firstItem="Nn8-a0-NPf" firstAttribute="leading" secondItem="fP3-Jy-OI2" secondAttribute="leading" constant="20" id="HAx-87-XpC"/>
+                                                    <constraint firstItem="dNY-h2-vnR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nn8-a0-NPf" secondAttribute="bottom" constant="10" id="Sic-AK-BRD"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.391058570330655" green="0.10771460456268089" blue="0.94762641191482544" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.42261788249999999" green="0.57121676210000005" blue="0.96867412330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="CeC-IC-UQr"/>
-                                            <constraint firstItem="dNY-h2-vnR" firstAttribute="leading" secondItem="mPC-sM-aRv" secondAttribute="leading" constant="10" id="E7n-Wo-Xas"/>
-                                            <constraint firstAttribute="trailing" secondItem="dNY-h2-vnR" secondAttribute="trailing" constant="10" id="Tbd-Vl-Pp4"/>
-                                            <constraint firstItem="dNY-h2-vnR" firstAttribute="top" secondItem="mPC-sM-aRv" secondAttribute="top" constant="15" id="ff6-Ze-3R5"/>
-                                            <constraint firstAttribute="bottom" secondItem="dNY-h2-vnR" secondAttribute="bottom" constant="5" id="xna-Uq-WsA"/>
+                                            <constraint firstAttribute="trailing" secondItem="fP3-Jy-OI2" secondAttribute="trailing" id="3ln-CI-qOT"/>
+                                            <constraint firstAttribute="bottom" secondItem="fP3-Jy-OI2" secondAttribute="bottom" constant="10" id="HGB-g6-MAy"/>
+                                            <constraint firstItem="fP3-Jy-OI2" firstAttribute="top" secondItem="mPC-sM-aRv" secondAttribute="top" constant="10" id="jOQ-SP-7f9"/>
+                                            <constraint firstItem="fP3-Jy-OI2" firstAttribute="leading" secondItem="mPC-sM-aRv" secondAttribute="leading" id="tBg-ZT-Lvd"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="H6x-bV-dL3"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Q93-6f-q9W"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihg-w5-hYR">
                                 <rect key="frame" x="284" y="188" width="80" height="80"/>
@@ -80,13 +103,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BcN-n8-lp7">
-                                <rect key="frame" x="274" y="276" width="100" height="50"/>
+                                <rect key="frame" x="257" y="276" width="134" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtV-87-dF0">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzW-s1-V3c">
-                                                <rect key="frame" x="10" y="15" width="80" height="30"/>
+                                                <rect key="frame" x="10" y="15" width="114" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.4941176471" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <state key="normal" title="Начать"/>
@@ -114,16 +137,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ihg-w5-hYR" firstAttribute="top" secondItem="gSw-Do-wlU" secondAttribute="top" constant="100" id="0sY-hw-oos"/>
-                            <constraint firstItem="BcN-n8-lp7" firstAttribute="centerX" secondItem="Ihg-w5-hYR" secondAttribute="centerX" id="Mxt-6s-PGn"/>
-                            <constraint firstItem="IjX-zw-Ful" firstAttribute="top" secondItem="7Rl-Fl-5aN" secondAttribute="bottom" constant="8" symbolic="YES" id="R0s-jW-9Oo"/>
+                            <constraint firstItem="gSw-Do-wlU" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="IjX-zw-Ful" secondAttribute="bottom" constant="400" id="AJf-dg-61R"/>
+                            <constraint firstItem="IjX-zw-Ful" firstAttribute="leading" secondItem="gSw-Do-wlU" secondAttribute="leading" constant="20" id="Lhn-E0-5YD"/>
                             <constraint firstItem="7Rl-Fl-5aN" firstAttribute="leading" secondItem="gSw-Do-wlU" secondAttribute="leading" constant="50" id="TKD-c3-mPh"/>
                             <constraint firstItem="7Rl-Fl-5aN" firstAttribute="top" secondItem="gSw-Do-wlU" secondAttribute="top" constant="100" id="TSu-JZ-4zB"/>
                             <constraint firstItem="gSw-Do-wlU" firstAttribute="trailing" secondItem="Ihg-w5-hYR" secondAttribute="trailing" constant="50" id="ZOa-i1-RuB"/>
                             <constraint firstItem="Ihg-w5-hYR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Rl-Fl-5aN" secondAttribute="trailing" id="dPz-pU-Awi"/>
-                            <constraint firstItem="IjX-zw-Ful" firstAttribute="centerX" secondItem="7Rl-Fl-5aN" secondAttribute="centerX" id="k4O-gb-T0X"/>
-                            <constraint firstItem="BcN-n8-lp7" firstAttribute="top" secondItem="Ihg-w5-hYR" secondAttribute="bottom" constant="8" symbolic="YES" id="nrG-sz-SiG"/>
+                            <constraint firstAttribute="trailing" secondItem="IjX-zw-Ful" secondAttribute="trailing" constant="20" id="lcB-1N-KuW"/>
+                            <constraint firstItem="IjX-zw-Ful" firstAttribute="top" secondItem="7Rl-Fl-5aN" secondAttribute="bottom" constant="10" id="or0-jN-deu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gSw-Do-wlU"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="BcN-n8-lp7"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="PP5-Cq-Mqa"/>
                     <connections>
@@ -133,6 +161,8 @@
                         <outlet property="subtractionBasicButton" destination="Ihg-w5-hYR" id="3nZ-mU-TCa"/>
                         <outlet property="summaBasicButton" destination="7Rl-Fl-5aN" id="YDj-g6-pw4"/>
                         <outlet property="summaBasicButtonStart" destination="dNY-h2-vnR" id="mPK-Mf-tZR"/>
+                        <outlet property="summaBasicLevelLabel" destination="DDx-ON-eHP" id="dW7-at-Svo"/>
+                        <outlet property="summaBasicPointsLabel" destination="d1E-RT-xsy" id="Y7E-XY-o70"/>
                         <outlet property="summaBasicStackView" destination="IjX-zw-Ful" id="3uj-Kl-MHE"/>
                         <outlet property="summaBasicView" destination="mPC-sM-aRv" id="BoM-eB-JOc"/>
                     </connections>

@@ -45,15 +45,22 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBOutlet var summaBasicLevelLabel: UILabel!
+    @IBOutlet var summaBasicPointsLabel: UILabel!
+    
+    
     
     
     
     // MARK: - Properties
-    
+    var summaBasicPoints = 0
+    var subtractionBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        summaBasicLevelLabel.text = "Уровень 1/5"
+        summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +73,7 @@ class MainViewController: UIViewController {
         if segue.identifier == "SummaBasicSegue" {
             let destination = segue.destination as! QuestionViewController
             destination.questionType = QuestionType.summa
+            destination.summaBasicPoints = summaBasicPoints
         } else if segue.identifier == "SubstractionBasicSegue" {
             let destination = segue.destination as! QuestionViewController
             destination.questionType = QuestionType.substraction
@@ -73,7 +81,18 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
-       
+        let segue = segue.source as! ResultViewController
+        summaBasicPoints += segue.experienceGained
+        summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
+        switch summaBasicPoints {
+        case 0...30:
+            summaBasicLevelLabel.text = "Уровень 1/5"
+        case 30...60:
+            summaBasicLevelLabel.text = "Уровень 2/5"
+        default:
+            summaBasicLevelLabel.text = "Уровень 3/5"
+        }
+        
     }
     
     // MARK: - Actions

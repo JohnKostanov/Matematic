@@ -137,8 +137,6 @@ class QuestionViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
             
             correctAnswer += 1
-            summaBasicPoints += 4
-            print(summaBasicPoints)
           
             
         } else {
