@@ -59,6 +59,7 @@ class MainViewController: UIViewController {
     
     
     // MARK: - Properties
+    var questionType: QuestionType = .summa
     var summaBasicPoints = 0
     var subtractionBasicPoints = 0
     
@@ -66,7 +67,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         summaBasicLevelLabel.text = "Уровень 1/5"
-        summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
+        substractionBasicLevelLabel.text = "Уровень 1/5"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,11 +77,12 @@ class MainViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SummaBasicSegue" {
+        switch questionType {
+        case .summa:
             let destination = segue.destination as! QuestionViewController
             destination.questionType = QuestionType.summa
             destination.summaBasicPoints = summaBasicPoints
-        } else if segue.identifier == "SubstractionBasicSegue" {
+        case .substraction:
             let destination = segue.destination as! QuestionViewController
             destination.questionType = QuestionType.substraction
         }
@@ -88,28 +90,50 @@ class MainViewController: UIViewController {
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         let segue = segue.source as! ResultViewController
-        summaBasicPoints += segue.experienceGained
-        summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
-        switch summaBasicPoints {
-        case 0...30:
-            summaBasicLevelLabel.text = "Уровень 1/5"
-        case 30...60:
-            summaBasicLevelLabel.text = "Уровень 2/5"
-        default:
-            summaBasicLevelLabel.text = "Уровень 3/5"
+        switch questionType {
+        case .summa:
+            summaBasicPoints += segue.experienceGained
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
+            switch summaBasicPoints {
+            case 0...30:
+                summaBasicLevelLabel.text = "Уровень 1/5"
+            case 30...60:
+                summaBasicLevelLabel.text = "Уровень 2/5"
+            default:
+                summaBasicLevelLabel.text = "Уровень 3/5"
+            }
+        case .substraction:
+            subtractionBasicPoints += segue.experienceGained
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)"
+            switch subtractionBasicPoints {
+            case 0...30:
+                substractionBasicLevelLabel.text = "Уровень 1/5"
+            case 30...60:
+                substractionBasicLevelLabel.text = "Уровень 2/5"
+            default:
+                substractionBasicLevelLabel.text = "Уровень 3/5"
+            }
+            
+
         }
         
     }
     
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
+        questionType = .summa
         substractionBasicStackView.isHidden = true
         summaBasicStackView.isHidden = false
+        
+        summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
     }
     
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
+        questionType = .substraction
         summaBasicStackView.isHidden = true
         substractionBasicStackView.isHidden = false
+        
+        substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)"
     }
     
     
