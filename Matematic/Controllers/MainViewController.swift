@@ -16,37 +16,43 @@ class MainViewController: UIViewController {
             summaBasicButton.layer.cornerRadius = 25
         }
     }
+    
     @IBOutlet var summaBasicStackView: UIStackView!
     @IBOutlet var summaBasicView: UIView! {
         didSet {
             summaBasicView.layer.cornerRadius = 10
         }
     }
+    @IBOutlet var summaBasicLevelLabel: UILabel!
+    @IBOutlet var summaBasicPointsLabel: UILabel!
     @IBOutlet var summaBasicButtonStart: UIButton! {
         didSet {
             summaBasicButtonStart.layer.cornerRadius = 10
         }
     }
     
+    
+    
     @IBOutlet var subtractionBasicButton: UIButton! {
         didSet {
             subtractionBasicButton.layer.cornerRadius = 25
         }
     }
+    
     @IBOutlet var substractionBasicStackView: UIStackView!
     @IBOutlet var substractionBasicView: UIView! {
         didSet {
             substractionBasicView.layer.cornerRadius = 10
         }
     }
+    @IBOutlet var substractionBasicLevelLabel: UILabel!
+    @IBOutlet var substractionBasicPointsLabel: UILabel!
     @IBOutlet var substractionBasicButtonStart: UIButton! {
         didSet {
             substractionBasicButtonStart.layer.cornerRadius = 10
         }
     }
     
-    @IBOutlet var summaBasicLevelLabel: UILabel!
-    @IBOutlet var summaBasicPointsLabel: UILabel!
     
     
     
@@ -97,10 +103,17 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
+        substractionBasicStackView.isHidden = true
         summaBasicStackView.isHidden = false
     }
     
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
+        summaBasicStackView.isHidden = true
         substractionBasicStackView.isHidden = false
     }
+    
+    
+ 
+    
+    
 }
