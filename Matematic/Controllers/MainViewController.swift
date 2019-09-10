@@ -11,6 +11,13 @@ import UIKit
 class MainViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet var currentExperianceLabel: UILabel!
+    @IBOutlet var goalExperianceLabel: UILabel!
+    @IBOutlet var levelLabel: UILabel!
+    
+    @IBOutlet var currentDimondLabel: UILabel!
+    @IBOutlet var currentHeartLabel: UILabel!
+    
     @IBOutlet var summaBasicButton: UIButton!
     
     @IBOutlet var summaBasicStackView: UIStackView!

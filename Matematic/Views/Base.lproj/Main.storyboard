@@ -320,6 +320,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="МЕНЮ" id="PP5-Cq-Mqa"/>
                     <connections>
+                        <outlet property="currentDimondLabel" destination="hAI-Gc-82V" id="xHF-Yz-dkZ"/>
+                        <outlet property="currentExperianceLabel" destination="r3n-6w-Yce" id="z7M-2X-W0O"/>
+                        <outlet property="currentHeartLabel" destination="1Rr-Bb-ZhF" id="kQp-EV-xLr"/>
+                        <outlet property="goalExperianceLabel" destination="jfe-sB-7is" id="wsf-ce-sc5"/>
+                        <outlet property="levelLabel" destination="1F4-cf-sAN" id="JVM-4b-0e4"/>
                         <outlet property="substractionBasicButtonStart" destination="vag-8q-BJk" id="uVh-gt-1o4"/>
                         <outlet property="substractionBasicLevelLabel" destination="BLs-iG-plu" id="7DT-kg-Bbf"/>
                         <outlet property="substractionBasicPointsLabel" destination="bv4-Ud-3V5" id="V8g-zD-CL5"/>
@@ -735,7 +740,6 @@
         <!--Navigation Controller-->
         <scene sceneID="vwU-nM-cGf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ey4-wt-RpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Em1-y3-C5T" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YOz-v7-CE8">
@@ -747,6 +751,7 @@
                         <segue destination="AeC-Wx-pnq" kind="relationship" relationship="rootViewController" id="XxS-C2-N36"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ey4-wt-RpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1341" y="175"/>
         </scene>
