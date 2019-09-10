@@ -11,52 +11,21 @@ import UIKit
 class MainViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet var summaBasicButton: UIButton! {
-        didSet {
-            summaBasicButton.layer.cornerRadius = 25
-        }
-    }
+    @IBOutlet var summaBasicButton: UIButton!
     
     @IBOutlet var summaBasicStackView: UIStackView!
-    @IBOutlet var summaBasicView: UIView! {
-        didSet {
-            summaBasicView.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet var summaBasicView: UIView!
     @IBOutlet var summaBasicLevelLabel: UILabel!
     @IBOutlet var summaBasicPointsLabel: UILabel!
-    @IBOutlet var summaBasicButtonStart: UIButton! {
-        didSet {
-            summaBasicButtonStart.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet var summaBasicButtonStart: UIButton!
     
-    
-    
-    @IBOutlet var subtractionBasicButton: UIButton! {
-        didSet {
-            subtractionBasicButton.layer.cornerRadius = 25
-        }
-    }
+    @IBOutlet var subtractionBasicButton: UIButton!
     
     @IBOutlet var substractionBasicStackView: UIStackView!
-    @IBOutlet var substractionBasicView: UIView! {
-        didSet {
-            substractionBasicView.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet var substractionBasicView: UIView!
     @IBOutlet var substractionBasicLevelLabel: UILabel!
     @IBOutlet var substractionBasicPointsLabel: UILabel!
-    @IBOutlet var substractionBasicButtonStart: UIButton! {
-        didSet {
-            substractionBasicButtonStart.layer.cornerRadius = 10
-        }
-    }
-    
-    
-    
-    
-    
+    @IBOutlet var substractionBasicButtonStart: UIButton!
     
     // MARK: - Properties
     var questionType: QuestionType = .summa
@@ -66,6 +35,7 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        performLayerCR()
         summaBasicLevelLabel.text = "Уровень 1/5"
         substractionBasicLevelLabel.text = "Уровень 1/5"
     }
@@ -73,6 +43,16 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         summaBasicStackView.isHidden = true
         substractionBasicStackView.isHidden = true
+    }
+    
+    //MARK: - Custom Methods
+    func performLayerCR() {
+        summaBasicButton.layer.cornerRadius = 25
+        summaBasicView.layer.cornerRadius = 10
+        summaBasicButtonStart.layer.cornerRadius = 10
+        subtractionBasicButton.layer.cornerRadius = 25
+        substractionBasicView.layer.cornerRadius = 10
+        substractionBasicButtonStart.layer.cornerRadius = 10
     }
     
     // MARK: - Navigation
