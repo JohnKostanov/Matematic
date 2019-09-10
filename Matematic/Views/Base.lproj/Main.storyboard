@@ -323,6 +323,7 @@
                         <outlet property="currentDimondLabel" destination="hAI-Gc-82V" id="xHF-Yz-dkZ"/>
                         <outlet property="currentExperianceLabel" destination="r3n-6w-Yce" id="z7M-2X-W0O"/>
                         <outlet property="currentHeartLabel" destination="1Rr-Bb-ZhF" id="kQp-EV-xLr"/>
+                        <outlet property="currentProgressView" destination="N9Z-3C-hOC" id="Bc6-aS-mQq"/>
                         <outlet property="goalExperianceLabel" destination="jfe-sB-7is" id="wsf-ce-sc5"/>
                         <outlet property="levelLabel" destination="1F4-cf-sAN" id="JVM-4b-0e4"/>
                         <outlet property="substractionBasicButtonStart" destination="vag-8q-BJk" id="uVh-gt-1o4"/>

@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet var currentExperianceLabel: UILabel!
     @IBOutlet var goalExperianceLabel: UILabel!
+    @IBOutlet var currentProgressView: UIProgressView!
     @IBOutlet var levelLabel: UILabel!
     
     @IBOutlet var currentDimondLabel: UILabel!
@@ -35,6 +36,13 @@ class MainViewController: UIViewController {
     @IBOutlet var substractionBasicButtonStart: UIButton!
     
     // MARK: - Properties
+    var currentExperience = 0
+    var goalExperience = 20
+    
+    var level = 0
+    var totalExperience = 0
+    var currentDiamond = 0
+    
     var questionType: QuestionType = .summa
     var summaBasicPoints = 0
     var subtractionBasicPoints = 0
@@ -43,6 +51,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         performLayerCR()
+        updateLevel()
+        updateUI()
         summaBasicLevelLabel.text = "Уровень 1/5"
         substractionBasicLevelLabel.text = "Уровень 1/5"
     }
@@ -62,6 +72,27 @@ class MainViewController: UIViewController {
         substractionBasicButtonStart.layer.cornerRadius = 10
     }
     
+    func updateLevel() {
+        if currentExperience == goalExperience {
+            level += 1
+            currentExperience = 0
+            goalExperience *= level
+        }
+    }
+    
+    func updateProgressView() {
+        
+//        ToDo....
+        
+    }
+    
+    func updateUI() {
+        currentExperianceLabel.text = "\(currentExperience)"
+        goalExperianceLabel.text = "\(goalExperience)"
+        levelLabel.text = "\(level)"
+        currentDimondLabel.text = "\(currentDiamond)"
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch questionType {
@@ -77,6 +108,11 @@ class MainViewController: UIViewController {
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         let segue = segue.source as! ResultViewController
+        totalExperience += segue.experienceGained
+        currentExperience += segue.experienceGained
+        currentDiamond += segue.receivedDiamond
+        updateLevel()
+        updateUI()
         switch questionType {
         case .summa:
             summaBasicPoints += segue.experienceGained
