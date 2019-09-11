@@ -57,6 +57,8 @@
                                                             <constraint firstAttribute="height" constant="10" id="DRz-XV-P2u"/>
                                                             <constraint firstAttribute="width" constant="115" id="iwX-jq-aa1"/>
                                                         </constraints>
+                                                        <color key="progressTintColor" red="0.93554031848907471" green="0.51945162819105251" blue="0.041402867823124578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="trackTintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CWF-gd-TQ3">
                                                         <rect key="frame" x="0.0" y="25.666666666666671" width="115" height="24.333333333333329"/>

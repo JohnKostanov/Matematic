@@ -37,9 +37,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     var currentExperience = 0
-    var goalExperience = 20
+    var goalExperience = 100
     
-    var level = 0
+    var level = 1
     var totalExperience = 0
     var currentDiamond = 0
     
@@ -50,8 +50,6 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        performLayerCR()
-        updateLevel()
         updateUI()
         summaBasicLevelLabel.text = "Уровень 1/5"
         substractionBasicLevelLabel.text = "Уровень 1/5"
@@ -76,17 +74,19 @@ class MainViewController: UIViewController {
         if currentExperience == goalExperience {
             level += 1
             currentExperience = 0
-            goalExperience *= level
+            goalExperience *= 20 / 100
         }
     }
     
     func updateProgressView() {
-        
-//        ToDo....
-        
+        let progress = Float(currentExperience) / Float(goalExperience)
+        currentProgressView.setProgress(progress, animated: true)
     }
     
     func updateUI() {
+        performLayerCR()
+        updateProgressView()
+        updateLevel()
         currentExperianceLabel.text = "\(currentExperience)"
         goalExperianceLabel.text = "\(goalExperience)"
         levelLabel.text = "\(level)"
