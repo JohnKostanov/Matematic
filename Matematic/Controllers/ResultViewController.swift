@@ -17,6 +17,8 @@ class ResultViewController: UIViewController {
     
     // MARK: - Properties
     var correctAnswer: Int!
+    var currentDiamond = 0
+    var currentHeart = 0
 
     var experienceGained: Int {
         return correctAnswer * 2

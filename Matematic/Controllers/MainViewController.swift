@@ -93,6 +93,7 @@ class MainViewController: UIViewController {
         goalExperianceLabel.text = "\(goalExperience)"
         levelLabel.text = "\(level)"
         currentDimondLabel.text = "\(currentDiamond)"
+        currentHeartLabel.text = "\(currentHeart)"
     }
     
     // MARK: - Navigation
@@ -114,7 +115,9 @@ class MainViewController: UIViewController {
         let segue = segue.source as! ResultViewController
         totalExperience += segue.experienceGained
         currentExperience += segue.experienceGained
+        currentDiamond = segue.currentDiamond
         currentDiamond += segue.receivedDiamond
+        currentHeart = segue.currentHeart
         updateLevel()
         updateUI()
         

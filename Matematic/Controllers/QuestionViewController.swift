@@ -20,6 +20,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var numbersInputLabel: UILabel!
     @IBOutlet var numbersButtons: [UIButton]!
+    @IBOutlet var minusButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var verifyButton: UIButton!
     
     
     // MARK: - Properties
@@ -43,6 +46,20 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         questions = createQuestion.performQuestions()
         updateUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        for button in numbersButtons {
+            button.layer.cornerRadius = 15
+            button.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        }
+        minusButton.layer.cornerRadius = 15
+        minusButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        deleteButton.layer.cornerRadius = 15
+        deleteButton.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        verifyButton.layer.cornerRadius = 15
+        verifyButton.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        
     }
     
     // MARK: - Custom Methods
@@ -190,7 +207,8 @@ class QuestionViewController: UIViewController {
         guard segue.identifier == "ResultSegue" else { return }
         let destination = segue.destination as! ResultViewController
         destination.correctAnswer = correctAnswer
-        
+        destination.currentDiamond = currentDiamond
+        destination.currentHeart = currentHeart
     }
     
 }
