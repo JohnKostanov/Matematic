@@ -30,6 +30,7 @@ class QuestionViewController: UIViewController {
     
     var correctAnswer = 0
     var summaBasicPoints = 0
+    var substractionBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -68,15 +69,6 @@ class QuestionViewController: UIViewController {
         
         switch questionType {
         case .summa:
-            switch summaBasicPoints {
-            case 0...30:
-                questionLevel = .easy
-            case 30...60:
-                questionLevel = .normal
-            default:
-                questionLevel = .highHard
-            }
-    
             switch questionLevel {
             case .easy:
                 performTextQuestionAndAnswer()
@@ -91,9 +83,9 @@ class QuestionViewController: UIViewController {
                 performTextQuestionAndAnswer()
             }
         case .substraction:
-            createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicOne())
             switch questionLevel {
             case .easy:
+                createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicOne())
                 performTextQuestionAndAnswer()
             case .normal:
                 createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicTwo())
