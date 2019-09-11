@@ -12,6 +12,8 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet var progressView: UIProgressView!
+    
+    @IBOutlet var currentDiamondLabel: UILabel!
     @IBOutlet var currentHeartLabel: UILabel!
     
     @IBOutlet var questionStackView: UIStackView!
@@ -24,6 +26,7 @@ class QuestionViewController: UIViewController {
     
     var answer: String = ""
     var questionIndex = 0
+    var currentDiamond = 0
     var currentHeart = 5
     var createQuestion = CreateQuestion(questionBasic: SummaBasicOne())
     var questions: [Question]!
@@ -46,8 +49,6 @@ class QuestionViewController: UIViewController {
     func nextQuestion() {
         if questionIndex < questions.count  {
            questionIndex += 1
-        } else if currentHeart < 1 {
-            // ToDo
         } else {
             performSegue(withIdentifier: "ResultSegue", sender: nil)
         }
@@ -60,19 +61,19 @@ class QuestionViewController: UIViewController {
         progressView.setProgress(progress, animated: true)
     }
     
+    func updateDiamondAndHeart() {
+        currentDiamondLabel.text = "💎 \(currentDiamond)"
+        currentHeartLabel.text = "❤️ \(currentHeart)"
+    }
+    
     func performTextQuestionAndAnswer() {
         questions = createQuestion.performQuestions()
         questionLabel.text = questions[questionIndex].questionText
         answer = String(questions[questionIndex].answer)
     }
     
-    func updateUI() {
-        
-        guard questionIndex < questions.count else {
-            nextQuestion()
-            return
-        }
-        
+    
+    func performQuestions() {
         switch questionType {
         case .summa:
             switch questionLevel {
@@ -104,9 +105,42 @@ class QuestionViewController: UIViewController {
                 performTextQuestionAndAnswer()
             }
         }
+    }
+    
+    func updateUI() {
         
+        if currentHeart < 1 && currentDiamond >= 1 {
+            let alertController = UIAlertController(title: "У вас нет жизней!", message: "Чтобы продолжить, восстановите свои жизни.", preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Обменять 💎 на ❤️", style: .default, handler: { _ in
+                self.currentHeart += 1
+                self.currentDiamond -= 1
+                self.updateDiamondAndHeart()
+            }))
+            self.present(alertController, animated: true)
+            
+        }
+        
+        if currentHeart < 1 && currentDiamond < 1 {
+            let alertController = UIAlertController(title: "У вас нет жизней!", message: "Завершить урок", preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Ок", style: .default, handler: { _ in
+               self.performSegue(withIdentifier: "ResultSegue", sender: nil)
+            }))
+            self.present(alertController, animated: true)
+            
+        }
+        
+        if currentDiamond < 1 {
+//            ToDo встроенные покупки
+        }
+        
+        guard questionIndex < questions.count else {
+            nextQuestion()
+            return
+        }
+        
+        performQuestions()
         updateProgress()
-  
+        updateDiamondAndHeart()
         nextQuestion()
     }
     
@@ -140,6 +174,7 @@ class QuestionViewController: UIViewController {
         } else {
             currentHeart -= 1
             currentHeartLabel.text = "❤️ \(currentHeart)"
+//            guard currentHeart > 0 else { return }
             let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
                 self.updateUI()

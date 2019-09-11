@@ -41,7 +41,8 @@ class MainViewController: UIViewController {
     
     var level = 1
     var totalExperience = 0
-    var currentDiamond = 0
+    var currentDiamond = 3
+    var currentHeart = 5
     
     var questionType: QuestionType = .summa
     var questionLevel: QuestionLevel = .easy
@@ -96,13 +97,14 @@ class MainViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! QuestionViewController
+        destination.currentDiamond = currentDiamond
+        destination.currentHeart = currentHeart
         switch questionType {
         case .summa:
-            let destination = segue.destination as! QuestionViewController
             destination.questionType = QuestionType.summa
             destination.summaBasicPoints = summaBasicPoints
         case .substraction:
-            let destination = segue.destination as! QuestionViewController
             destination.questionType = QuestionType.substraction
             destination.questionLevel = questionLevel
         }

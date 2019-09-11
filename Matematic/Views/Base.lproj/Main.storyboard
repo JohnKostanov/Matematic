@@ -365,21 +365,40 @@
                                         <color key="progressTintColor" red="0.051884430129999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="trackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnO-S9-H59">
-                                        <rect key="frame" x="10" y="30" width="314" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="cYP-b5-JYL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
-                                        <color key="textColor" red="1" green="0.084040851149999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-XL-fzj">
-                                        <rect key="frame" x="116" y="100" width="102.33333333333331" height="254"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Zw0-z2-cd3">
+                                        <rect key="frame" x="79.666666666666671" y="30" width="174.66666666666663" height="324"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oa9-5s-hLG">
+                                                <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="161"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💎 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7k-5Z-d12">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Zin-kL-kpf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                                        <color key="textColor" red="0.051884430129999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnO-S9-H59">
+                                                        <rect key="frame" x="100.99999999999997" y="0.0" width="73.666666666666657" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="cYP-b5-JYL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                                        <color key="textColor" red="1" green="0.084040851149999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-XL-fzj">
+                                                <rect key="frame" x="36.333333333333336" y="163" width="102.33333333333331" height="161"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eta-0W-ISw">
                                         <rect key="frame" x="167" y="374" width="0.0" height="30"/>
                                         <constraints>
@@ -582,7 +601,6 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="BPr-gP-M9D" secondAttribute="trailing" constant="20" id="8dD-ge-cLF"/>
                                     <constraint firstItem="BPr-gP-M9D" firstAttribute="leading" secondItem="A0J-lj-QbW" secondAttribute="leading" constant="20" id="g6S-sr-93L"/>
-                                    <constraint firstAttribute="trailing" secondItem="gnO-S9-H59" secondAttribute="trailing" constant="10" id="vDA-yF-NRu"/>
                                 </constraints>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGE-0m-vkP">
@@ -600,6 +618,7 @@
                         <viewLayoutGuide key="safeArea" id="N2e-Kt-gP1"/>
                     </view>
                     <connections>
+                        <outlet property="currentDiamondLabel" destination="k7k-5Z-d12" id="0UC-iu-njp"/>
                         <outlet property="currentHeartLabel" destination="gnO-S9-H59" id="Dg1-hz-qYl"/>
                         <outlet property="numbersInputLabel" destination="Eta-0W-ISw" id="6qc-hx-HOe"/>
                         <outlet property="progressView" destination="BPr-gP-M9D" id="fhG-YJ-BZa"/>
