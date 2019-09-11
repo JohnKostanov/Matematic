@@ -365,8 +365,17 @@
                                         <color key="progressTintColor" red="0.051884430129999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="trackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnO-S9-H59">
+                                        <rect key="frame" x="10" y="30" width="314" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="cYP-b5-JYL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                        <color key="textColor" red="1" green="0.084040851149999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-XL-fzj">
-                                        <rect key="frame" x="116" y="30" width="102.33333333333331" height="324"/>
+                                        <rect key="frame" x="116" y="100" width="102.33333333333331" height="254"/>
                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -573,8 +582,13 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="BPr-gP-M9D" secondAttribute="trailing" constant="20" id="8dD-ge-cLF"/>
                                     <constraint firstItem="BPr-gP-M9D" firstAttribute="leading" secondItem="A0J-lj-QbW" secondAttribute="leading" constant="20" id="g6S-sr-93L"/>
+                                    <constraint firstAttribute="trailing" secondItem="gnO-S9-H59" secondAttribute="trailing" constant="10" id="vDA-yF-NRu"/>
                                 </constraints>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGE-0m-vkP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -586,6 +600,7 @@
                         <viewLayoutGuide key="safeArea" id="N2e-Kt-gP1"/>
                     </view>
                     <connections>
+                        <outlet property="currentHeartLabel" destination="gnO-S9-H59" id="Dg1-hz-qYl"/>
                         <outlet property="numbersInputLabel" destination="Eta-0W-ISw" id="6qc-hx-HOe"/>
                         <outlet property="progressView" destination="BPr-gP-M9D" id="fhG-YJ-BZa"/>
                         <outlet property="questionLabel" destination="H4b-XL-fzj" id="QUr-uh-qQa"/>

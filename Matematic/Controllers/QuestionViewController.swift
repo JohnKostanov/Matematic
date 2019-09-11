@@ -11,17 +11,20 @@ import UIKit
 class QuestionViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var currentHeartLabel: UILabel!
+    
     @IBOutlet var questionStackView: UIStackView!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var numbersInputLabel: UILabel!
     @IBOutlet var numbersButtons: [UIButton]!
     
-    @IBOutlet var progressView: UIProgressView!
     
     // MARK: - Properties
     
     var answer: String = ""
     var questionIndex = 0
+    var currentHeart = 5
     var createQuestion = CreateQuestion(questionBasic: SummaBasicOne())
     var questions: [Question]!
     var questionType = QuestionType.summa
@@ -41,11 +44,14 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Custom Methods
     func nextQuestion() {
-        if questionIndex < questions.count {
+        if questionIndex < questions.count  {
            questionIndex += 1
+        } else if currentHeart < 1 {
+            // ToDo
         } else {
             performSegue(withIdentifier: "ResultSegue", sender: nil)
         }
+        
     }
     
     func updateProgress() {
@@ -132,6 +138,8 @@ class QuestionViewController: UIViewController {
           
             
         } else {
+            currentHeart -= 1
+            currentHeartLabel.text = "❤️ \(currentHeart)"
             let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
                 self.updateUI()
