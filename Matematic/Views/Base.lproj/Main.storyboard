@@ -58,7 +58,7 @@
                                                             <constraint firstAttribute="width" constant="115" id="iwX-jq-aa1"/>
                                                         </constraints>
                                                         <color key="progressTintColor" red="0.93554031848907471" green="0.51945162819105251" blue="0.041402867823124578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <color key="trackTintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CWF-gd-TQ3">
                                                         <rect key="frame" x="0.0" y="26" width="115" height="24"/>
@@ -362,8 +362,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="wQe-zF-MUM"/>
                                         </constraints>
-                                        <color key="progressTintColor" red="0.051884430129999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="trackTintColor" red="0.3803921569" green="0.57647058819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="progressTintColor" red="0.47353749270000001" green="1" blue="0.51614406930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Zw0-z2-cd3">
                                         <rect key="frame" x="20" y="20" width="200" height="164"/>
@@ -417,7 +417,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="g20-Zr-AIY"/>
                                                     <constraint firstAttribute="height" constant="50" id="hFW-Vb-zpn"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="7"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="cuv-98-FmJ"/>
@@ -430,7 +430,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="057-ll-Wte"/>
                                                     <constraint firstAttribute="width" constant="50" id="aBe-99-IYx"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="8"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="2dT-GB-k3s"/>
@@ -443,7 +443,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="6F4-Bu-F84"/>
                                                     <constraint firstAttribute="height" constant="50" id="Mqc-xA-A9R"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="9"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="wP5-ME-f8Z"/>
@@ -461,7 +461,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="USe-4z-kOu"/>
                                                     <constraint firstAttribute="width" constant="50" id="VYU-ud-TSe"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="4"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="Cbv-rk-JLz"/>
@@ -474,7 +474,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="6b3-iu-rSz"/>
                                                     <constraint firstAttribute="width" constant="50" id="JTk-hc-9cw"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="5"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="89x-wF-cAf"/>
@@ -487,7 +487,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="N9S-g3-njs"/>
                                                     <constraint firstAttribute="height" constant="50" id="tJ7-Py-4b3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="6"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="NTn-GC-MaS"/>
@@ -505,7 +505,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="9bg-GP-nId"/>
                                                     <constraint firstAttribute="width" constant="50" id="QTf-0i-hCX"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="JWb-qR-NNg"/>
@@ -518,7 +518,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="EGT-MG-bhi"/>
                                                     <constraint firstAttribute="height" constant="50" id="SsO-OX-f6m"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="h2i-og-nVk"/>
@@ -531,7 +531,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="6KO-G1-qrL"/>
                                                     <constraint firstAttribute="width" constant="50" id="8sK-Ch-nf2"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="Nyz-3m-rWC"/>
@@ -549,7 +549,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="9nq-i2-FeV"/>
                                                     <constraint firstAttribute="height" constant="50" id="Mhj-dt-0dq"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="0"/>
                                                 <connections>
                                                     <action selector="numbersAnswer:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="FC2-6f-zk2"/>
@@ -562,8 +562,10 @@
                                                     <constraint firstAttribute="width" constant="50" id="kMT-FK-8ih"/>
                                                     <constraint firstAttribute="height" constant="50" id="u4V-AZ-2mf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title="-"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" red="0.051884430129999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addNegativeNumbers:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="D4w-fU-Kd0"/>
                                                 </connections>
@@ -575,7 +577,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="FBg-3m-1bI"/>
                                                     <constraint firstAttribute="width" constant="50" id="ZyY-9s-SZ3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="С"/>
                                                 <connections>
                                                     <action selector="deleteTextAction:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="ndw-0e-cEH"/>
@@ -590,9 +592,9 @@
                                             <constraint firstAttribute="height" constant="50" id="OHj-aO-3dD"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="cow-HG-4qs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="18"/>
                                         <state key="normal" title="ПРОВЕРИТЬ">
-                                            <color key="titleColor" red="1" green="0.084040851149999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.47353749270000001" green="1" blue="0.51614406930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <action selector="examinationButtonPressed:" destination="fyJ-yF-uHm" eventType="touchUpInside" id="ar4-Lt-zNA"/>

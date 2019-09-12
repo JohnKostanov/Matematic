@@ -46,9 +46,16 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         questions = createQuestion.performQuestions()
         updateUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        performCofigurateOutlets()
+        updateVerifyButton()
+    }
+    
+    // MARK: - Custom Methods
+    func performCofigurateOutlets() {
         for button in numbersButtons {
             button.layer.cornerRadius = 15
             button.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
@@ -56,13 +63,21 @@ class QuestionViewController: UIViewController {
         minusButton.layer.cornerRadius = 15
         minusButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         deleteButton.layer.cornerRadius = 15
-        deleteButton.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        deleteButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         verifyButton.layer.cornerRadius = 15
-        verifyButton.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
-        
+        verifyButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
     }
     
-    // MARK: - Custom Methods
+    func updateVerifyButton() {
+        if numbersInputLabel.text == "" || numbersInputLabel.text == "-" {
+            verifyButton.isEnabled = false
+            verifyButton.alpha = 0.5
+        } else {
+            verifyButton.isEnabled = true
+            verifyButton.alpha = 1
+        }
+    }
+    
     func nextQuestion() {
         if questionIndex < questions.count  {
            questionIndex += 1
@@ -165,14 +180,17 @@ class QuestionViewController: UIViewController {
     @IBAction func numbersAnswer(_ sender: UIButton) {
         guard let numbersText = sender.titleLabel?.text else { return }
         numbersInputLabel.text! += numbersText
+        updateVerifyButton()
     }
     
     @IBAction func deleteTextAction(_ sender: UIButton) {
         numbersInputLabel.text = ""
+        updateVerifyButton()
     }
     
     @IBAction func addNegativeNumbers(_ sender: UIButton) {
         numbersInputLabel.text = sender.titleLabel?.text
+        updateVerifyButton()
     }
     
     
@@ -181,24 +199,24 @@ class QuestionViewController: UIViewController {
             let alertController = UIAlertController(title: "Верно", message: nil, preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
                 self.updateUI()
-                self.numbersInputLabel.text! = ""
             }))
             self.present(alertController, animated: true, completion: nil)
             
             correctAnswer += 1
-          
+            numbersInputLabel.text! = ""
+            updateVerifyButton()
             
         } else {
             currentHeart -= 1
             currentHeartLabel.text = "❤️ \(currentHeart)"
-//            guard currentHeart > 0 else { return }
             let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
                 self.updateUI()
-                self.numbersInputLabel.text! = ""
             }))
             self.present(alertController, animated: true)
             
+            numbersInputLabel.text! = ""
+            updateVerifyButton()
         }
     }
     
