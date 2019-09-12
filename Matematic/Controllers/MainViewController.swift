@@ -36,6 +36,17 @@ class MainViewController: UIViewController {
     @IBOutlet var substractionBasicButtonStart: UIButton!
     
     // MARK: - Properties
+    var isSummaBasicStackViewShown: Bool = false {
+        didSet {
+            summaBasicStackView.isHidden = !isSummaBasicStackViewShown
+        }
+    }
+    var isSubtractionBasicStackViewShown: Bool = false {
+        didSet {
+            substractionBasicStackView.isHidden = !isSubtractionBasicStackViewShown
+        }
+    }
+    
     var currentExperience = 0
     var goalExperience = 100
     
@@ -131,9 +142,10 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
+        isSummaBasicStackViewShown.toggle()
+        isSubtractionBasicStackViewShown = false
+        
         questionType = .summa
-        substractionBasicStackView.isHidden = true
-        summaBasicStackView.isHidden = false
         
         switch summaBasicPoints {
         case 0...30:
@@ -150,9 +162,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
+        isSubtractionBasicStackViewShown.toggle()
+        isSummaBasicStackViewShown = false
+        
         questionType = .substraction
-        summaBasicStackView.isHidden = true
-        substractionBasicStackView.isHidden = false
         
         switch subtractionBasicPoints {
         case 0...30:
