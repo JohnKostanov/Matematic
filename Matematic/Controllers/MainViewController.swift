@@ -43,6 +43,13 @@ class MainViewController: UIViewController {
     @IBOutlet var summaSubstractionPointsLabel: UILabel!
     @IBOutlet var summaSubstractionButtonStart: UIButton!
     
+    @IBOutlet var multiplicationBasicButtton: UIButton!
+    
+    @IBOutlet var multiplicationBasicStackView: UIStackView!
+    
+    
+    @IBOutlet var divisionBasicButton: UIButton!
+    
     
     
     // MARK: - Properties
@@ -88,6 +95,7 @@ class MainViewController: UIViewController {
         summaBasicStackView.isHidden = true
         substractionBasicStackView.isHidden = true
         summaSubstractionStackView.isHidden = true
+        multiplicationBasicStackView.isHidden = true
     }
     
     //MARK: - Custom Methods
@@ -103,6 +111,10 @@ class MainViewController: UIViewController {
         summaSubstractionButton.layer.cornerRadius = 25
         summaSubstractionView.layer.cornerRadius = 10
         summaSubstractionButtonStart.layer.cornerRadius = 10
+        
+        multiplicationBasicButtton.layer.cornerRadius = 25
+        
+        divisionBasicButton.layer.cornerRadius = 25
     }
     
     func updateLevel() {
@@ -210,8 +222,12 @@ class MainViewController: UIViewController {
         isSummaBasicStackViewShown = false
         isSubtractionBasicStackViewShown = false
         
-//        questionType = .summa
+
     }
+    
+    @IBAction func multiplicationBasicAction(_ sender: UIButton) {
+    }
+    
     
  
     

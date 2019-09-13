@@ -41,8 +41,8 @@ class ResultViewController: UIViewController {
     
     // MARK: - Custom Methods
     func updateUI() {
-        correctAnswerLabel.text = "\(correctAnswer!)"
-        experienceGainedLabel.text = "\(experienceGained)"
+        correctAnswerLabel.text = "\(correctAnswer!) ✅"
+        experienceGainedLabel.text = "\(experienceGained) 📈"
         receivedDiamondLabel.text = "\(receivedDiamond) 💎"
         
     }
