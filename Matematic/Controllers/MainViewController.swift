@@ -35,6 +35,16 @@ class MainViewController: UIViewController {
     @IBOutlet var substractionBasicPointsLabel: UILabel!
     @IBOutlet var substractionBasicButtonStart: UIButton!
     
+    @IBOutlet var summaSubstractionButton: UIButton!
+    
+    @IBOutlet var summaSubstractionStackView: UIStackView!
+    @IBOutlet var summaSubstractionView: UIView!
+    @IBOutlet var summaSubstractionLevelLabel: UILabel!
+    @IBOutlet var summaSubstractionPointsLabel: UILabel!
+    @IBOutlet var summaSubstractionButtonStart: UIButton!
+    
+    
+    
     // MARK: - Properties
     var isSummaBasicStackViewShown: Bool = false {
         didSet {
@@ -44,6 +54,12 @@ class MainViewController: UIViewController {
     var isSubtractionBasicStackViewShown: Bool = false {
         didSet {
             substractionBasicStackView.isHidden = !isSubtractionBasicStackViewShown
+        }
+    }
+    
+    var isSummaSubstractionStackViewShown: Bool = false {
+        didSet {
+            summaSubstractionStackView.isHidden = !isSummaSubstractionStackViewShown
         }
     }
     
@@ -71,6 +87,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         summaBasicStackView.isHidden = true
         substractionBasicStackView.isHidden = true
+        summaSubstractionStackView.isHidden = true
     }
     
     //MARK: - Custom Methods
@@ -78,9 +95,14 @@ class MainViewController: UIViewController {
         summaBasicButton.layer.cornerRadius = 25
         summaBasicView.layer.cornerRadius = 10
         summaBasicButtonStart.layer.cornerRadius = 10
+        
         subtractionBasicButton.layer.cornerRadius = 25
         substractionBasicView.layer.cornerRadius = 10
         substractionBasicButtonStart.layer.cornerRadius = 10
+        
+        summaSubstractionButton.layer.cornerRadius = 25
+        summaSubstractionView.layer.cornerRadius = 10
+        summaSubstractionButtonStart.layer.cornerRadius = 10
     }
     
     func updateLevel() {
@@ -144,6 +166,7 @@ class MainViewController: UIViewController {
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
         isSummaBasicStackViewShown.toggle()
         isSubtractionBasicStackViewShown = false
+        isSummaSubstractionStackViewShown = false
         
         questionType = .summa
         
@@ -164,6 +187,7 @@ class MainViewController: UIViewController {
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
         isSubtractionBasicStackViewShown.toggle()
         isSummaBasicStackViewShown = false
+        isSummaSubstractionStackViewShown = false
         
         questionType = .substraction
         
@@ -181,6 +205,13 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func summaSubstractionAction(_ sender: UIButton) {
+        isSummaSubstractionStackViewShown.toggle()
+        isSummaBasicStackViewShown = false
+        isSubtractionBasicStackViewShown = false
+        
+//        questionType = .summa
+    }
     
  
     
