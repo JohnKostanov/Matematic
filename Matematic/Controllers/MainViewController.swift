@@ -50,6 +50,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet var divisionBasicButton: UIButton!
     
+    @IBOutlet var divisionBasicStackView: UIStackView!
     
     
     // MARK: - Properties
@@ -96,6 +97,7 @@ class MainViewController: UIViewController {
         substractionBasicStackView.isHidden = true
         summaSubstractionStackView.isHidden = true
         multiplicationBasicStackView.isHidden = true
+        divisionBasicStackView.isHidden = true
     }
     
     //MARK: - Custom Methods
