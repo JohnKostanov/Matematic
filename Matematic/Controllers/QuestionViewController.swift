@@ -69,9 +69,9 @@ class QuestionViewController: UIViewController {
             button.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         }
         minusButton.layer.cornerRadius = 15
-        minusButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        minusButton.backgroundColor = #colorLiteral(red: 0, green: 0.9490196078, blue: 1, alpha: 1)
         deleteButton.layer.cornerRadius = 15
-        deleteButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        deleteButton.backgroundColor = #colorLiteral(red: 1, green: 0.3294117647, blue: 0.3294117647, alpha: 1)
         verifyButton.layer.cornerRadius = 15
         verifyButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         
