@@ -73,7 +73,7 @@ class QuestionViewController: UIViewController {
         deleteButton.layer.cornerRadius = 15
         deleteButton.backgroundColor = #colorLiteral(red: 1, green: 0.3294117647, blue: 0.3294117647, alpha: 1)
         verifyButton.layer.cornerRadius = 15
-        verifyButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        verifyButton.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
         
         correctAnswerStackView.isHidden = true
         errorAnswerStackView.isHidden = true
@@ -216,7 +216,7 @@ class QuestionViewController: UIViewController {
             errorAnswerStackView.isHidden = false
             currentHeart -= 1
             currentHeartLabel.text = "❤️ \(currentHeart)"
-            correctAnswerLabel.text = "Правильный ответ: \(questionLabel.text!) \(answer)"
+            correctAnswerLabel.text = "\(questionLabel.text!) \(answer)"
         }
     }
     
