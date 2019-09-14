@@ -25,6 +25,10 @@ class QuestionViewController: UIViewController {
     @IBOutlet var verifyButton: UIButton!
     
     
+    @IBOutlet var correctAnswerStackView: UIStackView!
+    @IBOutlet var nextQuestionButton: UIButton!
+    
+    
     // MARK: - Properties
     
     var answer: String = ""
@@ -66,6 +70,9 @@ class QuestionViewController: UIViewController {
         deleteButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         verifyButton.layer.cornerRadius = 15
         verifyButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        
+        correctAnswerStackView.isHidden = true
+        nextQuestionButton.layer.cornerRadius = 15
     }
     
     func updateVerifyButton() {
@@ -196,15 +203,8 @@ class QuestionViewController: UIViewController {
     
     @IBAction func examinationButtonPressed(_ sender: UIButton) {
         if numbersInputLabel.text == answer {
-            let alertController = UIAlertController(title: "Верно", message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
-                self.updateUI()
-            }))
-            self.present(alertController, animated: true, completion: nil)
-            
+            correctAnswerStackView.isHidden = false
             correctAnswer += 1
-            numbersInputLabel.text! = ""
-            updateVerifyButton()
             
         } else {
             currentHeart -= 1
@@ -219,6 +219,16 @@ class QuestionViewController: UIViewController {
             updateVerifyButton()
         }
     }
+    
+    @IBAction func nextQuestionAction(_ sender: UIButton) {
+        numbersInputLabel.text! = ""
+        updateVerifyButton()
+        
+        correctAnswerStackView.isHidden = true
+        
+        updateUI()
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
