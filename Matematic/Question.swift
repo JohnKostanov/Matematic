@@ -20,9 +20,9 @@ extension Question {
     var questionText: String {
         switch questionType {
         case .summa:
-            return "\(numberFirst) + \(numberSecond) = ?"
+            return "\(numberFirst) + \(numberSecond) ="
         case .substraction:
-            return "\(numberFirst) - \(numberSecond) = ?"
+            return "\(numberFirst) - \(numberSecond) ="
         }
     }
     

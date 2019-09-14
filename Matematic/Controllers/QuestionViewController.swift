@@ -28,6 +28,10 @@ class QuestionViewController: UIViewController {
     @IBOutlet var correctAnswerStackView: UIStackView!
     @IBOutlet var nextQuestionButton: UIButton!
     
+    @IBOutlet var errorAnswerStackView: UIStackView!
+    @IBOutlet var correctAnswerLabel: UILabel!
+    @IBOutlet var nextQuestionButtonError: UIButton!
+    
     
     // MARK: - Properties
     
@@ -72,7 +76,9 @@ class QuestionViewController: UIViewController {
         verifyButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         
         correctAnswerStackView.isHidden = true
+        errorAnswerStackView.isHidden = true
         nextQuestionButton.layer.cornerRadius = 15
+        nextQuestionButtonError.layer.cornerRadius = 15
     }
     
     func updateVerifyButton() {
@@ -207,16 +213,10 @@ class QuestionViewController: UIViewController {
             correctAnswer += 1
             
         } else {
+            errorAnswerStackView.isHidden = false
             currentHeart -= 1
             currentHeartLabel.text = "❤️ \(currentHeart)"
-            let alertController = UIAlertController(title: "Правильный ответ", message: answer, preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "Продолжить", style: .default, handler: { _ in
-                self.updateUI()
-            }))
-            self.present(alertController, animated: true)
-            
-            numbersInputLabel.text! = ""
-            updateVerifyButton()
+            correctAnswerLabel.text = "Правильный ответ: \(questionLabel.text!) \(answer)"
         }
     }
     
@@ -225,6 +225,7 @@ class QuestionViewController: UIViewController {
         updateVerifyButton()
         
         correctAnswerStackView.isHidden = true
+        errorAnswerStackView.isHidden = true
         
         updateUI()
     }
