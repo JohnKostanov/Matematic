@@ -32,6 +32,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet var correctAnswerLabel: UILabel!
     @IBOutlet var nextQuestionButtonError: UIButton!
     
+    @IBOutlet var restoreLifeStackView: UIStackView!
+    
+    @IBOutlet var exchangeOneDiamondButton: UIButton!
+    @IBOutlet var exchangeThreeDiamondButton: UIButton!
+    @IBOutlet var completeLessonButton: UIButton!
+    
     
     // MARK: - Properties
     
@@ -53,12 +59,12 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         questions = createQuestion.performQuestions()
+        performCofigurateOutlets()
         updateUI()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        performCofigurateOutlets()
         updateVerifyButton()
     }
     
@@ -76,9 +82,14 @@ class QuestionViewController: UIViewController {
         verifyButton.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
         
         correctAnswerStackView.isHidden = true
-        errorAnswerStackView.isHidden = true
         nextQuestionButton.layer.cornerRadius = 15
+        errorAnswerStackView.isHidden = true
         nextQuestionButtonError.layer.cornerRadius = 15
+        restoreLifeStackView.isHidden = true
+        exchangeOneDiamondButton.layer.cornerRadius = 15
+        exchangeThreeDiamondButton.layer.cornerRadius = 15
+        completeLessonButton.layer.cornerRadius = 15
+        
     }
     
     func updateVerifyButton() {
@@ -154,30 +165,10 @@ class QuestionViewController: UIViewController {
     
     func updateUI() {
         
-        if currentHeart < 1 && currentDiamond >= 1 {
-            let alertController = UIAlertController(title: "У вас нет жизней!", message: "Чтобы продолжить, восстановите свои жизни.", preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "Обменять 💎 на ❤️", style: .default, handler: { _ in
-                self.currentHeart += 1
-                self.currentDiamond -= 1
-                self.updateDiamondAndHeart()
-            }))
-            self.present(alertController, animated: true)
-            
+        if currentHeart < 1 {
+            restoreLifeStackView.isHidden = false
         }
-        
-        if currentHeart < 1 && currentDiamond < 1 {
-            let alertController = UIAlertController(title: "У вас нет жизней!", message: "Завершить урок", preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "Ок", style: .default, handler: { _ in
-               self.performSegue(withIdentifier: "ResultSegue", sender: nil)
-            }))
-            self.present(alertController, animated: true)
-            
-        }
-        
-        if currentDiamond < 1 {
-//            ToDo встроенные покупки
-        }
-        
+    
         guard questionIndex < questions.count else {
             nextQuestion()
             return
@@ -228,6 +219,30 @@ class QuestionViewController: UIViewController {
         errorAnswerStackView.isHidden = true
         
         updateUI()
+    }
+    
+    @IBAction func exchangeOneDiamond(_ sender: UIButton) {
+        if currentDiamond >= 1 {
+            currentHeart += 1
+            currentDiamond -= 1
+            updateUI()
+        } else {
+            //            ToDo встроенные покупки
+        }
+    }
+    
+    @IBAction func exchangeThreeDiamond(_ sender: UIButton) {
+        if currentDiamond >= 3 {
+            currentHeart = 5
+            currentDiamond -= 3
+            updateUI()
+        } else {
+            //            ToDo встроенные покупки
+        }
+    }
+    
+    @IBAction func completeLesson(_ sender: UIButton) {
+        performSegue(withIdentifier: "ResultSegue", sender: nil)
     }
     
     
