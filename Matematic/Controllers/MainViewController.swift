@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
     
     var level = 1
     var totalExperience = 0
-    var currentDiamond = 3
+    var currentDiamond = 50
     var currentHeart = 5
     
     var questionType: QuestionType = .summa

@@ -15,6 +15,9 @@ class ResultViewController: UIViewController {
     @IBOutlet var experienceGainedLabel: UILabel!
     @IBOutlet var receivedDiamondLabel: UILabel!
     
+    @IBOutlet var continueButton: UIButton!
+    
+    
     // MARK: - Properties
     var correctAnswer: Int!
     var currentDiamond = 0
@@ -35,11 +38,15 @@ class ResultViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        performConfigureOutlets()
         updateUI()
     }
     
     // MARK: - Custom Methods
+    func performConfigureOutlets() {
+        continueButton.layer.cornerRadius = 15
+    }
+    
     func updateUI() {
         correctAnswerLabel.text = "\(correctAnswer!) ✅"
         experienceGainedLabel.text = "\(experienceGained) 📈"

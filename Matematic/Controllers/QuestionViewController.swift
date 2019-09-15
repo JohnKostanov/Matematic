@@ -81,15 +81,19 @@ class QuestionViewController: UIViewController {
         verifyButton.layer.cornerRadius = 15
         verifyButton.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
         
-        correctAnswerStackView.isHidden = true
+        hideAllStackView()
         nextQuestionButton.layer.cornerRadius = 15
-        errorAnswerStackView.isHidden = true
         nextQuestionButtonError.layer.cornerRadius = 15
-        restoreLifeStackView.isHidden = true
         exchangeOneDiamondButton.layer.cornerRadius = 15
         exchangeThreeDiamondButton.layer.cornerRadius = 15
         completeLessonButton.layer.cornerRadius = 15
         
+    }
+    
+    func hideAllStackView() {
+        correctAnswerStackView.isHidden = true
+        errorAnswerStackView.isHidden = true
+        restoreLifeStackView.isHidden = true
     }
     
     func updateVerifyButton() {
@@ -120,6 +124,9 @@ class QuestionViewController: UIViewController {
     func updateDiamondAndHeart() {
         currentDiamondLabel.text = "💎 \(currentDiamond)"
         currentHeartLabel.text = "❤️ \(currentHeart)"
+        if currentHeart < 1 {
+            restoreLifeStackView.isHidden = false
+        }
     }
     
     func performTextQuestionAndAnswer() {
@@ -165,16 +172,13 @@ class QuestionViewController: UIViewController {
     
     func updateUI() {
         
-        if currentHeart < 1 {
-            restoreLifeStackView.isHidden = false
-        }
-    
         guard questionIndex < questions.count else {
             nextQuestion()
             return
         }
         
         performQuestions()
+        hideAllStackView()
         updateProgress()
         updateDiamondAndHeart()
         nextQuestion()
@@ -215,9 +219,6 @@ class QuestionViewController: UIViewController {
         numbersInputLabel.text! = ""
         updateVerifyButton()
         
-        correctAnswerStackView.isHidden = true
-        errorAnswerStackView.isHidden = true
-        
         updateUI()
     }
     
@@ -225,7 +226,8 @@ class QuestionViewController: UIViewController {
         if currentDiamond >= 1 {
             currentHeart += 1
             currentDiamond -= 1
-            updateUI()
+            updateDiamondAndHeart()
+            hideAllStackView()
         } else {
             //            ToDo встроенные покупки
         }
@@ -235,13 +237,15 @@ class QuestionViewController: UIViewController {
         if currentDiamond >= 3 {
             currentHeart = 5
             currentDiamond -= 3
-            updateUI()
+            updateDiamondAndHeart()
+            hideAllStackView()
         } else {
             //            ToDo встроенные покупки
         }
     }
     
     @IBAction func completeLesson(_ sender: UIButton) {
+        updateUI()
         performSegue(withIdentifier: "ResultSegue", sender: nil)
     }
     
