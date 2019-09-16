@@ -178,7 +178,40 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
-        isSummaBasicStackViewShown.toggle()
+        
+        if isSummaBasicStackViewShown {
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.allowAnimatedContent], animations: {
+                self.summaBasicButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.137254902, blue: 0.2509803922, alpha: 1)
+                self.summaBasicButton.setTitleColor(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), for: .normal)
+                self.summaBasicView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+            }) { _ in
+                UIView.animate(withDuration: 0.3) {
+                    self.summaBasicButton.transform = CGAffineTransform.identity
+                    self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.462745098, blue: 0.7490196078, alpha: 1)
+                    self.summaBasicButton.setTitleColor(#colorLiteral(red: 1, green: 0.4235294118, blue: 0.2509803922, alpha: 1), for: .normal)
+                    self.isSummaBasicStackViewShown.toggle()
+                }
+            }
+        } else {
+            self.summaBasicView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.allowAnimatedContent], animations: {
+                self.summaBasicButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.137254902, blue: 0.2509803922, alpha: 1)
+                self.summaBasicButton.setTitleColor(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), for: .normal)
+            }) { _ in
+                UIView.animate(withDuration: 0.2) {
+                    self.isSummaBasicStackViewShown.toggle()
+                    self.summaBasicView.transform = CGAffineTransform.identity
+                    self.summaBasicButton.transform = CGAffineTransform.identity
+                    self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.462745098, blue: 0.7490196078, alpha: 1)
+                    self.summaBasicButton.setTitleColor(#colorLiteral(red: 1, green: 0.4235294118, blue: 0.2509803922, alpha: 1), for: .normal)
+
+                }
+            }
+        }
+        
         isSubtractionBasicStackViewShown = false
         isSummaSubstractionStackViewShown = false
         

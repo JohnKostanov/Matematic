@@ -151,14 +151,14 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rl-Fl-5aN">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                        <color key="backgroundColor" red="0.050980392156862744" green="0.45098039215686275" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.61568627450980395" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="SGr-VS-PaJ"/>
                                                             <constraint firstAttribute="height" constant="80" id="k1r-0t-NIp"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                                         <state key="normal" title="+">
-                                                            <color key="titleColor" red="1" green="0.4392156862745098" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" red="1" green="0.42352941176470588" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="summaBasicButtonAction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="UjJ-MC-NMr"/>
@@ -274,7 +274,7 @@
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.050980392156862744" green="0.45098039215686275" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.30196078431372547" green="0.68627450980392157" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="fP3-Jy-OI2" secondAttribute="trailing" id="3ln-CI-qOT"/>
                                                     <constraint firstAttribute="bottom" secondItem="fP3-Jy-OI2" secondAttribute="bottom" constant="10" id="HGB-g6-MAy"/>
@@ -1103,10 +1103,12 @@
                         <outlet property="completeLessonButton" destination="AfH-t4-c6b" id="GGb-ZP-QAo"/>
                         <outlet property="correctAnswerLabel" destination="c1t-tS-ZJK" id="Avb-Ho-g9D"/>
                         <outlet property="correctAnswerStackView" destination="8eY-iP-EIw" id="CQk-c5-NqF"/>
+                        <outlet property="correctAnswerView" destination="cs1-tY-xpE" id="BbU-Wx-FGI"/>
                         <outlet property="currentDiamondLabel" destination="k7k-5Z-d12" id="0UC-iu-njp"/>
                         <outlet property="currentHeartLabel" destination="gnO-S9-H59" id="Dg1-hz-qYl"/>
                         <outlet property="deleteButton" destination="BQI-qc-n4z" id="UVe-58-Qqx"/>
                         <outlet property="errorAnswerStackView" destination="hQO-2B-8zR" id="fZs-Uj-YIX"/>
+                        <outlet property="errorAnswerView" destination="pfV-t7-iTu" id="dd6-eq-l3n"/>
                         <outlet property="exchangeOneDiamondButton" destination="r0D-ZZ-QTD" id="A1g-yK-eqX"/>
                         <outlet property="exchangeThreeDiamondButton" destination="PRJ-gc-Yyi" id="jhk-zT-t6J"/>
                         <outlet property="minusButton" destination="kfH-Ff-H78" id="ASR-ie-rej"/>
@@ -1187,7 +1189,7 @@
                                                 <rect key="frame" x="0.0" y="150" width="374" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="  Получено опыта:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqx-Ux-vdy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="wDG-zZ-FcJ"/>
@@ -1197,7 +1199,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 📈" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBC-Af-NRt">
-                                                        <rect key="frame" x="186" y="0.0" width="188" height="50"/>
+                                                        <rect key="frame" x="304" y="0.0" width="70" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Mvt-Yb-f4r"/>
