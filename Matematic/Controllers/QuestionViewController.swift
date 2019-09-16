@@ -26,9 +26,13 @@ class QuestionViewController: UIViewController {
     
     
     @IBOutlet var correctAnswerStackView: UIStackView!
+    @IBOutlet var correctAnswerView: UIView!
+    
     @IBOutlet var nextQuestionButton: UIButton!
     
     @IBOutlet var errorAnswerStackView: UIStackView!
+    @IBOutlet var errorAnswerView: UIView!
+    
     @IBOutlet var correctAnswerLabel: UILabel!
     @IBOutlet var nextQuestionButtonError: UIButton!
     
@@ -52,8 +56,6 @@ class QuestionViewController: UIViewController {
     
     
     var correctAnswer = 0
-//    var summaBasicPoints = 0
-//    var substractionBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -129,6 +131,49 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    func updateCorrectAndErrorStackView() {
+        if numbersInputLabel.text == answer {
+            self.correctAnswerView.transform = CGAffineTransform(scaleX: 0, y: 0)
+            
+            UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
+                self.correctAnswerStackView.isHidden = false
+                self.correctAnswerView.transform = CGAffineTransform.identity
+                
+            })
+            correctAnswer += 1
+            
+        } else {
+            self.errorAnswerView.transform = CGAffineTransform(scaleX: 0, y: 0)
+            
+            UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
+                self.errorAnswerStackView.isHidden = false
+                self.errorAnswerView.transform = CGAffineTransform.identity
+                
+            })
+            
+            currentHeart -= 1
+            currentHeartLabel.text = "❤️ \(currentHeart)"
+            correctAnswerLabel.text = "\(questionLabel.text!) \(answer)"
+        }
+    }
+    
+    func addAnimateNextButton(sender: UIButton) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.allowAnimatedContent], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
+            self.correctAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+            self.errorAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                sender.transform = CGAffineTransform.identity
+                sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
+                sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+                self.updateUI()
+            }
+        }
+    }
+    
     func performTextQuestionAndAnswer() {
         questions = createQuestion.performQuestions()
         questionLabel.text = questions[questionIndex].questionText
@@ -192,40 +237,78 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func numbersAnswer(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowAnimatedContent], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                sender.transform = CGAffineTransform.identity
+                sender.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                sender.setTitleColor(#colorLiteral(red: 0, green: 0.459597826, blue: 1, alpha: 1), for: .normal)
+
+            }
+        }
         guard let numbersText = sender.titleLabel?.text else { return }
         numbersInputLabel.text! += numbersText
         updateVerifyButton()
     }
     
     @IBAction func deleteTextAction(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowAnimatedContent], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                sender.transform = CGAffineTransform.identity
+                sender.backgroundColor = #colorLiteral(red: 1, green: 0.3294117647, blue: 0.3294117647, alpha: 1)
+                sender.setTitleColor(#colorLiteral(red: 0, green: 0.459597826, blue: 1, alpha: 1), for: .normal)
+                
+            }
+        }
         numbersInputLabel.text = ""
         updateVerifyButton()
     }
     
     @IBAction func addNegativeNumbers(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowAnimatedContent], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                sender.transform = CGAffineTransform.identity
+                sender.backgroundColor = #colorLiteral(red: 0, green: 0.9490196078, blue: 1, alpha: 1)
+                sender.setTitleColor(#colorLiteral(red: 0, green: 0.459597826, blue: 1, alpha: 1), for: .normal)
+                
+            }
+        }
         numbersInputLabel.text = sender.titleLabel?.text
         updateVerifyButton()
     }
     
     
     @IBAction func examinationButtonPressed(_ sender: UIButton) {
-        if numbersInputLabel.text == answer {
-            correctAnswerStackView.isHidden = false
-            correctAnswer += 1
-            
-        } else {
-            errorAnswerStackView.isHidden = false
-            currentHeart -= 1
-            currentHeartLabel.text = "❤️ \(currentHeart)"
-            correctAnswerLabel.text = "\(questionLabel.text!) \(answer)"
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.allowAnimatedContent], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                sender.transform = CGAffineTransform.identity
+                sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
+                sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            }
         }
+        updateCorrectAndErrorStackView()
     }
     
     @IBAction func nextQuestionAction(_ sender: UIButton) {
+        addAnimateNextButton(sender: sender)
         numbersInputLabel.text! = ""
         updateVerifyButton()
         
-        updateUI()
     }
     
     @IBAction func exchangeOneDiamond(_ sender: UIButton) {
