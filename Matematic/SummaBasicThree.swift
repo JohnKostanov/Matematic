@@ -1,17 +1,16 @@
 //
-//  SummaBasicTwo.swift
+//  SummaBasicThree.swift
 //  Matematic
 //
-//  Created by  Джон Костанов on 06/09/2019.
+//  Created by  Джон Костанов on 16/09/2019.
 //  Copyright © 2019 John Kostanov. All rights reserved.
 //
 
 import Foundation
 
-class SummaBasicTwo: SummaBasicOne {
-    
+class SummaBasicThree: SummaBasicOne {
     override var randomInt: Int {
-        return  NumberRandomFactory.produceRandomInt(type: .twenty).generateRandomInt()
+        return  NumberRandomFactory.produceRandomInt(type: .thirty).generateRandomInt()
     }
     
     override var all: [Question] {

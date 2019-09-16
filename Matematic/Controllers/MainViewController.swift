@@ -151,7 +151,7 @@ class MainViewController: UIViewController {
         switch questionType {
         case .summa:
             destination.questionType = QuestionType.summa
-            destination.summaBasicPoints = summaBasicPoints
+            destination.questionLevel = questionLevel
         case .substraction:
             destination.questionType = QuestionType.substraction
             destination.questionLevel = questionLevel
@@ -185,16 +185,30 @@ class MainViewController: UIViewController {
         questionType = .summa
         
         switch summaBasicPoints {
-        case 0...30:
+        case 0...19:
             summaBasicLevelLabel.text = "Уровень 1/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/30"
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/20"
             questionLevel = .easy
-        case 30...60:
+        case 20...39:
             summaBasicLevelLabel.text = "Уровень 2/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/60"
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/40"
             questionLevel = .normal
-        default:
+        case 40...59:
             summaBasicLevelLabel.text = "Уровень 3/5"
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/60"
+            questionLevel = .medium
+        case 60...79:
+            summaBasicLevelLabel.text = "Уровень 4/5"
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/80"
+            questionLevel = .hard
+        case 80...100:
+            summaBasicLevelLabel.text = "Уровень 5/5"
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/100"
+            questionLevel = .highHard
+        default:
+            summaBasicLevelLabel.text = "Уровень 5/5"
+            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
+            questionLevel = .highHard
         }
     }
     
@@ -206,16 +220,30 @@ class MainViewController: UIViewController {
         questionType = .substraction
         
         switch subtractionBasicPoints {
-        case 0...30:
+        case 0...19:
             substractionBasicLevelLabel.text = "Уровень 1/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/30"
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/20"
             questionLevel = .easy
-        case 30...60:
+        case 20...39:
             substractionBasicLevelLabel.text = "Уровень 2/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/60"
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/40"
             questionLevel = .normal
-        default:
+        case 40...59:
             substractionBasicLevelLabel.text = "Уровень 3/5"
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/60"
+            questionLevel = .medium
+        case 60...79:
+            substractionBasicLevelLabel.text = "Уровень 4/5"
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/80"
+            questionLevel = .hard
+        case 80...100:
+            substractionBasicLevelLabel.text = "Уровень 5/5"
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/100"
+            questionLevel = .highHard
+        default:
+            substractionBasicLevelLabel.text = "Уровень 5/5"
+            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)"
+            questionLevel = .highHard
         }
     }
     

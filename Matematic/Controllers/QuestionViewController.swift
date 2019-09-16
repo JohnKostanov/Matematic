@@ -52,8 +52,8 @@ class QuestionViewController: UIViewController {
     
     
     var correctAnswer = 0
-    var summaBasicPoints = 0
-    var substractionBasicPoints = 0
+//    var summaBasicPoints = 0
+//    var substractionBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -146,10 +146,13 @@ class QuestionViewController: UIViewController {
                 createQuestion.setQuestionBasicType(questionBasicType: SummaBasicTwo())
                 performTextQuestionAndAnswer()
             case .medium:
+                createQuestion.setQuestionBasicType(questionBasicType: SummaBasicThree())
                 performTextQuestionAndAnswer()
             case .hard:
+                createQuestion.setQuestionBasicType(questionBasicType: SummaBasicFour())
                 performTextQuestionAndAnswer()
             case .highHard:
+                createQuestion.setQuestionBasicType(questionBasicType: SummaBasicFive())
                 performTextQuestionAndAnswer()
             }
         case .substraction:
@@ -161,10 +164,13 @@ class QuestionViewController: UIViewController {
                 createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicTwo())
                 performTextQuestionAndAnswer()
             case .medium:
+                createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicThree())
                 performTextQuestionAndAnswer()
             case .hard:
+                createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicFour())
                 performTextQuestionAndAnswer()
             case .highHard:
+                createQuestion.setQuestionBasicType(questionBasicType: SubtractionBasicFive())
                 performTextQuestionAndAnswer()
             }
         }
