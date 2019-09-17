@@ -37,6 +37,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var nextQuestionButtonError: UIButton!
     
     @IBOutlet var restoreLifeStackView: UIStackView!
+    @IBOutlet var restoreLifeView: UIView!
     
     @IBOutlet var exchangeOneDiamondButton: UIButton!
     @IBOutlet var exchangeThreeDiamondButton: UIButton!
@@ -126,10 +127,42 @@ class QuestionViewController: UIViewController {
     func updateDiamondAndHeart() {
         currentDiamondLabel.text = "💎 \(currentDiamond)"
         currentHeartLabel.text = "❤️ \(currentHeart)"
-        if currentHeart < 1 {
-            restoreLifeStackView.isHidden = false
+    }
+    
+    func addAnimateViewOpening(view: UIView, stackView: UIStackView) {
+        view.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
+            stackView.isHidden = false
+            view.transform = .identity
+        })
+    }
+    
+    func addAnimateViewClosing(view: UIView, stackView: UIStackView) {
+        UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
+            view.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+        }) { _ in
+            stackView.isHidden = false
+            self.updateUI()
         }
     }
+    
+    func addAnimateButton(sender: UIButton) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
+        }) { _ in
+            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+                self.correctAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+                self.errorAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+                sender.transform = CGAffineTransform.identity
+                sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
+                sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            })
+        }
+    }
+    
+    
     
     func updateCorrectAndErrorStackView() {
         if numbersInputLabel.text == answer {
@@ -158,20 +191,25 @@ class QuestionViewController: UIViewController {
     }
     
     func addAnimateNextButton(sender: UIButton) {
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.allowAnimatedContent], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
-            self.correctAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
-            self.errorAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
         }) { _ in
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+                self.correctAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+                self.errorAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
                 sender.transform = CGAffineTransform.identity
                 sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
                 sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-                self.updateUI()
+            }) { _ in
+                UIView.animate(withDuration: 0.3, delay: 0, options: [.allowAnimatedContent], animations: {
+                    self.updateUI()
+                    
+                })
             }
         }
+        
     }
     
     func performTextQuestionAndAnswer() {
@@ -305,9 +343,13 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func nextQuestionAction(_ sender: UIButton) {
-        addAnimateNextButton(sender: sender)
-        numbersInputLabel.text! = ""
-        updateVerifyButton()
+        if currentHeart < 1 {
+            addAnimateViewOpening(view: restoreLifeView, stackView: restoreLifeStackView)
+        } else {
+            addAnimateNextButton(sender: sender)
+            numbersInputLabel.text! = ""
+            updateVerifyButton()
+        }
         
     }
     
@@ -315,8 +357,10 @@ class QuestionViewController: UIViewController {
         if currentDiamond >= 1 {
             currentHeart += 1
             currentDiamond -= 1
-            updateDiamondAndHeart()
-            hideAllStackView()
+            addAnimateButton(sender: sender)
+            numbersInputLabel.text! = ""
+            updateVerifyButton()
+            addAnimateViewClosing(view: restoreLifeView, stackView: restoreLifeStackView)
         } else {
             //            ToDo встроенные покупки
         }
@@ -326,8 +370,7 @@ class QuestionViewController: UIViewController {
         if currentDiamond >= 3 {
             currentHeart = 5
             currentDiamond -= 3
-            updateDiamondAndHeart()
-            hideAllStackView()
+            addAnimateViewClosing(view: restoreLifeView, stackView: restoreLifeStackView)
         } else {
             //            ToDo встроенные покупки
         }

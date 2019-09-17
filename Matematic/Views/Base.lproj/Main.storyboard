@@ -1119,6 +1119,7 @@
                         <outlet property="questionLabel" destination="H4b-XL-fzj" id="QUr-uh-qQa"/>
                         <outlet property="questionStackView" destination="A0J-lj-QbW" id="NpS-Ic-ole"/>
                         <outlet property="restoreLifeStackView" destination="vem-Kx-e8n" id="Vex-ap-ade"/>
+                        <outlet property="restoreLifeView" destination="OPw-ta-Vyu" id="TFg-Yb-nrk"/>
                         <outlet property="verifyButton" destination="mfg-rJ-vVQ" id="GwF-sI-5BH"/>
                         <outletCollection property="numbersButtons" destination="IYR-fL-a4B" collectionClass="NSMutableArray" id="G8c-Of-ACR"/>
                         <outletCollection property="numbersButtons" destination="RJs-Vf-IWg" collectionClass="NSMutableArray" id="cmr-Kb-Jl1"/>
