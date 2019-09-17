@@ -20,9 +20,9 @@
 		52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */; };
 		52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB12323C7DD000648A4 /* QuestionType.swift */; };
 		52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB323241A91000648A4 /* ResultViewController.swift */; };
+		52D77F8123311C9F00AC5863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D77F8023311C9F00AC5863 /* Assets.xcassets */; };
 		52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D122AC38ED00334F22 /* AppDelegate.swift */; };
 		52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D522AC38ED00334F22 /* Main.storyboard */; };
-		52E7D8D922AC38EE00334F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8D822AC38EE00334F22 /* Assets.xcassets */; };
 		52E7D8DC22AC38EE00334F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E7D8DA22AC38EE00334F22 /* LaunchScreen.storyboard */; };
 		52ED962A232538B500713299 /* QuestionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED9629232538B500713299 /* QuestionLevel.swift */; };
 		52ED962C23255BFC00713299 /* SubtractionBasicTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED962B23255BFC00713299 /* SubtractionBasicTwo.swift */; };
@@ -46,10 +46,10 @@
 		52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicOne.swift; sourceTree = "<group>"; };
 		52D2FFB12323C7DD000648A4 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 		52D2FFB323241A91000648A4 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		52D77F8023311C9F00AC5863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E7D8CE22AC38ED00334F22 /* Matematic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matematic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E7D8D122AC38ED00334F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E7D8D622AC38ED00334F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		52E7D8D822AC38EE00334F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E7D8DB22AC38EE00334F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52E7D8DD22AC38EE00334F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52ED9629232538B500713299 /* QuestionLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLevel.swift; sourceTree = "<group>"; };
@@ -110,6 +110,7 @@
 			children = (
 				52E7D8D522AC38ED00334F22 /* Main.storyboard */,
 				52E7D8DA22AC38EE00334F22 /* LaunchScreen.storyboard */,
+				52D77F8023311C9F00AC5863 /* Assets.xcassets */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				52E7D8D122AC38ED00334F22 /* AppDelegate.swift */,
-				52E7D8D822AC38EE00334F22 /* Assets.xcassets */,
 				52E7D8DD22AC38EE00334F22 /* Info.plist */,
 			);
 			path = "Supports Files";
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E7D8DC22AC38EE00334F22 /* LaunchScreen.storyboard in Resources */,
-				52E7D8D922AC38EE00334F22 /* Assets.xcassets in Resources */,
+				52D77F8123311C9F00AC5863 /* Assets.xcassets in Resources */,
 				52E7D8D722AC38ED00334F22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
