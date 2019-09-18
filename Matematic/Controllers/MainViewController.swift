@@ -84,6 +84,8 @@ class MainViewController: UIViewController {
     var summaBasicPoints = 0
     var subtractionBasicPoints = 0
     
+     var currentButton = 0
+    
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,6 +145,43 @@ class MainViewController: UIViewController {
         currentHeartLabel.text = "\(currentHeart)"
     }
     
+    func addAnimateButton(sender: UIButton) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.allowAnimatedContent], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.alpha = 0.5
+            sender.setTitleColor(#colorLiteral(red: 1, green: 0.4235294118, blue: 0.2509803922, alpha: 1), for: .normal)
+
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                sender.transform = .identity
+                sender.alpha = 1
+                sender.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+            }
+        }
+    }
+    
+    func addAnimateViewOpening(view: UIView, stackView: UIStackView) {
+        view.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
+            stackView.isHidden = false
+            view.transform = .identity
+        })
+    }
+    
+    func addAnimateViewClosing(view: UIView, stackView: UIStackView) {
+        UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
+            view.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+        }) { _ in
+            stackView.isHidden = true
+        }
+    }
+    
+    fileprivate func delay(_ delay: Int, closure: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .milliseconds(delay)) {
+            closure()
+        }
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! QuestionViewController
@@ -178,40 +217,25 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
-        
-        if isSummaBasicStackViewShown {
-            UIView.animate(withDuration: 0.3, delay: 0, options: [.allowAnimatedContent], animations: {
-                self.summaBasicButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.137254902, blue: 0.2509803922, alpha: 1)
-                self.summaBasicButton.setTitleColor(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), for: .normal)
-                self.summaBasicView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
-            }) { _ in
-                UIView.animate(withDuration: 0.3) {
-                    self.summaBasicButton.transform = CGAffineTransform.identity
-                    self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.462745098, blue: 0.7490196078, alpha: 1)
-                    self.summaBasicButton.setTitleColor(#colorLiteral(red: 1, green: 0.4235294118, blue: 0.2509803922, alpha: 1), for: .normal)
-                    self.isSummaBasicStackViewShown.toggle()
-                }
-            }
-        } else {
-            self.summaBasicView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+       
+        switch currentButton {
+        case 0:
+            addAnimateButton(sender: sender)
+            addAnimateViewOpening(view: summaBasicView, stackView: summaBasicStackView)
+            print("Open")
             
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.allowAnimatedContent], animations: {
-                self.summaBasicButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.137254902, blue: 0.2509803922, alpha: 1)
-                self.summaBasicButton.setTitleColor(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), for: .normal)
-            }) { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.isSummaBasicStackViewShown.toggle()
-                    self.summaBasicView.transform = CGAffineTransform.identity
-                    self.summaBasicButton.transform = CGAffineTransform.identity
-                    self.summaBasicButton.backgroundColor = #colorLiteral(red: 0, green: 0.462745098, blue: 0.7490196078, alpha: 1)
-                    self.summaBasicButton.setTitleColor(#colorLiteral(red: 1, green: 0.4235294118, blue: 0.2509803922, alpha: 1), for: .normal)
-
-                }
-            }
+        case 1:
+            addAnimateButton(sender: sender)
+            addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
+            print("closed")
+            
+        default:
+            break
         }
-        
+        currentButton += 1
+        if currentButton > 1 {
+            currentButton = 0
+        }
         isSubtractionBasicStackViewShown = false
         isSummaSubstractionStackViewShown = false
         
@@ -246,9 +270,33 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
-        isSubtractionBasicStackViewShown.toggle()
-        isSummaBasicStackViewShown = false
-        isSummaSubstractionStackViewShown = false
+        addAnimateButton(sender: sender)
+        addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
+        
+        if isSubtractionBasicStackViewShown {
+            addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
+            print("- closed", isSubtractionBasicStackViewShown)
+           
+            delay(300) {
+                self.isSubtractionBasicStackViewShown.toggle()
+                print(self.isSubtractionBasicStackViewShown)
+            }
+
+        } else {
+            
+            addAnimateViewOpening(view: substractionBasicView, stackView: substractionBasicStackView)
+            print("- open", isSubtractionBasicStackViewShown)
+
+            delay(300) {
+                self.isSubtractionBasicStackViewShown.toggle()
+                print(self.isSubtractionBasicStackViewShown)
+            }
+        }
+//        updateUI()
+
+        
+//        isSummaBasicStackViewShown = false
+//        isSummaSubstractionStackViewShown = false
         
         questionType = .substraction
         

@@ -149,7 +149,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OgO-TW-RHL">
                                                 <rect key="frame" x="0.0" y="0.0" width="210" height="80"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rl-Fl-5aN">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rl-Fl-5aN">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <color key="backgroundColor" red="0.0" green="0.61568627450980395" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
@@ -157,9 +157,7 @@
                                                             <constraint firstAttribute="height" constant="80" id="k1r-0t-NIp"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                                        <state key="normal" title="+">
-                                                            <color key="titleColor" red="1" green="0.42352941176470588" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
+                                                        <state key="normal" title="+"/>
                                                         <connections>
                                                             <action selector="summaBasicButtonAction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="UjJ-MC-NMr"/>
                                                         </connections>
@@ -173,7 +171,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                                         <state key="normal" title="-">
-                                                            <color key="titleColor" red="1" green="0.42352941176470588" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="substractionBasicButtonAction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="cJC-6k-mLM"/>
@@ -190,7 +188,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                                 <state key="normal" title="+ -">
-                                                    <color key="titleColor" red="1" green="0.42352941176470588" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="summaSubstractionAction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="oy7-xi-tZp"/>
