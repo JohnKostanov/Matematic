@@ -129,12 +129,14 @@ class QuestionViewController: UIViewController {
         currentHeartLabel.text = "❤️ \(currentHeart)"
     }
     
-    func addAnimateViewOpening(view: UIView, stackView: UIStackView) {
+    func addAnimateViewOpening(view: UIView, stackView: UIStackView, hideStack: UIStackView?) {
         view.transform = CGAffineTransform(scaleX: 0, y: 0)
         UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
             stackView.isHidden = false
             view.transform = .identity
-        })
+        }) { _ in
+            hideStack?.isHidden = true
+        }
     }
     
     func addAnimateViewClosing(view: UIView, stackView: UIStackView) {
@@ -153,8 +155,6 @@ class QuestionViewController: UIViewController {
             sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
         }) { _ in
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-                self.correctAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
-                self.errorAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
                 sender.transform = CGAffineTransform.identity
                 sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
                 sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
@@ -166,50 +166,16 @@ class QuestionViewController: UIViewController {
     
     func updateCorrectAndErrorStackView() {
         if numbersInputLabel.text == answer {
-            self.correctAnswerView.transform = CGAffineTransform(scaleX: 0, y: 0)
-            
-            UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
-                self.correctAnswerStackView.isHidden = false
-                self.correctAnswerView.transform = CGAffineTransform.identity
-                
-            })
+            addAnimateViewOpening(view: correctAnswerView, stackView: correctAnswerStackView, hideStack: nil)
             correctAnswer += 1
             
         } else {
-            self.errorAnswerView.transform = CGAffineTransform(scaleX: 0, y: 0)
-            
-            UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
-                self.errorAnswerStackView.isHidden = false
-                self.errorAnswerView.transform = CGAffineTransform.identity
-                
-            })
+            addAnimateViewOpening(view: errorAnswerView, stackView: errorAnswerStackView, hideStack: nil)
             
             currentHeart -= 1
             currentHeartLabel.text = "❤️ \(currentHeart)"
             correctAnswerLabel.text = "\(questionLabel.text!) \(answer)"
         }
-    }
-    
-    func addAnimateNextButton(sender: UIButton) {
-        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-            sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
-        }) { _ in
-            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-                self.correctAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
-                self.errorAnswerView.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
-                sender.transform = CGAffineTransform.identity
-                sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
-                sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-            }) { _ in
-                UIView.animate(withDuration: 0.3, delay: 0, options: [.allowAnimatedContent], animations: {
-                    self.updateUI()
-                    
-                })
-            }
-        }
-        
     }
     
     func performTextQuestionAndAnswer() {
@@ -344,9 +310,15 @@ class QuestionViewController: UIViewController {
     
     @IBAction func nextQuestionAction(_ sender: UIButton) {
         if currentHeart < 1 {
-            addAnimateViewOpening(view: restoreLifeView, stackView: restoreLifeStackView)
+            addAnimateViewOpening(view: restoreLifeView, stackView: restoreLifeStackView, hideStack: errorAnswerStackView)
+            
         } else {
-            addAnimateNextButton(sender: sender)
+            addAnimateButton(sender: sender)
+            if correctAnswerStackView.isHidden {
+                addAnimateViewClosing(view: errorAnswerView, stackView: errorAnswerStackView)
+            } else {
+                addAnimateViewClosing(view: correctAnswerView, stackView: correctAnswerStackView)
+            }
             numbersInputLabel.text! = ""
             updateVerifyButton()
         }
