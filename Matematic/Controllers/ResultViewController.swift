@@ -47,6 +47,21 @@ class ResultViewController: UIViewController {
         continueButton.layer.cornerRadius = 15
     }
     
+    func addAnimateButton(sender: UIButton) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.alpha = 0.5
+            sender.setTitleColor(#colorLiteral(red: 0.05098039216, green: 0.4509803922, blue: 1, alpha: 1), for: .normal)
+            
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                sender.transform = .identity
+                sender.alpha = 1
+                sender.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+            }
+        }
+    }
+    
     func updateUI() {
         correctAnswerLabel.text = "\(correctAnswer!) ✅"
         experienceGainedLabel.text = "\(experienceGained) 📈"
@@ -54,4 +69,7 @@ class ResultViewController: UIViewController {
         
     }
 
+    @IBAction func continueButtonAction(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
+    }
 }
