@@ -109,6 +109,11 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    func clearNumbersInputLabel() {
+        numbersInputLabel.text = ""
+        updateVerifyButton()
+    }
+    
     func nextQuestion() {
         if questionIndex < questions.count  {
            questionIndex += 1
@@ -131,7 +136,7 @@ class QuestionViewController: UIViewController {
     
     func addAnimateViewOpening(view: UIView, stackView: UIStackView, hideStack: UIStackView?) {
         view.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.2, animations: {
             stackView.isHidden = false
             view.transform = .identity
         }) { _ in
@@ -140,7 +145,7 @@ class QuestionViewController: UIViewController {
     }
     
     func addAnimateViewClosing(view: UIView, stackView: UIStackView) {
-        UIView.animate(withDuration: 0.3, delay: 0.4, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.2, animations: {
             view.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
         }) { _ in
             stackView.isHidden = false
@@ -149,12 +154,12 @@ class QuestionViewController: UIViewController {
     }
     
     func addAnimateButton(sender: UIButton) {
-        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
         }) { _ in
-            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
                 sender.transform = CGAffineTransform.identity
                 sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
                 sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
@@ -271,8 +276,7 @@ class QuestionViewController: UIViewController {
                 
             }
         }
-        numbersInputLabel.text = ""
-        updateVerifyButton()
+        clearNumbersInputLabel()
     }
     
     @IBAction func addNegativeNumbers(_ sender: UIButton) {
@@ -310,6 +314,7 @@ class QuestionViewController: UIViewController {
     
     @IBAction func nextQuestionAction(_ sender: UIButton) {
         if currentHeart < 1 {
+            addAnimateButton(sender: sender)
             addAnimateViewOpening(view: restoreLifeView, stackView: restoreLifeStackView, hideStack: errorAnswerStackView)
             
         } else {
@@ -319,8 +324,7 @@ class QuestionViewController: UIViewController {
             } else {
                 addAnimateViewClosing(view: correctAnswerView, stackView: correctAnswerStackView)
             }
-            numbersInputLabel.text! = ""
-            updateVerifyButton()
+            clearNumbersInputLabel()
         }
         
     }
@@ -329,9 +333,8 @@ class QuestionViewController: UIViewController {
         if currentDiamond >= 1 {
             currentHeart += 1
             currentDiamond -= 1
+            clearNumbersInputLabel()
             addAnimateButton(sender: sender)
-            numbersInputLabel.text! = ""
-            updateVerifyButton()
             addAnimateViewClosing(view: restoreLifeView, stackView: restoreLifeStackView)
         } else {
             //            ToDo встроенные покупки
@@ -342,6 +345,8 @@ class QuestionViewController: UIViewController {
         if currentDiamond >= 3 {
             currentHeart = 5
             currentDiamond -= 3
+            clearNumbersInputLabel()
+            addAnimateButton(sender: sender)
             addAnimateViewClosing(view: restoreLifeView, stackView: restoreLifeStackView)
         } else {
             //            ToDo встроенные покупки
@@ -349,7 +354,8 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func completeLesson(_ sender: UIButton) {
-        updateUI()
+        addAnimateButton(sender: sender)
+//        updateUI()
         performSegue(withIdentifier: "ResultSegue", sender: nil)
     }
     

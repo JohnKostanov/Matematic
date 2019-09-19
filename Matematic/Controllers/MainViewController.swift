@@ -59,15 +59,27 @@ class MainViewController: UIViewController {
             summaBasicStackView.isHidden = !isSummaBasicStackViewShown
         }
     }
-    var isSubtractionBasicStackViewShown: Bool = false {
+    var isSubstractionBasicStackViewShown: Bool = false {
         didSet {
-            substractionBasicStackView.isHidden = !isSubtractionBasicStackViewShown
+            substractionBasicStackView.isHidden = !isSubstractionBasicStackViewShown
         }
     }
     
     var isSummaSubstractionStackViewShown: Bool = false {
         didSet {
             summaSubstractionStackView.isHidden = !isSummaSubstractionStackViewShown
+        }
+    }
+    
+    var isMultiplicationBasicStackViewShown: Bool = false {
+        didSet {
+            multiplicationBasicStackView.isHidden = !isMultiplicationBasicStackViewShown
+        }
+    }
+    
+    var isDivisionBasicStackViewShown: Bool = false {
+        didSet {
+            divisionBasicStackView.isHidden = !isDivisionBasicStackViewShown
         }
     }
     
@@ -84,8 +96,6 @@ class MainViewController: UIViewController {
     var summaBasicPoints = 0
     var subtractionBasicPoints = 0
     
-     var currentButton = 0
-    
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,11 +105,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        summaBasicStackView.isHidden = true
-        substractionBasicStackView.isHidden = true
-        summaSubstractionStackView.isHidden = true
-        multiplicationBasicStackView.isHidden = true
-        divisionBasicStackView.isHidden = true
+        closingAllStackView()
     }
     
     //MARK: - Custom Methods
@@ -132,6 +138,14 @@ class MainViewController: UIViewController {
     func updateProgressView() {
         let progress = Float(currentExperience) / Float(goalExperience)
         currentProgressView.setProgress(progress, animated: true)
+    }
+    
+    func closingAllStackView() {
+        isSummaBasicStackViewShown = false
+        isSubstractionBasicStackViewShown = false
+        isSummaSubstractionStackViewShown = false
+        isMultiplicationBasicStackViewShown = false
+        isDivisionBasicStackViewShown = false
     }
     
     func updateUI() {
@@ -205,6 +219,7 @@ class MainViewController: UIViewController {
         currentDiamond += segue.receivedDiamond
         currentHeart = segue.currentHeart
         updateLevel()
+        closingAllStackView()
         updateUI()
         
         switch questionType {
@@ -217,27 +232,25 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func summaBasicButtonAction(_ sender: UIButton) {
-       
-        switch currentButton {
-        case 0:
-            addAnimateButton(sender: sender)
-            addAnimateViewOpening(view: summaBasicView, stackView: summaBasicStackView)
-            print("Open")
-            
-        case 1:
-            addAnimateButton(sender: sender)
+        addAnimateButton(sender: sender)
+        addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
+        addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
+        
+        if isSummaBasicStackViewShown {
             addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
-            print("closed")
             
-        default:
-            break
+            delay(300) {
+                self.isSummaBasicStackViewShown.toggle()
+            }
+        } else {
+            addAnimateViewOpening(view: summaBasicView, stackView: summaBasicStackView)
+            
+            delay(300) {
+                self.isSummaBasicStackViewShown.toggle()
+                self.isSubstractionBasicStackViewShown = false
+                self.isSummaSubstractionStackViewShown = false
+            }
         }
-        currentButton += 1
-        if currentButton > 1 {
-            currentButton = 0
-        }
-        isSubtractionBasicStackViewShown = false
-        isSummaSubstractionStackViewShown = false
         
         questionType = .summa
         
@@ -272,31 +285,27 @@ class MainViewController: UIViewController {
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
         addAnimateButton(sender: sender)
         addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
+        addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
         
-        if isSubtractionBasicStackViewShown {
+        if isSubstractionBasicStackViewShown {
             addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
-            print("- closed", isSubtractionBasicStackViewShown)
            
             delay(300) {
-                self.isSubtractionBasicStackViewShown.toggle()
-                print(self.isSubtractionBasicStackViewShown)
+                self.isSubstractionBasicStackViewShown.toggle()
             }
 
         } else {
             
             addAnimateViewOpening(view: substractionBasicView, stackView: substractionBasicStackView)
-            print("- open", isSubtractionBasicStackViewShown)
 
             delay(300) {
-                self.isSubtractionBasicStackViewShown.toggle()
-                print(self.isSubtractionBasicStackViewShown)
+                self.isSubstractionBasicStackViewShown.toggle()
+                self.isSummaBasicStackViewShown = false
+                self.isSummaSubstractionStackViewShown = false
             }
         }
-//        updateUI()
+        updateUI()
 
-        
-//        isSummaBasicStackViewShown = false
-//        isSummaSubstractionStackViewShown = false
         
         questionType = .substraction
         
@@ -331,7 +340,7 @@ class MainViewController: UIViewController {
     @IBAction func summaSubstractionAction(_ sender: UIButton) {
         isSummaSubstractionStackViewShown.toggle()
         isSummaBasicStackViewShown = false
-        isSubtractionBasicStackViewShown = false
+        isSubstractionBasicStackViewShown = false
         
 
     }
