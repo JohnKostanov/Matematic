@@ -95,6 +95,7 @@ class MainViewController: UIViewController {
     var questionLevel: QuestionLevel = .easy
     var summaBasicPoints = 0
     var subtractionBasicPoints = 0
+    var summaSubstractionPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -203,10 +204,13 @@ class MainViewController: UIViewController {
         destination.currentHeart = currentHeart
         switch questionType {
         case .summa:
-            destination.questionType = QuestionType.summa
+            destination.questionType = .summa
             destination.questionLevel = questionLevel
         case .substraction:
-            destination.questionType = QuestionType.substraction
+            destination.questionType = .substraction
+            destination.questionLevel = questionLevel
+        case .summaSubstraction:
+            destination.questionType = .summaSubstraction
             destination.questionLevel = questionLevel
         }
     }
@@ -227,6 +231,8 @@ class MainViewController: UIViewController {
             summaBasicPoints += segue.experienceGained
         case .substraction:
             subtractionBasicPoints += segue.experienceGained
+        case .summaSubstraction:
+            summaSubstractionPoints += segue.experienceGained
         }
     }
     
@@ -280,6 +286,10 @@ class MainViewController: UIViewController {
             summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
             questionLevel = .highHard
         }
+    }
+    
+    @IBAction func startSummaBasicButton(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
     }
     
     @IBAction func substractionBasicButtonAction(_ sender: UIButton) {
@@ -336,15 +346,70 @@ class MainViewController: UIViewController {
             questionLevel = .highHard
         }
     }
+    @IBAction func startSubstractionBasicButton(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
+    }
     
     @IBAction func summaSubstractionAction(_ sender: UIButton) {
-        isSummaSubstractionStackViewShown.toggle()
-        isSummaBasicStackViewShown = false
-        isSubstractionBasicStackViewShown = false
+        addAnimateButton(sender: sender)
+        addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
+        addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
+        
+        if isSummaSubstractionStackViewShown {
+            addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
+            
+            delay(300) {
+                self.isSummaSubstractionStackViewShown.toggle()
+            }
+            
+        } else {
+            
+            addAnimateViewOpening(view: summaSubstractionView, stackView: summaSubstractionStackView)
+            
+            delay(300) {
+                self.isSummaSubstractionStackViewShown.toggle()
+                self.isSummaBasicStackViewShown = false
+                self.isSubstractionBasicStackViewShown = false
+            }
+        }
+        updateUI()
+        
+        
+        questionType = .summaSubstraction
+        
+        switch summaSubstractionPoints {
+        case 0...19:
+            summaSubstractionLevelLabel.text = "Уровень 1/5"
+            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/20"
+            questionLevel = .easy
+        case 20...39:
+            summaSubstractionLevelLabel.text = "Уровень 2/5"
+            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/40"
+            questionLevel = .normal
+        case 40...59:
+            summaSubstractionLevelLabel.text = "Уровень 3/5"
+            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/60"
+            questionLevel = .medium
+        case 60...79:
+            summaSubstractionLevelLabel.text = "Уровень 4/5"
+            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/80"
+            questionLevel = .hard
+        case 80...100:
+            summaSubstractionLevelLabel.text = "Уровень 5/5"
+            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/100"
+            questionLevel = .highHard
+        default:
+            summaSubstractionLevelLabel.text = "Уровень 5/5"
+            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)"
+            questionLevel = .highHard
+        }
         
 
     }
     
+    @IBAction func startSummaSubstraction(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
+    }
     @IBAction func multiplicationBasicAction(_ sender: UIButton) {
     }
     

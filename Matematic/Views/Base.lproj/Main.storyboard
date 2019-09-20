@@ -259,6 +259,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="startSummaBasicButton:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="uvm-CG-l4V"/>
                                                                     <segue destination="fyJ-yF-uHm" kind="show" identifier="SummaBasicSegue" id="SBV-4Q-UAS"/>
                                                                 </connections>
                                                             </button>
@@ -316,6 +317,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="startSubstractionBasicButton:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="JOD-8x-wez"/>
                                                                     <segue destination="fyJ-yF-uHm" kind="show" identifier="SubstractionBasicSegue" id="ofB-Ri-fJC"/>
                                                                 </connections>
                                                             </button>
@@ -371,6 +373,10 @@
                                                                 <state key="normal" title="Начать">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="startSummaSubstraction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="x9A-T5-xN6"/>
+                                                                    <segue destination="fyJ-yF-uHm" kind="show" identifier="SummaSubstractionSegue" id="Svw-BD-OwV"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.42352941179999998" green="0.57254901960000004" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -912,13 +918,13 @@
                                                 <rect key="frame" x="20" y="10" width="374" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неверно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S44-i5-XMj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="27.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="33"/>
                                                         <color key="textColor" red="0.6588235294117647" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Правильный ответ:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1t-tS-ZJK">
-                                                        <rect key="frame" x="0.0" y="37.5" width="374" height="32.5"/>
+                                                        <rect key="frame" x="0.0" y="45" width="374" height="25"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1144,7 +1150,7 @@
                                                 <rect key="frame" x="0.0" y="150" width="374" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="  Получено опыта:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqx-Ux-vdy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="wDG-zZ-FcJ"/>
@@ -1154,7 +1160,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 📈" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBC-Af-NRt">
-                                                        <rect key="frame" x="186" y="0.0" width="188" height="50"/>
+                                                        <rect key="frame" x="304" y="0.0" width="70" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Mvt-Yb-f4r"/>
@@ -1256,6 +1262,6 @@
         <image name="book" width="71" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ofB-Ri-fJC"/>
+        <segue reference="Svw-BD-OwV"/>
     </inferredMetricsTieBreakers>
 </document>

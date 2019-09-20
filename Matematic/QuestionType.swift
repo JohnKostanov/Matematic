@@ -9,4 +9,5 @@
 enum QuestionType {
     case summa
     case substraction
+    case summaSubstraction
 }

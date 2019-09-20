@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		520353B02323245B00E18E4E /* NumberRandomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520353AF2323245B00E18E4E /* NumberRandomFactory.swift */; };
+		5226CA6323355AA400B3D02D /* SummaSubstractionOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226CA6223355AA400B3D02D /* SummaSubstractionOne.swift */; };
+		5226CA652335661800B3D02D /* SummaSubstractionTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226CA642335661800B3D02D /* SummaSubstractionTwo.swift */; };
+		5226CA6723357E8600B3D02D /* SummaSubstractionThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226CA6623357E8600B3D02D /* SummaSubstractionThree.swift */; };
+		5226CA6923357EC800B3D02D /* SummaSubstractionFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226CA6823357EC800B3D02D /* SummaSubstractionFour.swift */; };
+		5226CA6B23357F1D00B3D02D /* SummaSubstractionFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226CA6A23357F1D00B3D02D /* SummaSubstractionFive.swift */; };
 		523AD620232FA4950027A49A /* SummaBasicThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AD61F232FA4950027A49A /* SummaBasicThree.swift */; };
 		523AD622232FA62F0027A49A /* SummaBasicFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AD621232FA62F0027A49A /* SummaBasicFour.swift */; };
 		523AD624232FA7290027A49A /* SummaBasicFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AD623232FA7290027A49A /* SummaBasicFive.swift */; };
@@ -34,6 +39,11 @@
 
 /* Begin PBXFileReference section */
 		520353AF2323245B00E18E4E /* NumberRandomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberRandomFactory.swift; sourceTree = "<group>"; };
+		5226CA6223355AA400B3D02D /* SummaSubstractionOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaSubstractionOne.swift; sourceTree = "<group>"; };
+		5226CA642335661800B3D02D /* SummaSubstractionTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaSubstractionTwo.swift; sourceTree = "<group>"; };
+		5226CA6623357E8600B3D02D /* SummaSubstractionThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaSubstractionThree.swift; sourceTree = "<group>"; };
+		5226CA6823357EC800B3D02D /* SummaSubstractionFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaSubstractionFour.swift; sourceTree = "<group>"; };
+		5226CA6A23357F1D00B3D02D /* SummaSubstractionFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaSubstractionFive.swift; sourceTree = "<group>"; };
 		523AD61F232FA4950027A49A /* SummaBasicThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaBasicThree.swift; sourceTree = "<group>"; };
 		523AD621232FA62F0027A49A /* SummaBasicFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaBasicFour.swift; sourceTree = "<group>"; };
 		523AD623232FA7290027A49A /* SummaBasicFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaBasicFive.swift; sourceTree = "<group>"; };
@@ -71,6 +81,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5226CA6123355A2A00B3D02D /* SummaSubstraction */ = {
+			isa = PBXGroup;
+			children = (
+				5226CA6223355AA400B3D02D /* SummaSubstractionOne.swift */,
+				5226CA642335661800B3D02D /* SummaSubstractionTwo.swift */,
+				5226CA6623357E8600B3D02D /* SummaSubstractionThree.swift */,
+				5226CA6823357EC800B3D02D /* SummaSubstractionFour.swift */,
+				5226CA6A23357F1D00B3D02D /* SummaSubstractionFive.swift */,
+			);
+			name = SummaSubstraction;
+			sourceTree = "<group>";
+		};
 		523AD62B232FA91C0027A49A /* SummaBasic */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +164,7 @@
 				52F7B3522321DB0700AF070B /* CreateQuestion.swift */,
 				523AD62B232FA91C0027A49A /* SummaBasic */,
 				523AD62C232FA9700027A49A /* SubtractionBasic */,
+				5226CA6123355A2A00B3D02D /* SummaSubstraction */,
 			);
 			name = CreateQuestion;
 			sourceTree = "<group>";
@@ -254,10 +277,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				523AD622232FA62F0027A49A /* SummaBasicFour.swift in Sources */,
+				5226CA6323355AA400B3D02D /* SummaSubstractionOne.swift in Sources */,
 				52F7B34B2321BBF700AF070B /* QuestionProtocol.swift in Sources */,
 				52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */,
 				523AD62A232FA8E70027A49A /* SubtractionBasicFive.swift in Sources */,
 				52F7B3532321DB0700AF070B /* CreateQuestion.swift in Sources */,
+				5226CA6723357E8600B3D02D /* SummaSubstractionThree.swift in Sources */,
 				523AD624232FA7290027A49A /* SummaBasicFive.swift in Sources */,
 				526EE0D222F44B8E00E4C53D /* Question.swift in Sources */,
 				523AD626232FA81A0027A49A /* SubtractionBasicThree.swift in Sources */,
@@ -269,9 +294,12 @@
 				520353B02323245B00E18E4E /* NumberRandomFactory.swift in Sources */,
 				523AD628232FA87E0027A49A /* SubtractionBasicFour.swift in Sources */,
 				52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */,
+				5226CA652335661800B3D02D /* SummaSubstractionTwo.swift in Sources */,
+				5226CA6B23357F1D00B3D02D /* SummaSubstractionFive.swift in Sources */,
 				52ED962A232538B500713299 /* QuestionLevel.swift in Sources */,
 				52F7B34F2321CD1700AF070B /* SummaBasicOne.swift in Sources */,
 				52ED962C23255BFC00713299 /* SubtractionBasicTwo.swift in Sources */,
+				5226CA6923357EC800B3D02D /* SummaSubstractionFour.swift in Sources */,
 				52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
