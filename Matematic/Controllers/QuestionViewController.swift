@@ -55,6 +55,8 @@ class QuestionViewController: UIViewController {
     var questionType = QuestionType.summa
     var questionLevel = QuestionLevel.easy
     
+    var isEnabledButtons = true
+    
     
     var correctAnswer = 0
     
@@ -132,6 +134,24 @@ class QuestionViewController: UIViewController {
     func updateDiamondAndHeart() {
         currentDiamondLabel.text = "💎 \(currentDiamond)"
         currentHeartLabel.text = "❤️ \(currentHeart)"
+    }
+    
+    func changeStateButtons() {
+        if isEnabledButtons {
+            for button in numbersButtons {
+                button.isEnabled = false
+            }
+            minusButton.isEnabled = false
+            deleteButton.isEnabled = false
+            isEnabledButtons.toggle()
+        } else {
+            for button in numbersButtons {
+                button.isEnabled = true
+            }
+            minusButton.isEnabled = true
+            deleteButton.isEnabled = true
+            isEnabledButtons.toggle()
+        }
     }
     
     func addAnimateViewOpening(view: UIView, stackView: UIStackView, hideStack: UIStackView?) {
@@ -310,6 +330,7 @@ class QuestionViewController: UIViewController {
             }
         }
         updateCorrectAndErrorStackView()
+        changeStateButtons()
     }
     
     @IBAction func nextQuestionAction(_ sender: UIButton) {
@@ -325,7 +346,9 @@ class QuestionViewController: UIViewController {
                 addAnimateViewClosing(view: correctAnswerView, stackView: correctAnswerStackView)
             }
             clearNumbersInputLabel()
+            changeStateButtons()
         }
+        
         
     }
     
@@ -339,6 +362,7 @@ class QuestionViewController: UIViewController {
         } else {
             //            ToDo встроенные покупки
         }
+        changeStateButtons()
     }
     
     @IBAction func exchangeThreeDiamond(_ sender: UIButton) {
@@ -351,6 +375,7 @@ class QuestionViewController: UIViewController {
         } else {
             //            ToDo встроенные покупки
         }
+        changeStateButtons()
     }
     
     @IBAction func completeLesson(_ sender: UIButton) {
