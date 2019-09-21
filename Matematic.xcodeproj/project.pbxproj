@@ -158,6 +158,13 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		52A76F8A233649C50001725C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		52B03A6A2322A48E00EECEDD /* CreateQuestion */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +195,7 @@
 		52E7D8D022AC38ED00334F22 /* Matematic */ = {
 			isa = PBXGroup;
 			children = (
+				52A76F8A233649C50001725C /* Managers */,
 				52F7B3492321BB7700AF070B /* Protocols */,
 				526EE0CD22F44A2F00E4C53D /* Controllers */,
 				526EE0D022F44AAA00E4C53D /* Models */,

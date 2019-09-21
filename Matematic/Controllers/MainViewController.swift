@@ -46,11 +46,18 @@ class MainViewController: UIViewController {
     @IBOutlet var multiplicationBasicButtton: UIButton!
     
     @IBOutlet var multiplicationBasicStackView: UIStackView!
-    
+    @IBOutlet var multiplicationBasicView: UIView!
+    @IBOutlet var multiplicationBasicLevelLabel: UILabel!
+    @IBOutlet var multiplicationBasicPointsLabel: UILabel!
+    @IBOutlet var multiplicationBasicButtonStart: UIButton!
     
     @IBOutlet var divisionBasicButton: UIButton!
     
     @IBOutlet var divisionBasicStackView: UIStackView!
+    @IBOutlet var divisionBasicView: UIView!
+    @IBOutlet var divisionBasicLevelLabel: UILabel!
+    @IBOutlet var divisionBasicPointsLabel: UILabel!
+    @IBOutlet var divisionBasicButtonStart: UIButton!
     
     
     // MARK: - Properties
@@ -113,14 +120,20 @@ class MainViewController: UIViewController {
     func performLayerCR() {
         summaBasicButton.layer.cornerRadius = 25
         summaBasicView.layer.cornerRadius = 10
+        summaBasicLevelLabel.textColor = .black
+        summaBasicPointsLabel.textColor = .black
         summaBasicButtonStart.layer.cornerRadius = 10
         
         subtractionBasicButton.layer.cornerRadius = 25
         substractionBasicView.layer.cornerRadius = 10
+        substractionBasicLevelLabel.textColor = .black
+        substractionBasicPointsLabel.textColor = .black
         substractionBasicButtonStart.layer.cornerRadius = 10
         
         summaSubstractionButton.layer.cornerRadius = 25
         summaSubstractionView.layer.cornerRadius = 10
+        summaSubstractionLevelLabel.textColor = .black
+        summaSubstractionPointsLabel.textColor = .black
         summaSubstractionButtonStart.layer.cornerRadius = 10
         
         multiplicationBasicButtton.layer.cornerRadius = 25
@@ -165,7 +178,7 @@ class MainViewController: UIViewController {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             sender.alpha = 0.5
             sender.setTitleColor(#colorLiteral(red: 1, green: 0.4235294118, blue: 0.2509803922, alpha: 1), for: .normal)
-
+            
         }) { _ in
             UIView.animate(withDuration: 0.2) {
                 sender.transform = .identity
@@ -241,6 +254,7 @@ class MainViewController: UIViewController {
         addAnimateButton(sender: sender)
         addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
         addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
+        addAnimateViewClosing(view: divisionBasicView, stackView: divisionBasicStackView)
         
         if isSummaBasicStackViewShown {
             addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
@@ -255,6 +269,7 @@ class MainViewController: UIViewController {
                 self.isSummaBasicStackViewShown.toggle()
                 self.isSubstractionBasicStackViewShown = false
                 self.isSummaSubstractionStackViewShown = false
+                self.isMultiplicationBasicStackViewShown = false
             }
         }
         
@@ -296,26 +311,28 @@ class MainViewController: UIViewController {
         addAnimateButton(sender: sender)
         addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
         addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
+        addAnimateViewClosing(view: divisionBasicView, stackView: divisionBasicStackView)
         
         if isSubstractionBasicStackViewShown {
             addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
-           
+            
             delay(300) {
                 self.isSubstractionBasicStackViewShown.toggle()
             }
-
+            
         } else {
             
             addAnimateViewOpening(view: substractionBasicView, stackView: substractionBasicStackView)
-
+            
             delay(300) {
                 self.isSubstractionBasicStackViewShown.toggle()
                 self.isSummaBasicStackViewShown = false
                 self.isSummaSubstractionStackViewShown = false
+                self.isMultiplicationBasicStackViewShown = false
             }
         }
         updateUI()
-
+        
         
         questionType = .substraction
         
@@ -354,6 +371,7 @@ class MainViewController: UIViewController {
         addAnimateButton(sender: sender)
         addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
         addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
+        addAnimateViewClosing(view: divisionBasicView, stackView: divisionBasicStackView)
         
         if isSummaSubstractionStackViewShown {
             addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
@@ -370,6 +388,7 @@ class MainViewController: UIViewController {
                 self.isSummaSubstractionStackViewShown.toggle()
                 self.isSummaBasicStackViewShown = false
                 self.isSubstractionBasicStackViewShown = false
+                self.isMultiplicationBasicStackViewShown = false
             }
         }
         updateUI()
@@ -404,17 +423,44 @@ class MainViewController: UIViewController {
             questionLevel = .highHard
         }
         
-
+        
     }
     
     @IBAction func startSummaSubstraction(_ sender: UIButton) {
         addAnimateButton(sender: sender)
     }
+    
     @IBAction func multiplicationBasicAction(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
+        addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
+        addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
+        addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
+        
+        if isMultiplicationBasicStackViewShown {
+            addAnimateViewClosing(view: multiplicationBasicView, stackView: multiplicationBasicStackView)
+            
+            delay(300) {
+                self.isMultiplicationBasicStackViewShown.toggle()
+            }
+            
+        } else {
+            
+            addAnimateViewOpening(view: multiplicationBasicView, stackView: multiplicationBasicStackView)
+            
+            delay(300) {
+                self.isMultiplicationBasicStackViewShown.toggle()
+                self.isSummaBasicStackViewShown = false
+                self.isSubstractionBasicStackViewShown = false
+                self.isSummaSubstractionStackViewShown = false
+            }
+        }
+        updateUI()
+    }
+    
+    @IBAction func divisionBasicAction(_ sender: UIButton) {
     }
     
     
- 
     
     
 }

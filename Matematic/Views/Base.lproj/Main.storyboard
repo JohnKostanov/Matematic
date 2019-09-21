@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Em1-y3-C5T">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Em1-y3-C5T">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -208,6 +206,9 @@
                                                         <state key="normal" title="x">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="multiplicationBasicAction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="jDy-OE-sj5"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73f-RS-u16">
                                                         <rect key="frame" x="130" y="0.0" width="80" height="80"/>
@@ -220,6 +221,9 @@
                                                         <state key="normal" title="÷">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="divisionBasicAction:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="CyI-uM-kbB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -558,11 +562,19 @@
                         <outlet property="currentHeartLabel" destination="1Rr-Bb-ZhF" id="kQp-EV-xLr"/>
                         <outlet property="currentProgressView" destination="N9Z-3C-hOC" id="Bc6-aS-mQq"/>
                         <outlet property="divisionBasicButton" destination="73f-RS-u16" id="kDB-fP-m4y"/>
+                        <outlet property="divisionBasicButtonStart" destination="f4O-c3-t7M" id="R8z-mr-Ive"/>
+                        <outlet property="divisionBasicLevelLabel" destination="vnv-FJ-sTW" id="WHI-s9-tGN"/>
+                        <outlet property="divisionBasicPointsLabel" destination="0hT-0Q-EN4" id="zUy-mO-7lY"/>
                         <outlet property="divisionBasicStackView" destination="5TE-gz-NrM" id="mjp-hq-yQE"/>
+                        <outlet property="divisionBasicView" destination="efM-mZ-uV5" id="0o9-n4-ko3"/>
                         <outlet property="goalExperianceLabel" destination="jfe-sB-7is" id="wsf-ce-sc5"/>
                         <outlet property="levelLabel" destination="1F4-cf-sAN" id="JVM-4b-0e4"/>
+                        <outlet property="multiplicationBasicButtonStart" destination="Tv5-oh-8wh" id="ebY-Cd-7Gn"/>
                         <outlet property="multiplicationBasicButtton" destination="GQO-0u-W1X" id="spT-Do-CjI"/>
+                        <outlet property="multiplicationBasicLevelLabel" destination="qIj-FC-2Im" id="UDO-ZC-4NO"/>
+                        <outlet property="multiplicationBasicPointsLabel" destination="Qkt-f8-c2Q" id="6YX-hg-5B3"/>
                         <outlet property="multiplicationBasicStackView" destination="8dG-NB-6DT" id="M5w-Ep-WzD"/>
+                        <outlet property="multiplicationBasicView" destination="HC9-Er-4Zh" id="XX1-UW-zM3"/>
                         <outlet property="substractionBasicButtonStart" destination="vag-8q-BJk" id="uVh-gt-1o4"/>
                         <outlet property="substractionBasicLevelLabel" destination="BLs-iG-plu" id="7DT-kg-Bbf"/>
                         <outlet property="substractionBasicPointsLabel" destination="bv4-Ud-3V5" id="V8g-zD-CL5"/>

@@ -177,12 +177,12 @@ class QuestionViewController: UIViewController {
         UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            sender.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
+            sender.setTitleColor(.orange, for: .normal)
         }) { _ in
             UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
                 sender.transform = CGAffineTransform.identity
                 sender.backgroundColor = #colorLiteral(red: 1, green: 0.4941176471, blue: 0.3098039216, alpha: 1)
-                sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+                sender.setTitleColor(.white, for: .normal)
             })
         }
     }
