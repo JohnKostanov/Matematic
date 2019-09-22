@@ -22,6 +22,11 @@
 		524EA4DE22D2B31800393B4D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EA4DD22D2B31800393B4D /* QuestionViewController.swift */; };
 		526EE0D222F44B8E00E4C53D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EE0D122F44B8E00E4C53D /* Question.swift */; };
 		52751DD322D0E23B0056A27A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52751DD222D0E23B0056A27A /* MainViewController.swift */; };
+		527B8A40233797D40046E225 /* MultiplicationBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8A3F233797D40046E225 /* MultiplicationBasicOne.swift */; };
+		527B8A42233798990046E225 /* MultiplicationBasicTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8A41233798990046E225 /* MultiplicationBasicTwo.swift */; };
+		527B8A442337995D0046E225 /* MultiplicationBasicThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8A432337995D0046E225 /* MultiplicationBasicThree.swift */; };
+		527B8A46233799A60046E225 /* MultiplicationBasicFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8A45233799A60046E225 /* MultiplicationBasicFour.swift */; };
+		527B8A48233799F00046E225 /* MultiplicationBasicFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8A47233799F00046E225 /* MultiplicationBasicFive.swift */; };
 		52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */; };
 		52C4230523324B8B00EA496B /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C4230423324B8B00EA496B /* Asset.xcassets */; };
 		52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB12323C7DD000648A4 /* QuestionType.swift */; };
@@ -53,6 +58,11 @@
 		524EA4DD22D2B31800393B4D /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		526EE0D122F44B8E00E4C53D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		52751DD222D0E23B0056A27A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		527B8A3F233797D40046E225 /* MultiplicationBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationBasicOne.swift; sourceTree = "<group>"; };
+		527B8A41233798990046E225 /* MultiplicationBasicTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationBasicTwo.swift; sourceTree = "<group>"; };
+		527B8A432337995D0046E225 /* MultiplicationBasicThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationBasicThree.swift; sourceTree = "<group>"; };
+		527B8A45233799A60046E225 /* MultiplicationBasicFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationBasicFour.swift; sourceTree = "<group>"; };
+		527B8A47233799F00046E225 /* MultiplicationBasicFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationBasicFive.swift; sourceTree = "<group>"; };
 		52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicOne.swift; sourceTree = "<group>"; };
 		52C4230423324B8B00EA496B /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		52D2FFB12323C7DD000648A4 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
@@ -158,6 +168,18 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		527B8A3E2337978F0046E225 /* MultiplicationBasic */ = {
+			isa = PBXGroup;
+			children = (
+				527B8A3F233797D40046E225 /* MultiplicationBasicOne.swift */,
+				527B8A41233798990046E225 /* MultiplicationBasicTwo.swift */,
+				527B8A432337995D0046E225 /* MultiplicationBasicThree.swift */,
+				527B8A45233799A60046E225 /* MultiplicationBasicFour.swift */,
+				527B8A47233799F00046E225 /* MultiplicationBasicFive.swift */,
+			);
+			name = MultiplicationBasic;
+			sourceTree = "<group>";
+		};
 		52A76F8A233649C50001725C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +194,7 @@
 				523AD62B232FA91C0027A49A /* SummaBasic */,
 				523AD62C232FA9700027A49A /* SubtractionBasic */,
 				5226CA6123355A2A00B3D02D /* SummaSubstraction */,
+				527B8A3E2337978F0046E225 /* MultiplicationBasic */,
 			);
 			name = CreateQuestion;
 			sourceTree = "<group>";
@@ -287,7 +310,9 @@
 				523AD622232FA62F0027A49A /* SummaBasicFour.swift in Sources */,
 				5226CA6323355AA400B3D02D /* SummaSubstractionOne.swift in Sources */,
 				52F7B34B2321BBF700AF070B /* QuestionProtocol.swift in Sources */,
+				527B8A40233797D40046E225 /* MultiplicationBasicOne.swift in Sources */,
 				52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */,
+				527B8A442337995D0046E225 /* MultiplicationBasicThree.swift in Sources */,
 				523AD62A232FA8E70027A49A /* SubtractionBasicFive.swift in Sources */,
 				52F7B3532321DB0700AF070B /* CreateQuestion.swift in Sources */,
 				5226CA6723357E8600B3D02D /* SummaSubstractionThree.swift in Sources */,
@@ -298,8 +323,10 @@
 				52F7B3512321CD2900AF070B /* SummaBasicTwo.swift in Sources */,
 				52751DD322D0E23B0056A27A /* MainViewController.swift in Sources */,
 				524EA4DE22D2B31800393B4D /* QuestionViewController.swift in Sources */,
+				527B8A48233799F00046E225 /* MultiplicationBasicFive.swift in Sources */,
 				52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */,
 				520353B02323245B00E18E4E /* NumberRandomFactory.swift in Sources */,
+				527B8A46233799A60046E225 /* MultiplicationBasicFour.swift in Sources */,
 				523AD628232FA87E0027A49A /* SubtractionBasicFour.swift in Sources */,
 				52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */,
 				5226CA652335661800B3D02D /* SummaSubstractionTwo.swift in Sources */,
@@ -309,6 +336,7 @@
 				52ED962C23255BFC00713299 /* SubtractionBasicTwo.swift in Sources */,
 				5226CA6923357EC800B3D02D /* SummaSubstractionFour.swift in Sources */,
 				52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */,
+				527B8A42233798990046E225 /* MultiplicationBasicTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

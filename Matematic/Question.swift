@@ -25,6 +25,8 @@ extension Question {
             return "\(numberFirst) - \(numberSecond) = ?"
         case .summaSubstraction:
             return "\(numberSecond * 2) + \(numberFirst) - \(numberSecond) = ?"
+        case .multiplication:
+            return "\(numberFirst) × \(numberSecond) = ?"
         }
     }
     
@@ -36,6 +38,8 @@ extension Question {
             return "\(numberFirst - numberSecond)"
         case .summaSubstraction:
             return "\((numberSecond * 2) + numberFirst - numberSecond)"
+        case .multiplication:
+            return "\(numberFirst * numberSecond)"
         }
     }
 }

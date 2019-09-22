@@ -267,6 +267,24 @@ class QuestionViewController: UIViewController {
                 createQuestion.setQuestionBasicType(questionBasicType: SummaSubstractionOne())
                 performTextQuestionAndAnswer()
             }
+        case .multiplication:
+            switch questionLevel {
+            case .easy:
+                createQuestion.setQuestionBasicType(questionBasicType: MultiplicationBasicOne())
+                performTextQuestionAndAnswer()
+            case .normal:
+                createQuestion.setQuestionBasicType(questionBasicType: MultiplicationBasicTwo())
+                performTextQuestionAndAnswer()
+            case .medium:
+                createQuestion.setQuestionBasicType(questionBasicType: MultiplicationBasicThree())
+                performTextQuestionAndAnswer()
+            case .hard:
+                createQuestion.setQuestionBasicType(questionBasicType: MultiplicationBasicFour())
+                performTextQuestionAndAnswer()
+            case .highHard:
+                createQuestion.setQuestionBasicType(questionBasicType: MultiplicationBasicFive())
+                performTextQuestionAndAnswer()
+            }
         }
     }
     

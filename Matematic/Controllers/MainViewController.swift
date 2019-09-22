@@ -103,6 +103,7 @@ class MainViewController: UIViewController {
     var summaBasicPoints = 0
     var subtractionBasicPoints = 0
     var summaSubstractionPoints = 0
+    var multiplicationBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -225,6 +226,9 @@ class MainViewController: UIViewController {
         case .summaSubstraction:
             destination.questionType = .summaSubstraction
             destination.questionLevel = questionLevel
+        case .multiplication:
+            destination.questionType = .multiplication
+            destination.questionLevel = questionLevel
         }
     }
     
@@ -246,6 +250,8 @@ class MainViewController: UIViewController {
             subtractionBasicPoints += segue.experienceGained
         case .summaSubstraction:
             summaSubstractionPoints += segue.experienceGained
+        case .multiplication:
+            multiplicationBasicPoints += segue.experienceGained
         }
     }
     
@@ -455,6 +461,39 @@ class MainViewController: UIViewController {
             }
         }
         updateUI()
+        
+        questionType = .multiplication
+        
+        switch multiplicationBasicPoints {
+        case 0...19:
+            multiplicationBasicLevelLabel.text = "Уровень 1/5"
+            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/20"
+            questionLevel = .easy
+        case 20...39:
+            multiplicationBasicLevelLabel.text = "Уровень 2/5"
+            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/40"
+            questionLevel = .normal
+        case 40...59:
+            multiplicationBasicLevelLabel.text = "Уровень 3/5"
+            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/60"
+            questionLevel = .medium
+        case 60...79:
+            multiplicationBasicLevelLabel.text = "Уровень 4/5"
+            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/80"
+            questionLevel = .hard
+        case 80...100:
+            multiplicationBasicLevelLabel.text = "Уровень 5/5"
+            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/100"
+            questionLevel = .highHard
+        default:
+            multiplicationBasicLevelLabel.text = "Уровень 5/5"
+            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)"
+            questionLevel = .highHard
+        }
+    }
+    
+    @IBAction func startMultiplicationBasic(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
     }
     
     @IBAction func divisionBasicAction(_ sender: UIButton) {

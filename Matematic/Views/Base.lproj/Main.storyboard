@@ -438,6 +438,10 @@
                                                                 <state key="normal" title="Начать">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="startMultiplicationBasic:" destination="AeC-Wx-pnq" eventType="touchUpInside" id="KEA-8m-9tR"/>
+                                                                    <segue destination="fyJ-yF-uHm" kind="show" identifier="MultiplicationBasicSegue" id="XqU-C2-PV3"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -921,13 +925,13 @@
                                                 <rect key="frame" x="20" y="10" width="374" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неверно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S44-i5-XMj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="33"/>
                                                         <color key="textColor" red="0.6588235294117647" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Правильный ответ:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1t-tS-ZJK">
-                                                        <rect key="frame" x="0.0" y="45" width="374" height="25"/>
+                                                        <rect key="frame" x="0.0" y="33" width="374" height="37"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1064,6 +1068,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N2e-Kt-gP1"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ACu-KY-EeK"/>
                     <connections>
                         <outlet property="completeLessonButton" destination="AfH-t4-c6b" id="GGb-ZP-QAo"/>
                         <outlet property="correctAnswerLabel" destination="c1t-tS-ZJK" id="Avb-Ho-g9D"/>
@@ -1230,6 +1235,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ddP-6A-4Ua"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pvp-sJ-7Dy"/>
                     <connections>
                         <outlet property="continueButton" destination="j2U-S0-F4o" id="AQJ-Gc-4bK"/>
                         <outlet property="correctAnswerLabel" destination="hc7-80-6a5" id="eRX-Uu-u4F"/>
@@ -1265,6 +1271,6 @@
         <image name="book" width="71" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Svw-BD-OwV"/>
+        <segue reference="XqU-C2-PV3"/>
     </inferredMetricsTieBreakers>
 </document>
