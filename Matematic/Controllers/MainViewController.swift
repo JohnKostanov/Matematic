@@ -276,6 +276,7 @@ class MainViewController: UIViewController {
                 self.isSubstractionBasicStackViewShown = false
                 self.isSummaSubstractionStackViewShown = false
                 self.isMultiplicationBasicStackViewShown = false
+                self.isDivisionBasicStackViewShown = false
             }
         }
         
@@ -335,6 +336,7 @@ class MainViewController: UIViewController {
                 self.isSummaBasicStackViewShown = false
                 self.isSummaSubstractionStackViewShown = false
                 self.isMultiplicationBasicStackViewShown = false
+                self.isDivisionBasicStackViewShown = false
             }
         }
         updateUI()
@@ -395,6 +397,7 @@ class MainViewController: UIViewController {
                 self.isSummaBasicStackViewShown = false
                 self.isSubstractionBasicStackViewShown = false
                 self.isMultiplicationBasicStackViewShown = false
+                self.isDivisionBasicStackViewShown = false
             }
         }
         updateUI()
@@ -458,6 +461,7 @@ class MainViewController: UIViewController {
                 self.isSummaBasicStackViewShown = false
                 self.isSubstractionBasicStackViewShown = false
                 self.isSummaSubstractionStackViewShown = false
+                self.isDivisionBasicStackViewShown = false
             }
         }
         updateUI()
@@ -497,6 +501,32 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func divisionBasicAction(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
+        addAnimateViewClosing(view: summaBasicView, stackView: summaBasicStackView)
+        addAnimateViewClosing(view: substractionBasicView, stackView: substractionBasicStackView)
+        addAnimateViewClosing(view: summaSubstractionView, stackView: summaSubstractionStackView)
+        addAnimateViewClosing(view: multiplicationBasicView, stackView: multiplicationBasicStackView)
+        
+        if isDivisionBasicStackViewShown {
+            addAnimateViewClosing(view: divisionBasicView, stackView: divisionBasicStackView)
+            
+            delay(300) {
+                self.isDivisionBasicStackViewShown.toggle()
+            }
+            
+        } else {
+            
+            addAnimateViewOpening(view: divisionBasicView, stackView: divisionBasicStackView)
+            
+            delay(300) {
+                self.isDivisionBasicStackViewShown.toggle()
+                self.isSummaBasicStackViewShown = false
+                self.isSubstractionBasicStackViewShown = false
+                self.isSummaSubstractionStackViewShown = false
+                self.isMultiplicationBasicStackViewShown = false
+            }
+        }
+        updateUI()
     }
     
     
