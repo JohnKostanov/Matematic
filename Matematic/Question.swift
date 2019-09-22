@@ -20,11 +20,11 @@ extension Question {
     var questionText: String {
         switch questionType {
         case .summa:
-            return "\(numberFirst) + \(numberSecond) ="
+            return "\(numberFirst) + \(numberSecond) = ?"
         case .substraction:
-            return "\(numberFirst) - \(numberSecond) ="
+            return "\(numberFirst) - \(numberSecond) = ?"
         case .summaSubstraction:
-            return "\(numberSecond * 2) + \(numberFirst) - \(numberSecond) ="
+            return "\(numberSecond * 2) + \(numberFirst) - \(numberSecond) = ?"
         }
     }
     

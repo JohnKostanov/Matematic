@@ -190,6 +190,8 @@ class QuestionViewController: UIViewController {
     
     
     func updateCorrectAndErrorStackView() {
+        let endIndex = questionLabel.text!.index(before: questionLabel.text!.endIndex)
+        questionLabel.text!.remove(at: endIndex)
         if numbersInputLabel.text == answer {
             addAnimateViewOpening(view: correctAnswerView, stackView: correctAnswerStackView, hideStack: nil)
             correctAnswer += 1
@@ -297,8 +299,13 @@ class QuestionViewController: UIViewController {
             }
         }
         guard let numbersText = sender.titleLabel?.text else { return }
-        numbersInputLabel.text! += numbersText
-        updateVerifyButton()
+        if numbersInputLabel.text!.count < 12 && numbersInputLabel.text! != "0" && numbersInputLabel.text! != "-0" {
+            numbersInputLabel.text! += numbersText
+            updateVerifyButton()
+        } else if numbersInputLabel.text! == "0" || numbersInputLabel.text! == "-0" {
+            numbersInputLabel.text! = numbersText
+            updateVerifyButton()
+        }
     }
     
     @IBAction func deleteTextAction(_ sender: UIButton) {
