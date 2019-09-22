@@ -120,26 +120,34 @@ class MainViewController: UIViewController {
     //MARK: - Custom Methods
     func performLayerCR() {
         summaBasicButton.layer.cornerRadius = 25
-        summaBasicView.layer.cornerRadius = 10
+        summaBasicView.layer.cornerRadius = 20
         summaBasicLevelLabel.textColor = .black
         summaBasicPointsLabel.textColor = .black
-        summaBasicButtonStart.layer.cornerRadius = 10
+        summaBasicButtonStart.layer.cornerRadius = 20
         
         subtractionBasicButton.layer.cornerRadius = 25
-        substractionBasicView.layer.cornerRadius = 10
+        substractionBasicView.layer.cornerRadius = 20
         substractionBasicLevelLabel.textColor = .black
         substractionBasicPointsLabel.textColor = .black
-        substractionBasicButtonStart.layer.cornerRadius = 10
+        substractionBasicButtonStart.layer.cornerRadius = 20
         
         summaSubstractionButton.layer.cornerRadius = 25
-        summaSubstractionView.layer.cornerRadius = 10
+        summaSubstractionView.layer.cornerRadius = 20
         summaSubstractionLevelLabel.textColor = .black
         summaSubstractionPointsLabel.textColor = .black
-        summaSubstractionButtonStart.layer.cornerRadius = 10
+        summaSubstractionButtonStart.layer.cornerRadius = 20
         
         multiplicationBasicButtton.layer.cornerRadius = 25
+        multiplicationBasicView.layer.cornerRadius = 20
+        multiplicationBasicLevelLabel.textColor = .black
+        multiplicationBasicPointsLabel.textColor = .black
+        multiplicationBasicButtonStart.layer.cornerRadius = 20
         
         divisionBasicButton.layer.cornerRadius = 25
+        divisionBasicView.layer.cornerRadius = 20
+        divisionBasicLevelLabel.textColor = .black
+        divisionBasicPointsLabel.textColor = .black
+        divisionBasicButtonStart.layer.cornerRadius = 20
     }
     
     func updateLevel() {
