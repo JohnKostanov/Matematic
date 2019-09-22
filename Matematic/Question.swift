@@ -27,6 +27,8 @@ extension Question {
             return "\(numberSecond * 2) + \(numberFirst) - \(numberSecond) = ?"
         case .multiplication:
             return "\(numberFirst) × \(numberSecond) = ?"
+        case .division:
+            return "\(numberFirst * numberSecond) ÷ \(numberSecond) = ?"
         }
     }
     
@@ -40,6 +42,8 @@ extension Question {
             return "\((numberSecond * 2) + numberFirst - numberSecond)"
         case .multiplication:
             return "\(numberFirst * numberSecond)"
+        case .division:
+            return "\((numberFirst * numberSecond) / numberSecond)"
         }
     }
 }

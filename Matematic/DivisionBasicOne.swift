@@ -1,0 +1,33 @@
+//
+//  DivisionBasicOne.swift
+//  Matematic
+//
+//  Created by  Джон Костанов on 22/09/2019.
+//  Copyright © 2019 John Kostanov. All rights reserved.
+//
+
+import Foundation
+
+class DivisionBasicOne: QuestionProtocol {
+    
+    var randomInt: Int {
+        return  NumberRandomFactory.produceRandomInt(type: .ten).generateRandomInt()
+    }
+    
+    var all: [Question] {
+        return [
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .division, questionLevel: .easy)
+        ]
+    }
+    
+    
+}

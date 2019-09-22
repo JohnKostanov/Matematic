@@ -11,4 +11,5 @@ enum QuestionType {
     case substraction
     case summaSubstraction
     case multiplication
+    case division
 }

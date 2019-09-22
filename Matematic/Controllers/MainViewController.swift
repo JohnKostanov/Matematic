@@ -104,6 +104,7 @@ class MainViewController: UIViewController {
     var subtractionBasicPoints = 0
     var summaSubstractionPoints = 0
     var multiplicationBasicPoints = 0
+    var divisionBasicPoints = 0
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -237,6 +238,9 @@ class MainViewController: UIViewController {
         case .multiplication:
             destination.questionType = .multiplication
             destination.questionLevel = questionLevel
+        case .division:
+            destination.questionType = .division
+            destination.questionLevel = questionLevel
         }
     }
     
@@ -260,6 +264,8 @@ class MainViewController: UIViewController {
             summaSubstractionPoints += segue.experienceGained
         case .multiplication:
             multiplicationBasicPoints += segue.experienceGained
+        case .division:
+            divisionBasicPoints += segue.experienceGained
         }
     }
     
@@ -535,8 +541,40 @@ class MainViewController: UIViewController {
             }
         }
         updateUI()
+        
+        questionType = .division
+        
+        switch divisionBasicPoints {
+        case 0...19:
+            divisionBasicLevelLabel.text = "Уровень 1/5"
+            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/20"
+            questionLevel = .easy
+        case 20...39:
+            divisionBasicLevelLabel.text = "Уровень 2/5"
+            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/40"
+            questionLevel = .normal
+        case 40...59:
+            divisionBasicLevelLabel.text = "Уровень 3/5"
+            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/60"
+            questionLevel = .medium
+        case 60...79:
+            divisionBasicLevelLabel.text = "Уровень 4/5"
+            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/80"
+            questionLevel = .hard
+        case 80...100:
+            divisionBasicLevelLabel.text = "Уровень 5/5"
+            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/100"
+            questionLevel = .highHard
+        default:
+            divisionBasicLevelLabel.text = "Уровень 5/5"
+            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)"
+            questionLevel = .highHard
+        }
     }
     
+    @IBAction func startDivisionBasic(_ sender: UIButton) {
+        addAnimateButton(sender: sender)
+    }
     
     
     

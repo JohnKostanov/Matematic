@@ -8,23 +8,24 @@
 
 import Foundation
 
-class SummaBasicFive: SummaBasicOne {
-    override var randomInt: Int {
+class SummaBasicFive: QuestionProtocol {
+    
+    var randomInt: Int {
         return  NumberRandomFactory.produceRandomInt(type: .fifty).generateRandomInt()
     }
     
-    override var all: [Question] {
+    var all: [Question] {
         return [
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy),
-            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .easy)
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard),
+            Question(numberFirst: randomInt, numberSecond: randomInt, questionType: .summa, questionLevel: .highHard)
         ]
     }
 }
