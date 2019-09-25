@@ -575,7 +575,7 @@
                         <outlet property="divisionBasicPointsLabel" destination="0hT-0Q-EN4" id="zUy-mO-7lY"/>
                         <outlet property="divisionBasicStackView" destination="5TE-gz-NrM" id="mjp-hq-yQE"/>
                         <outlet property="divisionBasicView" destination="efM-mZ-uV5" id="0o9-n4-ko3"/>
-                        <outlet property="goalExperianceLabel" destination="jfe-sB-7is" id="wsf-ce-sc5"/>
+                        <outlet property="goalExperianceLabel" destination="jfe-sB-7is" id="YYi-31-Xdh"/>
                         <outlet property="levelLabel" destination="1F4-cf-sAN" id="JVM-4b-0e4"/>
                         <outlet property="multiplicationBasicButtonStart" destination="Tv5-oh-8wh" id="ebY-Cd-7Gn"/>
                         <outlet property="multiplicationBasicButtton" destination="GQO-0u-W1X" id="spT-Do-CjI"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MainViewController: UIViewController {
     
     // MARK: - Outlets
@@ -101,22 +102,24 @@ class MainViewController: UIViewController {
     var questionType: QuestionType = .summa
     var questionLevel: QuestionLevel = .easy
     var summaBasicPoints = 0
-    var subtractionBasicPoints = 0
+    var substractionBasicPoints = 0
     var summaSubstractionPoints = 0
     var multiplicationBasicPoints = 0
     var divisionBasicPoints = 0
     
     // MARK: - UIViewController Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateUI()
-        summaBasicLevelLabel.text = "Уровень 1/5"
-        substractionBasicLevelLabel.text = "Уровень 1/5"
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         closingAllStackView()
+        updateUI()
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateUI()
+    }
+    
     
     //MARK: - Custom Methods
     func performLayerCR() {
@@ -152,11 +155,12 @@ class MainViewController: UIViewController {
     }
     
     func updateLevel() {
-        if currentExperience == goalExperience {
+        if currentExperience >= goalExperience {
             level += 1
             currentExperience = 0
             goalExperience *= 20 / 100
         }
+        goalExperianceLabel.text = "\(goalExperience)"
     }
     
     func updateProgressView() {
@@ -177,7 +181,6 @@ class MainViewController: UIViewController {
         updateProgressView()
         updateLevel()
         currentExperianceLabel.text = "\(currentExperience)"
-        goalExperianceLabel.text = "\(goalExperience)"
         levelLabel.text = "\(level)"
         currentDimondLabel.text = "\(currentDiamond)"
         currentHeartLabel.text = "\(currentHeart)"
@@ -259,7 +262,7 @@ class MainViewController: UIViewController {
         case .summa:
             summaBasicPoints += segue.experienceGained
         case .substraction:
-            subtractionBasicPoints += segue.experienceGained
+            substractionBasicPoints += segue.experienceGained
         case .summaSubstraction:
             summaSubstractionPoints += segue.experienceGained
         case .multiplication:
@@ -353,35 +356,35 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-        updateUI()
+//        updateUI()
         
         
         questionType = .substraction
         
-        switch subtractionBasicPoints {
+        switch substractionBasicPoints {
         case 0...19:
             substractionBasicLevelLabel.text = "Уровень 1/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/20"
+            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/20"
             questionLevel = .easy
         case 20...39:
             substractionBasicLevelLabel.text = "Уровень 2/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/40"
+            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/40"
             questionLevel = .normal
         case 40...59:
             substractionBasicLevelLabel.text = "Уровень 3/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/60"
+            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/60"
             questionLevel = .medium
         case 60...79:
             substractionBasicLevelLabel.text = "Уровень 4/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/80"
+            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/80"
             questionLevel = .hard
         case 80...100:
             substractionBasicLevelLabel.text = "Уровень 5/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)/100"
+            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/100"
             questionLevel = .highHard
         default:
             substractionBasicLevelLabel.text = "Уровень 5/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(subtractionBasicPoints)"
+            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)"
             questionLevel = .highHard
         }
     }
@@ -414,7 +417,7 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-        updateUI()
+//        updateUI()
         
         
         questionType = .summaSubstraction
@@ -478,7 +481,7 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-        updateUI()
+//        updateUI()
         
         questionType = .multiplication
         
@@ -540,7 +543,7 @@ class MainViewController: UIViewController {
                 self.isMultiplicationBasicStackViewShown = false
             }
         }
-        updateUI()
+//        updateUI()
         
         questionType = .division
         
