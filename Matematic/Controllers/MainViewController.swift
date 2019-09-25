@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class MainViewController: UIViewController {
@@ -91,6 +92,10 @@ class MainViewController: UIViewController {
         }
     }
     
+    var currentPerson: Person?
+    
+    var managedContext: NSManagedObjectContext!
+    
     var currentExperience = 0
     var goalExperience = 100
     
@@ -110,14 +115,34 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewWillAppear(_ animated: Bool) {
         closingAllStackView()
-        updateUI()
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
+        let personName = "John"
+        let personFetch: NSFetchRequest<Person> = Person.fetchRequest()
+        personFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.name), personName)
+
+        do {
+            let results = try managedContext.fetch(personFetch)
+            if results.count > 0 {
+                // John found, use John
+                currentPerson = results.last
+                print(#line, #function, currentPerson?.points?.currentExperience)
+            } else {
+                // John not found, create John
+                currentPerson = Person(context: managedContext)
+                currentPerson?.name = personName
+                try managedContext.save()
+            }
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+        }
+        
+                updateUI()
     }
     
     
@@ -160,7 +185,8 @@ class MainViewController: UIViewController {
             currentExperience = 0
             goalExperience *= 20 / 100
         }
-        goalExperianceLabel.text = "\(goalExperience)"
+        currentPerson?.points?.goalExperience = Int32(goalExperience)
+        goalExperianceLabel.text = "\(currentPerson?.points?.goalExperience ?? Int32(goalExperience))"
     }
     
     func updateProgressView() {
@@ -180,10 +206,11 @@ class MainViewController: UIViewController {
         performLayerCR()
         updateProgressView()
         updateLevel()
-        currentExperianceLabel.text = "\(currentExperience)"
-        levelLabel.text = "\(level)"
-        currentDimondLabel.text = "\(currentDiamond)"
-        currentHeartLabel.text = "\(currentHeart)"
+        currentExperianceLabel.text = "\(currentPerson?.points?.currentExperience ?? Int32(currentExperience))"
+        currentPerson?.points?.level = Int16(level)
+        levelLabel.text = "\(currentPerson?.points?.level ?? Int16(level))"
+        currentDimondLabel.text = "\(currentPerson?.points?.currentDimond ?? Int16(currentDiamond))"
+        currentHeartLabel.text = "\(currentPerson?.points?.currentHeart ?? Int16(currentHeart))"
     }
     
     func addAnimateButton(sender: UIButton) {
@@ -249,27 +276,65 @@ class MainViewController: UIViewController {
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         let segue = segue.source as! ResultViewController
-        totalExperience += segue.experienceGained
-        currentExperience += segue.experienceGained
-        currentDiamond = segue.currentDiamond
-        currentDiamond += segue.receivedDiamond
-        currentHeart = segue.currentHeart
+        
+        let points = Points(context: managedContext)
+        points.currentExperience += Int32(segue.experienceGained)
+        points.currentDimond += Int16(segue.currentDiamond + segue.receivedDiamond)
+        points.currentHeart = Int16(segue.currentHeart)
+        
+        //        totalExperience += segue.experienceGained
+        currentExperience = Int(points.currentExperience)
+        currentDiamond = Int(points.currentDimond)
+        //        currentDiamond += segue.receivedDiamond
+        currentHeart = Int(points.currentHeart)
+        
+        switch questionType {
+        case .summa:
+            points.summaBasicPoints += Int32(segue.experienceGained)
+            
+        case .substraction:
+           points.substractionBasicPoints += Int32(segue.experienceGained)
+        //            substractionBasicPoints += segue.experienceGained
+        case .summaSubstraction:
+            points.summaSubstractionPoints += Int32(segue.experienceGained)
+        //            summaSubstractionPoints += segue.experienceGained
+        case .multiplication:
+            points.multiplicationBasicPoints += Int32(segue.experienceGained)
+        //            multiplicationBasicPoints += segue.experienceGained
+        case .division:
+            points.divisionBasicPoints += Int32(segue.experienceGained)
+        //            divisionBasicPoints += segue.experienceGained
+        }
+        
+//        if let person = currentPerson, var totalPoints = person.points {
+//            totalPoints = points
+//            person.points = totalPoints
+//        }
+        
+        
+        do {
+            try managedContext.save()
+            currentPerson?.points?.currentExperience += points.currentExperience
+            currentPerson?.points?.currentDimond = points.currentDimond
+            currentPerson?.points?.currentHeart = points.currentHeart
+            
+            print("Saved completed")
+            print(currentPerson?.points?.currentExperience)
+            
+        } catch let error as NSError {
+            print("Save error: \(error), description: \(error.userInfo)")
+        }
+        
+        
+        //        currentExperianceLabel.text = "\(points.currentExperience)"
+        //        currentDimondLabel.text = "\(points.currentDimond)"
+        //        currentHeartLabel.text = "\(points.currentHeart)"
+        //        summaBasicPointsLabel.text = "\(points.summaBasicPoints)"
+        
         updateLevel()
         closingAllStackView()
         updateUI()
         
-        switch questionType {
-        case .summa:
-            summaBasicPoints += segue.experienceGained
-        case .substraction:
-            substractionBasicPoints += segue.experienceGained
-        case .summaSubstraction:
-            summaSubstractionPoints += segue.experienceGained
-        case .multiplication:
-            multiplicationBasicPoints += segue.experienceGained
-        case .division:
-            divisionBasicPoints += segue.experienceGained
-        }
     }
     
     // MARK: - Actions
@@ -298,31 +363,32 @@ class MainViewController: UIViewController {
         }
         
         questionType = .summa
+        summaBasicPoints = Int(currentPerson!.points!.summaBasicPoints)
         
         switch summaBasicPoints {
         case 0...19:
             summaBasicLevelLabel.text = "Уровень 1/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/20"
+            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/20"
             questionLevel = .easy
         case 20...39:
             summaBasicLevelLabel.text = "Уровень 2/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/40"
+            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/40"
             questionLevel = .normal
         case 40...59:
             summaBasicLevelLabel.text = "Уровень 3/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/60"
+            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/60"
             questionLevel = .medium
         case 60...79:
             summaBasicLevelLabel.text = "Уровень 4/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/80"
+            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/80"
             questionLevel = .hard
         case 80...100:
             summaBasicLevelLabel.text = "Уровень 5/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)/100"
+            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/100"
             questionLevel = .highHard
         default:
             summaBasicLevelLabel.text = "Уровень 5/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(summaBasicPoints)"
+            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))"
             questionLevel = .highHard
         }
     }
@@ -356,7 +422,7 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-//        updateUI()
+        //        updateUI()
         
         
         questionType = .substraction
@@ -417,7 +483,7 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-//        updateUI()
+        //        updateUI()
         
         
         questionType = .summaSubstraction
@@ -481,7 +547,7 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-//        updateUI()
+        //        updateUI()
         
         questionType = .multiplication
         
@@ -543,7 +609,7 @@ class MainViewController: UIViewController {
                 self.isMultiplicationBasicStackViewShown = false
             }
         }
-//        updateUI()
+        //        updateUI()
         
         questionType = .division
         

@@ -34,6 +34,12 @@
 		527B8A48233799F00046E225 /* MultiplicationBasicFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8A47233799F00046E225 /* MultiplicationBasicFive.swift */; };
 		52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */; };
 		52C4230523324B8B00EA496B /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C4230423324B8B00EA496B /* Asset.xcassets */; };
+		52CE8C0F233BBF150021C5FA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8C0E233BBF150021C5FA /* CoreDataStack.swift */; };
+		52CE8C12233BC8E90021C5FA /* Matematic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8C10233BC8E90021C5FA /* Matematic.xcdatamodeld */; };
+		52CE8C1C233BD4390021C5FA /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8C18233BD4390021C5FA /* Person+CoreDataClass.swift */; };
+		52CE8C1D233BD4390021C5FA /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8C19233BD4390021C5FA /* Person+CoreDataProperties.swift */; };
+		52CE8C1E233BD4390021C5FA /* Points+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8C1A233BD4390021C5FA /* Points+CoreDataClass.swift */; };
+		52CE8C1F233BD4390021C5FA /* Points+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8C1B233BD4390021C5FA /* Points+CoreDataProperties.swift */; };
 		52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB12323C7DD000648A4 /* QuestionType.swift */; };
 		52D2FFB423241A91000648A4 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2FFB323241A91000648A4 /* ResultViewController.swift */; };
 		52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7D8D122AC38ED00334F22 /* AppDelegate.swift */; };
@@ -75,6 +81,12 @@
 		527B8A47233799F00046E225 /* MultiplicationBasicFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationBasicFive.swift; sourceTree = "<group>"; };
 		52B03A702322A73100EECEDD /* SubtractionBasicOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionBasicOne.swift; sourceTree = "<group>"; };
 		52C4230423324B8B00EA496B /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
+		52CE8C0E233BBF150021C5FA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		52CE8C11233BC8E90021C5FA /* Matematic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Matematic.xcdatamodel; sourceTree = "<group>"; };
+		52CE8C18233BD4390021C5FA /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		52CE8C19233BD4390021C5FA /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		52CE8C1A233BD4390021C5FA /* Points+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Points+CoreDataClass.swift"; sourceTree = "<group>"; };
+		52CE8C1B233BD4390021C5FA /* Points+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Points+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		52D2FFB12323C7DD000648A4 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 		52D2FFB323241A91000648A4 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		52E7D8CE22AC38ED00334F22 /* Matematic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matematic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +186,7 @@
 			children = (
 				52E7D8D122AC38ED00334F22 /* AppDelegate.swift */,
 				52E7D8DD22AC38EE00334F22 /* Info.plist */,
+				52CE8C10233BC8E90021C5FA /* Matematic.xcdatamodeld */,
 			);
 			path = "Supports Files";
 			sourceTree = "<group>";
@@ -181,11 +194,11 @@
 		526EE0D022F44AAA00E4C53D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				52B03A6A2322A48E00EECEDD /* CreateQuestion */,
 				520353AF2323245B00E18E4E /* NumberRandomFactory.swift */,
 				526EE0D122F44B8E00E4C53D /* Question.swift */,
-				52D2FFB12323C7DD000648A4 /* QuestionType.swift */,
 				52ED9629232538B500713299 /* QuestionLevel.swift */,
-				52B03A6A2322A48E00EECEDD /* CreateQuestion */,
+				52D2FFB12323C7DD000648A4 /* QuestionType.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 		52A76F8A233649C50001725C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				52CE8C0E233BBF150021C5FA /* CoreDataStack.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -225,6 +239,10 @@
 		52E7D8C522AC38ED00334F22 = {
 			isa = PBXGroup;
 			children = (
+				52CE8C18233BD4390021C5FA /* Person+CoreDataClass.swift */,
+				52CE8C19233BD4390021C5FA /* Person+CoreDataProperties.swift */,
+				52CE8C1A233BD4390021C5FA /* Points+CoreDataClass.swift */,
+				52CE8C1B233BD4390021C5FA /* Points+CoreDataProperties.swift */,
 				52E7D8D022AC38ED00334F22 /* Matematic */,
 				52E7D8CF22AC38ED00334F22 /* Products */,
 			);
@@ -333,7 +351,10 @@
 				523AD622232FA62F0027A49A /* SummaBasicFour.swift in Sources */,
 				5226CA6323355AA400B3D02D /* SummaSubstractionOne.swift in Sources */,
 				52F7B34B2321BBF700AF070B /* QuestionProtocol.swift in Sources */,
+				52CE8C12233BC8E90021C5FA /* Matematic.xcdatamodeld in Sources */,
+				52CE8C0F233BBF150021C5FA /* CoreDataStack.swift in Sources */,
 				527B8A40233797D40046E225 /* MultiplicationBasicOne.swift in Sources */,
+				52CE8C1E233BD4390021C5FA /* Points+CoreDataClass.swift in Sources */,
 				52325B102338103800FF50DF /* DivisionBasicThree.swift in Sources */,
 				52D2FFB22323C7DD000648A4 /* QuestionType.swift in Sources */,
 				527B8A442337995D0046E225 /* MultiplicationBasicThree.swift in Sources */,
@@ -348,10 +369,13 @@
 				52F7B3512321CD2900AF070B /* SummaBasicTwo.swift in Sources */,
 				52751DD322D0E23B0056A27A /* MainViewController.swift in Sources */,
 				524EA4DE22D2B31800393B4D /* QuestionViewController.swift in Sources */,
+				52CE8C1C233BD4390021C5FA /* Person+CoreDataClass.swift in Sources */,
 				527B8A48233799F00046E225 /* MultiplicationBasicFive.swift in Sources */,
 				52325B0E23380FC700FF50DF /* DivisionBasicTwo.swift in Sources */,
+				52CE8C1D233BD4390021C5FA /* Person+CoreDataProperties.swift in Sources */,
 				52E7D8D222AC38ED00334F22 /* AppDelegate.swift in Sources */,
 				520353B02323245B00E18E4E /* NumberRandomFactory.swift in Sources */,
+				52CE8C1F233BD4390021C5FA /* Points+CoreDataProperties.swift in Sources */,
 				527B8A46233799A60046E225 /* MultiplicationBasicFour.swift in Sources */,
 				523AD628232FA87E0027A49A /* SubtractionBasicFour.swift in Sources */,
 				52B03A712322A73100EECEDD /* SubtractionBasicOne.swift in Sources */,
@@ -564,6 +588,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52CE8C10233BC8E90021C5FA /* Matematic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52CE8C11233BC8E90021C5FA /* Matematic.xcdatamodel */,
+			);
+			currentVersion = 52CE8C11233BC8E90021C5FA /* Matematic.xcdatamodel */;
+			path = Matematic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 52E7D8C622AC38ED00334F22 /* Project object */;
 }
