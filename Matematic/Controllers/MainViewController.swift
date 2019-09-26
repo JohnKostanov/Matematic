@@ -94,6 +94,7 @@ class MainViewController: UIViewController {
     
     var currentPerson: Person?
     
+    var coreDataStack: CoreDataStack!
     var managedContext: NSManagedObjectContext!
     
     var currentExperience = 0
@@ -115,6 +116,8 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewWillAppear(_ animated: Bool) {
         closingAllStackView()
+        populateCurrentExperience()
+        updateUI()
         
     }
     
@@ -125,12 +128,12 @@ class MainViewController: UIViewController {
         let personName = "John"
         let personFetch: NSFetchRequest<Person> = Person.fetchRequest()
         personFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.name), personName)
-
+        
         do {
             let results = try managedContext.fetch(personFetch)
             if results.count > 0 {
                 // John found, use John
-                currentPerson = results.last
+                currentPerson = results.first
                 print(#line, #function, currentPerson?.points?.currentExperience)
             } else {
                 // John not found, create John
@@ -142,7 +145,6 @@ class MainViewController: UIViewController {
             print("Fetch error: \(error) description: \(error.userInfo)")
         }
         
-                updateUI()
     }
     
     
@@ -179,14 +181,40 @@ class MainViewController: UIViewController {
         divisionBasicButtonStart.layer.cornerRadius = 20
     }
     
+    func populateCurrentExperience() {
+        let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Points")
+        fetchRequest.resultType = .dictionaryResultType
+        
+        let sumExperienceDesc = NSExpressionDescription()
+        sumExperienceDesc.name = "sumExperienseTotal"
+        
+        let currentExperienceExp = NSExpression(forKeyPath: #keyPath(Points.currentExperience))
+        sumExperienceDesc.expression = NSExpression(forFunction: "sum:", arguments: [currentExperienceExp])
+        sumExperienceDesc.expressionResultType = .integer32AttributeType
+        
+        fetchRequest.propertiesToFetch = [sumExperienceDesc]
+        
+        do {
+            let results  = try  managedContext.fetch(fetchRequest)
+            let resultDict = results.first!
+            let numCurrentExperienceTotal = resultDict["sumExperienseTotal"] as! Int
+            currentExperience = numCurrentExperienceTotal
+        } catch let error as NSError {
+            print("Count not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
     func updateLevel() {
         if currentExperience >= goalExperience {
             level += 1
-            currentExperience = 0
-            goalExperience *= 20 / 100
+//            currentExperience = 0
         }
-        currentPerson?.points?.goalExperience = Int32(goalExperience)
-        goalExperianceLabel.text = "\(currentPerson?.points?.goalExperience ?? Int32(goalExperience))"
+        goalExperience += (goalExperience * 20) / 100
+        print(#line, #function, goalExperience)
+        goalExperianceLabel.text = "\(goalExperience)"
+        
+//        currentPerson?.points?.goalExperience = Int32(goalExperience)
+//        goalExperianceLabel.text = "\(currentPerson?.points?.goalExperience ?? Int32(goalExperience))"
     }
     
     func updateProgressView() {
@@ -206,7 +234,7 @@ class MainViewController: UIViewController {
         performLayerCR()
         updateProgressView()
         updateLevel()
-        currentExperianceLabel.text = "\(currentPerson?.points?.currentExperience ?? Int32(currentExperience))"
+        currentExperianceLabel.text = "\(currentExperience)"
         currentPerson?.points?.level = Int16(level)
         levelLabel.text = "\(currentPerson?.points?.level ?? Int16(level))"
         currentDimondLabel.text = "\(currentPerson?.points?.currentDimond ?? Int16(currentDiamond))"
@@ -293,7 +321,7 @@ class MainViewController: UIViewController {
             points.summaBasicPoints += Int32(segue.experienceGained)
             
         case .substraction:
-           points.substractionBasicPoints += Int32(segue.experienceGained)
+            points.substractionBasicPoints += Int32(segue.experienceGained)
         //            substractionBasicPoints += segue.experienceGained
         case .summaSubstraction:
             points.summaSubstractionPoints += Int32(segue.experienceGained)
@@ -303,13 +331,13 @@ class MainViewController: UIViewController {
         //            multiplicationBasicPoints += segue.experienceGained
         case .division:
             points.divisionBasicPoints += Int32(segue.experienceGained)
-        //            divisionBasicPoints += segue.experienceGained
+            //            divisionBasicPoints += segue.experienceGained
         }
         
-//        if let person = currentPerson, var totalPoints = person.points {
-//            totalPoints = points
-//            person.points = totalPoints
-//        }
+        //        if let person = currentPerson, var totalPoints = person.points {
+        //            totalPoints = points
+        //            person.points = totalPoints
+        //        }
         
         
         do {
