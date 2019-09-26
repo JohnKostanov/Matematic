@@ -134,7 +134,7 @@ class MainViewController: UIViewController {
             if results.count > 0 {
                 // John found, use John
                 currentPerson = results.first
-                print(#line, #function, currentPerson?.points?.currentExperience)
+//                print(#line, #function, currentPerson?.points?.currentExperience)
             } else {
                 // John not found, create John
                 currentPerson = Person(context: managedContext)
@@ -233,20 +233,78 @@ class MainViewController: UIViewController {
         }
     }
     
-    func updateLevel() {
-        if currentExperience >= goalExperience {
-            level += 1
-//            currentExperience = 0
+    func udateLevelAndExperienceLabel(lvl: UILabel, currentPoints: UILabel, goalPoints: UILabel) {
+        switch currentExperience {
+        case 0...50:
+            lvl.text = "1"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "50"
+            goalExperience = 50
+        case 51...100:
+            lvl.text = "2"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "100"
+            goalExperience = 100
+        case 101...150:
+            lvl.text = "3"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "150"
+            goalExperience = 150
+        case 151...250:
+            lvl.text = "4"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "250"
+            goalExperience = 250
+        case 251...400:
+            lvl.text = "5"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "400"
+            goalExperience = 400
+        case 401...650:
+            lvl.text = "6"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "650"
+            goalExperience = 650
+        case 651...1050:
+            lvl.text = "7"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "1050"
+            goalExperience = 1050
+        case 1051...1700:
+            lvl.text = "8"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "1700"
+            goalExperience = 1700
+        case 1701...2750:
+            lvl.text = "9"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "2750"
+            goalExperience = 2750
+        case 2751...4450:
+            lvl.text = "10"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "4450"
+            goalExperience = 4450
+        case 4451...7200:
+            lvl.text = "11"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "7200"
+            goalExperience = 7200
+        case 7201...11650:
+            lvl.text = "12"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "11650"
+            goalExperience = 11650
+        default:
+            lvl.text = "Max"
+            currentPoints.text = "\(currentExperience)"
+            goalPoints.text = "18850"
+            goalExperience = 18850
         }
-        goalExperience += (goalExperience * 20) / 100
-        print(#line, #function, goalExperience)
-        goalExperianceLabel.text = "\(goalExperience)"
-        
-//        currentPerson?.points?.goalExperience = Int32(goalExperience)
-//        goalExperianceLabel.text = "\(currentPerson?.points?.goalExperience ?? Int32(goalExperience))"
     }
     
     func updateProgressView() {
+        udateLevelAndExperienceLabel(lvl: levelLabel, currentPoints: currentExperianceLabel, goalPoints: goalExperianceLabel)
         let progress = Float(currentExperience) / Float(goalExperience)
         currentProgressView.setProgress(progress, animated: true)
     }
@@ -262,10 +320,7 @@ class MainViewController: UIViewController {
     func updateUI() {
         performLayerCR()
         updateProgressView()
-        updateLevel()
         currentExperianceLabel.text = "\(currentExperience)"
-        currentPerson?.points?.level = Int16(level)
-        levelLabel.text = "\(currentPerson?.points?.level ?? Int16(level))"
         currentDimondLabel.text = "\(currentPerson?.points?.currentDimond ?? Int16(currentDiamond))"
         currentHeartLabel.text = "\(currentPerson?.points?.currentHeart ?? Int16(currentHeart))"
     }
@@ -376,7 +431,7 @@ class MainViewController: UIViewController {
             currentPerson?.points?.currentHeart = points.currentHeart
             
             print("Saved completed")
-            print(currentPerson?.points?.currentExperience)
+//            print(currentPerson?.points?.currentExperience)
             
         } catch let error as NSError {
             print("Save error: \(error), description: \(error.userInfo)")
@@ -388,7 +443,6 @@ class MainViewController: UIViewController {
         //        currentHeartLabel.text = "\(points.currentHeart)"
         //        summaBasicPointsLabel.text = "\(points.summaBasicPoints)"
         
-        updateLevel()
         closingAllStackView()
         updateUI()
         

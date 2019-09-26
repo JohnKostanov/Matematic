@@ -18,8 +18,6 @@ extension Points {
     }
 
     @NSManaged public var currentExperience: Int32
-    @NSManaged public var goalExperience: Int32
-    @NSManaged public var level: Int16
     @NSManaged public var currentDimond: Int16
     @NSManaged public var currentHeart: Int16
     @NSManaged public var summaBasicPoints: Int32
