@@ -204,6 +204,35 @@ class MainViewController: UIViewController {
         }
     }
     
+    func updateLevelAndPointsLabel(experience: Int, level: UILabel, points: UILabel) {
+        switch experience {
+        case 0...19:
+            level.text = "Уровень 1/5"
+            points.text = "Очков опыта: \(experience)/20"
+            questionLevel = .easy
+        case 20...39:
+            level.text = "Уровень 2/5"
+            points.text = "Очков опыта: \(experience)/40"
+            questionLevel = .normal
+        case 40...59:
+            level.text = "Уровень 3/5"
+            points.text = "Очков опыта: \(experience)/60"
+            questionLevel = .medium
+        case 60...79:
+            level.text = "Уровень 4/5"
+            summaBasicPointsLabel.text = "Очков опыта: \(experience)/80"
+            questionLevel = .hard
+        case 80...100:
+            level.text = "Уровень 5/5"
+            points.text = "Очков опыта: \(experience)/100"
+            questionLevel = .highHard
+        default:
+            level.text = "Уровень 5/5"
+            points.text = "Очков опыта: \(experience)"
+            questionLevel = .highHard
+        }
+    }
+    
     func updateLevel() {
         if currentExperience >= goalExperience {
             level += 1
@@ -393,32 +422,8 @@ class MainViewController: UIViewController {
         questionType = .summa
         summaBasicPoints = Int(currentPerson!.points!.summaBasicPoints)
         
-        switch summaBasicPoints {
-        case 0...19:
-            summaBasicLevelLabel.text = "Уровень 1/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/20"
-            questionLevel = .easy
-        case 20...39:
-            summaBasicLevelLabel.text = "Уровень 2/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/40"
-            questionLevel = .normal
-        case 40...59:
-            summaBasicLevelLabel.text = "Уровень 3/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/60"
-            questionLevel = .medium
-        case 60...79:
-            summaBasicLevelLabel.text = "Уровень 4/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/80"
-            questionLevel = .hard
-        case 80...100:
-            summaBasicLevelLabel.text = "Уровень 5/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))/100"
-            questionLevel = .highHard
-        default:
-            summaBasicLevelLabel.text = "Уровень 5/5"
-            summaBasicPointsLabel.text = "Очков опыта: \(currentPerson?.points?.summaBasicPoints ?? Int32(summaBasicPoints))"
-            questionLevel = .highHard
-        }
+        updateLevelAndPointsLabel(experience: summaBasicPoints, level: summaBasicLevelLabel, points: summaBasicPointsLabel)
+        
     }
     
     @IBAction func startSummaBasicButton(_ sender: UIButton) {
@@ -455,33 +460,10 @@ class MainViewController: UIViewController {
         
         questionType = .substraction
         
-        switch substractionBasicPoints {
-        case 0...19:
-            substractionBasicLevelLabel.text = "Уровень 1/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/20"
-            questionLevel = .easy
-        case 20...39:
-            substractionBasicLevelLabel.text = "Уровень 2/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/40"
-            questionLevel = .normal
-        case 40...59:
-            substractionBasicLevelLabel.text = "Уровень 3/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/60"
-            questionLevel = .medium
-        case 60...79:
-            substractionBasicLevelLabel.text = "Уровень 4/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/80"
-            questionLevel = .hard
-        case 80...100:
-            substractionBasicLevelLabel.text = "Уровень 5/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)/100"
-            questionLevel = .highHard
-        default:
-            substractionBasicLevelLabel.text = "Уровень 5/5"
-            substractionBasicPointsLabel.text = "Очков опыта: \(substractionBasicPoints)"
-            questionLevel = .highHard
-        }
+        updateLevelAndPointsLabel(experience: substractionBasicPoints, level: substractionBasicLevelLabel, points: substractionBasicPointsLabel)
+        
     }
+    
     @IBAction func startSubstractionBasicButton(_ sender: UIButton) {
         addAnimateButton(sender: sender)
     }
@@ -516,33 +498,7 @@ class MainViewController: UIViewController {
         
         questionType = .summaSubstraction
         
-        switch summaSubstractionPoints {
-        case 0...19:
-            summaSubstractionLevelLabel.text = "Уровень 1/5"
-            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/20"
-            questionLevel = .easy
-        case 20...39:
-            summaSubstractionLevelLabel.text = "Уровень 2/5"
-            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/40"
-            questionLevel = .normal
-        case 40...59:
-            summaSubstractionLevelLabel.text = "Уровень 3/5"
-            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/60"
-            questionLevel = .medium
-        case 60...79:
-            summaSubstractionLevelLabel.text = "Уровень 4/5"
-            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/80"
-            questionLevel = .hard
-        case 80...100:
-            summaSubstractionLevelLabel.text = "Уровень 5/5"
-            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)/100"
-            questionLevel = .highHard
-        default:
-            summaSubstractionLevelLabel.text = "Уровень 5/5"
-            summaSubstractionPointsLabel.text = "Очков опыта: \(summaSubstractionPoints)"
-            questionLevel = .highHard
-        }
-        
+        updateLevelAndPointsLabel(experience: summaSubstractionPoints, level: summaSubstractionLevelLabel, points: summaSubstractionPointsLabel)
         
     }
     
@@ -579,32 +535,8 @@ class MainViewController: UIViewController {
         
         questionType = .multiplication
         
-        switch multiplicationBasicPoints {
-        case 0...19:
-            multiplicationBasicLevelLabel.text = "Уровень 1/5"
-            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/20"
-            questionLevel = .easy
-        case 20...39:
-            multiplicationBasicLevelLabel.text = "Уровень 2/5"
-            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/40"
-            questionLevel = .normal
-        case 40...59:
-            multiplicationBasicLevelLabel.text = "Уровень 3/5"
-            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/60"
-            questionLevel = .medium
-        case 60...79:
-            multiplicationBasicLevelLabel.text = "Уровень 4/5"
-            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/80"
-            questionLevel = .hard
-        case 80...100:
-            multiplicationBasicLevelLabel.text = "Уровень 5/5"
-            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)/100"
-            questionLevel = .highHard
-        default:
-            multiplicationBasicLevelLabel.text = "Уровень 5/5"
-            multiplicationBasicPointsLabel.text = "Очков опыта: \(multiplicationBasicPoints)"
-            questionLevel = .highHard
-        }
+        updateLevelAndPointsLabel(experience: multiplicationBasicPoints, level: multiplicationBasicLevelLabel, points: multiplicationBasicPointsLabel)
+        
     }
     
     @IBAction func startMultiplicationBasic(_ sender: UIButton) {
@@ -641,38 +573,12 @@ class MainViewController: UIViewController {
         
         questionType = .division
         
-        switch divisionBasicPoints {
-        case 0...19:
-            divisionBasicLevelLabel.text = "Уровень 1/5"
-            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/20"
-            questionLevel = .easy
-        case 20...39:
-            divisionBasicLevelLabel.text = "Уровень 2/5"
-            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/40"
-            questionLevel = .normal
-        case 40...59:
-            divisionBasicLevelLabel.text = "Уровень 3/5"
-            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/60"
-            questionLevel = .medium
-        case 60...79:
-            divisionBasicLevelLabel.text = "Уровень 4/5"
-            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/80"
-            questionLevel = .hard
-        case 80...100:
-            divisionBasicLevelLabel.text = "Уровень 5/5"
-            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)/100"
-            questionLevel = .highHard
-        default:
-            divisionBasicLevelLabel.text = "Уровень 5/5"
-            divisionBasicPointsLabel.text = "Очков опыта: \(divisionBasicPoints)"
-            questionLevel = .highHard
-        }
+        updateLevelAndPointsLabel(experience: divisionBasicPoints, level: divisionBasicLevelLabel, points: divisionBasicPointsLabel)
+        
     }
     
     @IBAction func startDivisionBasic(_ sender: UIButton) {
         addAnimateButton(sender: sender)
     }
-    
-    
     
 }
