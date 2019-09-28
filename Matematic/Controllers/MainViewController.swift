@@ -116,7 +116,7 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewWillAppear(_ animated: Bool) {
         closingAllStackView()
-        populateCurrentExperience()
+        populateCurrentExperience(saveCurrent: &currentExperience, loadPoints: NSExpression(forKeyPath: #keyPath(Points.currentExperience)))
         updateUI()
         
     }
@@ -133,7 +133,7 @@ class MainViewController: UIViewController {
             let results = try managedContext.fetch(personFetch)
             if results.count > 0 {
                 // John found, use John
-                currentPerson = results.first
+                currentPerson = results.last
 //                print(#line, #function, currentPerson?.points?.currentExperience)
             } else {
                 // John not found, create John
@@ -181,14 +181,15 @@ class MainViewController: UIViewController {
         divisionBasicButtonStart.layer.cornerRadius = 20
     }
     
-    func populateCurrentExperience() {
+    func populateCurrentExperience(saveCurrent: inout Int, loadPoints: NSExpression) {
         let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Points")
         fetchRequest.resultType = .dictionaryResultType
         
         let sumExperienceDesc = NSExpressionDescription()
         sumExperienceDesc.name = "sumExperienseTotal"
         
-        let currentExperienceExp = NSExpression(forKeyPath: #keyPath(Points.currentExperience))
+        let currentExperienceExp = loadPoints
+//            NSExpression(forKeyPath: #keyPath(Points.currentExperience))
         sumExperienceDesc.expression = NSExpression(forFunction: "sum:", arguments: [currentExperienceExp])
         sumExperienceDesc.expressionResultType = .integer32AttributeType
         
@@ -198,7 +199,7 @@ class MainViewController: UIViewController {
             let results  = try  managedContext.fetch(fetchRequest)
             let resultDict = results.first!
             let numCurrentExperienceTotal = resultDict["sumExperienseTotal"] as! Int
-            currentExperience = numCurrentExperienceTotal
+            saveCurrent = numCurrentExperienceTotal
         } catch let error as NSError {
             print("Count not fetch \(error), \(error.userInfo)")
         }
@@ -321,8 +322,8 @@ class MainViewController: UIViewController {
         performLayerCR()
         updateProgressView()
         currentExperianceLabel.text = "\(currentExperience)"
-        currentDimondLabel.text = "\(currentPerson?.points?.currentDimond ?? Int16(currentDiamond))"
-        currentHeartLabel.text = "\(currentPerson?.points?.currentHeart ?? Int16(currentHeart))"
+        currentDimondLabel.text = "\(currentDiamond)"
+        currentHeartLabel.text = "\(currentHeart)"
     }
     
     func addAnimateButton(sender: UIButton) {
@@ -474,7 +475,9 @@ class MainViewController: UIViewController {
         }
         
         questionType = .summa
-        summaBasicPoints = Int(currentPerson!.points!.summaBasicPoints)
+        let loadPoints = NSExpression(forKeyPath: #keyPath(Points.summaBasicPoints))
+        populateCurrentExperience(saveCurrent: &summaBasicPoints, loadPoints: loadPoints)
+//        summaBasicPoints = Int(currentPerson!.points!.summaBasicPoints)
         
         updateLevelAndPointsLabel(experience: summaBasicPoints, level: summaBasicLevelLabel, points: summaBasicPointsLabel)
         
@@ -514,6 +517,9 @@ class MainViewController: UIViewController {
         
         questionType = .substraction
         
+        let loadPoints = NSExpression(forKeyPath: #keyPath(Points.substractionBasicPoints))
+        populateCurrentExperience(saveCurrent: &substractionBasicPoints, loadPoints: loadPoints)
+        
         updateLevelAndPointsLabel(experience: substractionBasicPoints, level: substractionBasicLevelLabel, points: substractionBasicPointsLabel)
         
     }
@@ -552,6 +558,9 @@ class MainViewController: UIViewController {
         
         questionType = .summaSubstraction
         
+        let loadPoints = NSExpression(forKeyPath: #keyPath(Points.summaSubstractionPoints))
+        populateCurrentExperience(saveCurrent: &summaSubstractionPoints, loadPoints: loadPoints)
+        
         updateLevelAndPointsLabel(experience: summaSubstractionPoints, level: summaSubstractionLevelLabel, points: summaSubstractionPointsLabel)
         
     }
@@ -588,6 +597,9 @@ class MainViewController: UIViewController {
         //        updateUI()
         
         questionType = .multiplication
+        
+        let loadPoints = NSExpression(forKeyPath: #keyPath(Points.multiplicationBasicPoints))
+        populateCurrentExperience(saveCurrent: &multiplicationBasicPoints, loadPoints: loadPoints)
         
         updateLevelAndPointsLabel(experience: multiplicationBasicPoints, level: multiplicationBasicLevelLabel, points: multiplicationBasicPointsLabel)
         
@@ -626,6 +638,9 @@ class MainViewController: UIViewController {
         //        updateUI()
         
         questionType = .division
+        
+        let loadPoints = NSExpression(forKeyPath: #keyPath(Points.divisionBasicPoints))
+               populateCurrentExperience(saveCurrent: &divisionBasicPoints, loadPoints: loadPoints)
         
         updateLevelAndPointsLabel(experience: divisionBasicPoints, level: divisionBasicLevelLabel, points: divisionBasicPointsLabel)
         
