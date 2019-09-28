@@ -92,8 +92,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    var currentPerson: Person?
-    
     var coreDataStack: CoreDataStack!
     var managedContext: NSManagedObjectContext!
     
@@ -116,37 +114,14 @@ class MainViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewWillAppear(_ animated: Bool) {
         closingAllStackView()
-        populateCurrentExperience(saveCurrent: &currentExperience, loadPoints: NSExpression(forKeyPath: #keyPath(Points.currentExperience)))
-        updateUI()
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let personName = "John"
-        let personFetch: NSFetchRequest<Person> = Person.fetchRequest()
-        personFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.name), personName)
-        
-        do {
-            let results = try managedContext.fetch(personFetch)
-            if results.count > 0 {
-                // John found, use John
-                currentPerson = results.last
-//                print(#line, #function, currentPerson?.points?.currentExperience)
-            } else {
-                // John not found, create John
-                currentPerson = Person(context: managedContext)
-                currentPerson?.name = personName
-                try managedContext.save()
-            }
-        } catch let error as NSError {
-            print("Fetch error: \(error) description: \(error.userInfo)")
-        }
+        updateUI()
         
     }
-    
     
     //MARK: - Custom Methods
     func performLayerCR() {
@@ -189,7 +164,7 @@ class MainViewController: UIViewController {
         sumExperienceDesc.name = "sumExperienseTotal"
         
         let currentExperienceExp = loadPoints
-//            NSExpression(forKeyPath: #keyPath(Points.currentExperience))
+        //            NSExpression(forKeyPath: #keyPath(Points.currentExperience))
         sumExperienceDesc.expression = NSExpression(forFunction: "sum:", arguments: [currentExperienceExp])
         sumExperienceDesc.expressionResultType = .integer32AttributeType
         
@@ -304,6 +279,29 @@ class MainViewController: UIViewController {
         }
     }
     
+    func loadExperienceTotal() {
+        let loadPoints = NSExpression(forKeyPath: #keyPath(Points.currentExperience))
+        populateCurrentExperience(saveCurrent: &currentExperience, loadPoints: loadPoints)
+        currentExperianceLabel.text = "\(currentExperience)"
+    }
+    
+    func loadDiamondAndHeart() {
+        
+        let fetchRequest = NSFetchRequest<Points>(entityName: "Points")
+        
+        do {
+            if let lastPoints = try managedContext.fetch(fetchRequest).last {
+                currentDiamond = Int(lastPoints.currentDimond)
+                currentHeart = Int(lastPoints.currentHeart)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        currentDimondLabel.text = "\(currentDiamond)"
+        currentHeartLabel.text = "\(currentHeart)"
+    }
+    
     func updateProgressView() {
         udateLevelAndExperienceLabel(lvl: levelLabel, currentPoints: currentExperianceLabel, goalPoints: goalExperianceLabel)
         let progress = Float(currentExperience) / Float(goalExperience)
@@ -320,10 +318,9 @@ class MainViewController: UIViewController {
     
     func updateUI() {
         performLayerCR()
+        loadExperienceTotal()
+        loadDiamondAndHeart()
         updateProgressView()
-        currentExperianceLabel.text = "\(currentExperience)"
-        currentDimondLabel.text = "\(currentDiamond)"
-        currentHeartLabel.text = "\(currentHeart)"
     }
     
     func addAnimateButton(sender: UIButton) {
@@ -395,10 +392,8 @@ class MainViewController: UIViewController {
         points.currentDimond += Int16(segue.currentDiamond + segue.receivedDiamond)
         points.currentHeart = Int16(segue.currentHeart)
         
-        //        totalExperience += segue.experienceGained
         currentExperience = Int(points.currentExperience)
         currentDiamond = Int(points.currentDimond)
-        //        currentDiamond += segue.receivedDiamond
         currentHeart = Int(points.currentHeart)
         
         switch questionType {
@@ -407,42 +402,22 @@ class MainViewController: UIViewController {
             
         case .substraction:
             points.substractionBasicPoints += Int32(segue.experienceGained)
-        //            substractionBasicPoints += segue.experienceGained
         case .summaSubstraction:
             points.summaSubstractionPoints += Int32(segue.experienceGained)
-        //            summaSubstractionPoints += segue.experienceGained
         case .multiplication:
             points.multiplicationBasicPoints += Int32(segue.experienceGained)
-        //            multiplicationBasicPoints += segue.experienceGained
         case .division:
             points.divisionBasicPoints += Int32(segue.experienceGained)
-            //            divisionBasicPoints += segue.experienceGained
         }
-        
-        //        if let person = currentPerson, var totalPoints = person.points {
-        //            totalPoints = points
-        //            person.points = totalPoints
-        //        }
-        
         
         do {
             try managedContext.save()
-            currentPerson?.points?.currentExperience += points.currentExperience
-            currentPerson?.points?.currentDimond = points.currentDimond
-            currentPerson?.points?.currentHeart = points.currentHeart
             
             print("Saved completed")
-//            print(currentPerson?.points?.currentExperience)
             
         } catch let error as NSError {
             print("Save error: \(error), description: \(error.userInfo)")
         }
-        
-        
-        //        currentExperianceLabel.text = "\(points.currentExperience)"
-        //        currentDimondLabel.text = "\(points.currentDimond)"
-        //        currentHeartLabel.text = "\(points.currentHeart)"
-        //        summaBasicPointsLabel.text = "\(points.summaBasicPoints)"
         
         closingAllStackView()
         updateUI()
@@ -477,7 +452,6 @@ class MainViewController: UIViewController {
         questionType = .summa
         let loadPoints = NSExpression(forKeyPath: #keyPath(Points.summaBasicPoints))
         populateCurrentExperience(saveCurrent: &summaBasicPoints, loadPoints: loadPoints)
-//        summaBasicPoints = Int(currentPerson!.points!.summaBasicPoints)
         
         updateLevelAndPointsLabel(experience: summaBasicPoints, level: summaBasicLevelLabel, points: summaBasicPointsLabel)
         
@@ -512,8 +486,6 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-        //        updateUI()
-        
         
         questionType = .substraction
         
@@ -553,8 +525,6 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-        //        updateUI()
-        
         
         questionType = .summaSubstraction
         
@@ -594,7 +564,6 @@ class MainViewController: UIViewController {
                 self.isDivisionBasicStackViewShown = false
             }
         }
-        //        updateUI()
         
         questionType = .multiplication
         
@@ -635,12 +604,11 @@ class MainViewController: UIViewController {
                 self.isMultiplicationBasicStackViewShown = false
             }
         }
-        //        updateUI()
         
         questionType = .division
         
         let loadPoints = NSExpression(forKeyPath: #keyPath(Points.divisionBasicPoints))
-               populateCurrentExperience(saveCurrent: &divisionBasicPoints, loadPoints: loadPoints)
+        populateCurrentExperience(saveCurrent: &divisionBasicPoints, loadPoints: loadPoints)
         
         updateLevelAndPointsLabel(experience: divisionBasicPoints, level: divisionBasicLevelLabel, points: divisionBasicPointsLabel)
         

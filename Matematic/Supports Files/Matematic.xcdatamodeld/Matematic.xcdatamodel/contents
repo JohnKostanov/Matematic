@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="points" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Points" inverseName="person" inverseEntity="Points"/>
@@ -17,7 +17,7 @@
         <attribute name="summaSubstractionPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="points" inverseEntity="Person"/>
     </entity>
-    <fetchRequest name="FetchRequestCurrentExperience" entity="Points" predicateString="currentExperience == 0"/>
+    <fetchRequest name="FetchRequestCurrentExperience" entity="Points" predicateString="currentExperience == 0 AND currentDimond == 0 AND currentHeart == 0"/>
     <elements>
         <element name="Person" positionX="-54" positionY="63" width="128" height="73"/>
         <element name="Points" positionX="-63" positionY="-18" width="128" height="208"/>
