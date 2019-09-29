@@ -95,6 +95,9 @@ class MainViewController: UIViewController {
     var coreDataStack: CoreDataStack!
     var managedContext: NSManagedObjectContext!
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    let notificationType = "Local Notification"
+    
     var currentExperience = 0
     var goalExperience = 100
     
@@ -422,6 +425,8 @@ class MainViewController: UIViewController {
         closingAllStackView()
         updateUI()
         
+        appDelegate?.scheduleNotification(notifaicationType: notificationType)
+        print("notification was successful")
     }
     
     // MARK: - Actions

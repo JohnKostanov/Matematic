@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let notificationCenter = UNUserNotificationCenter.current()
     
     lazy var coreDataStack = CoreDataStack(modelName: "Matematic")
     
@@ -23,7 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         viewController.managedContext = coreDataStack.managedContext
+        requestAutorization()
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -33,5 +40,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         coreDataStack.saveContext()
     }
+    
+    func requestAutorization() {
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        notificationCenter.getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+        }
+    }
+    
+    func scheduleNotification(notifaicationType: String) {
+        
+        let content = UNMutableNotificationContent()
+        
+        content.title = notifaicationType
+        content.body = "This is example how to create " + notifaicationType
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let identifire = "Local Notification"
+        let request = UNNotificationRequest(identifier: identifire,
+                                            content: content,
+                                            trigger: trigger)
+        
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+    
 }
 
