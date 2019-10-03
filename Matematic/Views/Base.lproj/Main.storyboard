@@ -1245,6 +1245,9 @@
                         <outlet property="correctAnswerLabel" destination="hc7-80-6a5" id="eRX-Uu-u4F"/>
                         <outlet property="experienceGainedLabel" destination="BBC-Af-NRt" id="X0O-PK-1SS"/>
                         <outlet property="receivedDiamondLabel" destination="Aea-34-QpQ" id="OiO-Ky-01a"/>
+                        <outlet property="textAnswerLabel" destination="7vT-G3-r3R" id="xr2-8l-C2c"/>
+                        <outlet property="textDiamondLabel" destination="xuA-wG-vtp" id="9bZ-1z-GVR"/>
+                        <outlet property="textExperienceLabel" destination="Cqx-Ux-vdy" id="4RU-H1-TXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd6-i7-3Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>

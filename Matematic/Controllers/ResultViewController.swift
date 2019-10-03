@@ -11,8 +11,12 @@ import UIKit
 class ResultViewController: UIViewController {
     
     // MARK: - Outlets
+    
+    @IBOutlet var textAnswerLabel: UILabel!
     @IBOutlet var correctAnswerLabel: UILabel!
+    @IBOutlet var textExperienceLabel: UILabel!
     @IBOutlet var experienceGainedLabel: UILabel!
+    @IBOutlet var textDiamondLabel: UILabel!
     @IBOutlet var receivedDiamondLabel: UILabel!
     
     @IBOutlet var continueButton: UIButton!
@@ -28,8 +32,8 @@ class ResultViewController: UIViewController {
     }
     
     var receivedDiamond: Int {
-        if correctAnswer == 10 {
-            return 1
+        if correctAnswer >= 2 {
+            return correctAnswer / 2
         } else {
             return 0
         }
@@ -44,7 +48,13 @@ class ResultViewController: UIViewController {
     
     // MARK: - Custom Methods
     func performConfigureOutlets() {
-        continueButton.layer.cornerRadius = 15
+        textAnswerLabel.textColor = .black
+        correctAnswerLabel.textColor = .black
+        textExperienceLabel.textColor = .black
+        experienceGainedLabel.textColor = .black
+        textDiamondLabel.textColor = .black
+        receivedDiamondLabel.textColor = .black
+        continueButton.layer.cornerRadius = 20
     }
     
     func addAnimateButton(sender: UIButton) {
